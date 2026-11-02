@@ -86,7 +86,7 @@ function panel(): void {
     const a = polyArea(r.poly);
     const off = r.area ? (a - r.area) / r.area : 0;
     const d = document.createElement('div');
-    d.innerHTML = `<span>${r.name}${r.public ? '' : ' <small>(staff)</small>'}</span><span class="${Math.abs(off) > 0.1 ? 'bad' : ''}">${a.toFixed(0)} m²${r.area ? ` / ${r.area}` : ''}</span>`;
+    d.innerHTML = `<span>${r.name}${r.public ? '' : ' <small>(staff)</small>'}${r.conference === 'closed' ? ' <small>(closed during the conference)</small>' : ''}</span><span class="${Math.abs(off) > 0.1 ? 'bad' : ''}">${a.toFixed(0)} m²${r.area ? ` / ${r.area}` : ''}</span>`;
     d.onclick = () => {
       $<HTMLInputElement>('follow').checked = false;
       [view.x, view.y] = r.label;
@@ -194,12 +194,12 @@ function draw(): void {
     ctx.fillStyle = r.public ? 'rgba(60,130,220,.10)' : 'rgba(120,120,120,.22)';
     ctx.fill();
   }
-  // Conference zones (Michele's sketch): booths red, buffet green.
+  // Conference zones (Michele's sketch): booths red, buffet green, podiums amber.
   for (const z of f.zones) {
     path(z.poly, true);
-    ctx.fillStyle = z.kind === 'booths' ? 'rgba(220,40,40,.10)' : 'rgba(40,170,70,.12)';
+    ctx.fillStyle = z.kind === 'booths' ? 'rgba(220,40,40,.10)' : z.kind === 'podium' ? 'rgba(230,150,0,.35)' : 'rgba(40,170,70,.12)';
     ctx.fill();
-    ctx.strokeStyle = z.kind === 'booths' ? '#d22' : '#2a2';
+    ctx.strokeStyle = z.kind === 'booths' ? '#d22' : z.kind === 'podium' ? '#d98a00' : '#2a2';
     ctx.lineWidth = 2;
     ctx.setLineDash([10, 6]);
     ctx.stroke();

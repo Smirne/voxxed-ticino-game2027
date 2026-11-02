@@ -43,6 +43,8 @@ export const GROUND: FloorPlan = {
     // Main stair, south and east side.
     { pts: [[63.90, 29.73], [68.01, 29.73], [68.01, 24.93]], t: 0.15, kind: 'rail' },
     // Guardaroba counter; coats behind it.
+    // The plan's GUARDAROBA counter. At Voxxed it is a row of tables used as the counter,
+    // with coat racks and backpack space behind (Michele, 2 Nov 2026). Same line, same block.
     { id: 'wardrobe-counter', pts: [[63.50, 46.98], [65.35, 50.20], [72.63, 50.20], [72.63, 53.30]], t: 0.6, kind: 'rail' },
     // West foyer, around the stair along Sala A (the side corridor below it is back of house).
     { pts: [[15.92, 28.23], [14.28, 29.10], [12.60, 29.82], [14.30, 33.02], [15.63, 32.36], [16.84, 34.61], [17.24, 36.52]] },
