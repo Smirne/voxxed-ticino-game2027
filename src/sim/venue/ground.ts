@@ -55,7 +55,10 @@ export const GROUND: FloorPlan = {
     // Sala A, west wall.
     { id: 'sala-a-wall-w', pts: [[7.44, 45.81], [7.29, 47.38], [8.39, 51.87], [9.89, 54.40], [13.01, 57.51], [16.72, 58.64]] },
     // Stage front (palco), raised.
-    { id: 'stage-front', pts: [[18.20, 58.64], [33.60, 58.64]], t: 0.3, kind: 'rail' },
+    // Stage front: a ledge (~1 m, height not on the plan), too high for Voxxy's hop.
+    // The two speaker steps at its ends are the way up — narrow enough to keep Biggy
+    // off the stage, which is a puzzle, not a bug (Michele, 2 Nov 2026).
+    { id: 'stage-front', pts: [[18.20, 58.64], [33.60, 58.64]], t: 0.3, kind: 'ledge' },
     // Palco / stage: proscenium wings, back wall, wings sealed (backstage stairs and goods lift beyond).
     { id: 'stage', pts: [[16.72, 58.64], [17.07, 60.03], [13.85, 60.74], [12.87, 60.96], [12.82, 65.23], [14.75, 68.58], [35.67, 68.58], [39.93, 61.18], [35.15, 58.64]] },
     // Seat block (stalls).
@@ -133,11 +136,39 @@ export const GROUND: FloorPlan = {
     { id: 'stage-steps-left', kind: 'steps', poly: [[16.72, 58.10], [18.20, 58.10], [18.20, 58.64], [16.72, 58.64]], from: 'sala-a', to: 'sala-a-stage' },
     { id: 'stage-steps-right', kind: 'steps', poly: [[33.60, 58.10], [35.15, 58.10], [35.15, 58.64], [33.60, 58.64]], from: 'sala-a', to: 'sala-a-stage' },
   ],
-  // Conference use, hand-drawn by Michele on plans/PCL_PT_zones-michele.pdf (2 Nov 2026),
-  // traced from his strokes: outlines are a sketch, ±0.5 m.
+  // Conference use. Michele's sketch (plans/PCL_PT_zones-michele.pdf, 2 Nov 2026), then his
+  // call: "don't keep my sign as law, stretch it to be realistic (no overlap, red part until
+  // the stairs on the left)". So zones are whole rooms minus what must stay clear.
   zones: [
-    { id: 'booths', kind: 'booths', note: 'Sponsor booths: Foyer principale and Foyer Villa Ciani. All booths go here.', poly: [[39.5, 27.5], [39.1, 25.2], [38.3, 22.2], [38.5, 20.6], [39.6, 19.9], [42.0, 18.8], [44.3, 17.9], [48.5, 16.6], [49.6, 16.4], [53.1, 16.4], [55.5, 16.8], [57.9, 17.2], [58.0, 17.3], [59.6, 19.2], [60.8, 21.3], [61.8, 23.4], [62.5, 25.4], [62.5, 27.5], [63.0, 31.6], [63.5, 34.0], [64.0, 37.0], [64.0, 38.2], [60.6, 40.9], [60.4, 41.1], [58.0, 41.7], [55.5, 42.2], [53.2, 42.3], [48.8, 42.4], [46.5, 42.0], [45.1, 41.5], [42.5, 39.6], [40.2, 38.5], [40.2, 38.4], [40.1, 35.8], [40.1, 33.4], [39.8, 29.7]] },
-    { id: 'buffet-west', kind: 'buffet', note: 'Buffet / refreshments. Marked "2": a booth sometimes stands here too.', poly: [[11.8, 27.2], [13.2, 25.1], [14.4, 23.1], [16.6, 19.5], [17.4, 17.2], [17.5, 17.1], [19.8, 16.6], [21.9, 16.2], [24.1, 16.4], [26.1, 16.9], [27.9, 17.2], [31.1, 18.4], [32.6, 19.2], [33.0, 19.4], [34.0, 20.7], [35.4, 23.9], [36.4, 25.4], [37.0, 27.3], [37.3, 29.3], [37.2, 31.4], [36.9, 33.6], [36.1, 35.7], [36.0, 36.0], [33.4, 36.2], [31.4, 36.7], [29.1, 36.0], [27.4, 35.6], [25.9, 35.2], [23.2, 34.9], [21.6, 34.9], [19.6, 35.0], [17.8, 34.2], [16.4, 33.0], [14.8, 31.4], [13.2, 29.7], [11.6, 28.5]] },
-    { id: 'buffet-wardrobe', kind: 'buffet', note: 'Buffet / refreshments, in the wardrobe foyer.', poly: [[59.0, 44.4], [60.0, 40.3], [60.5, 38.1], [60.8, 37.5], [62.4, 36.8], [64.8, 36.4], [66.7, 36.0], [69.7, 34.6], [71.5, 34.0], [73.5, 33.3], [75.7, 32.9], [78.2, 32.8], [80.8, 33.4], [80.8, 33.5], [81.8, 35.8], [81.7, 38.6], [81.3, 40.9], [81.2, 42.8], [81.1, 46.1], [81.1, 47.9], [81.1, 50.0], [81.0, 52.4], [80.4, 55.0], [80.3, 55.5], [78.0, 55.9], [75.5, 55.4], [73.4, 55.2], [69.6, 55.3], [67.5, 55.4], [65.5, 55.0], [63.5, 54.0], [61.7, 52.8], [61.5, 52.6], [59.2, 49.0], [58.6, 47.4], [58.5, 46.4]] },
+    {
+      id: 'booths',
+      kind: 'booths',
+      rooms: ['foyer-principale', 'foyer-villa-ciani'],
+      note: 'Sponsor booths: Foyer principale (west to the steps by Sala A) and Foyer Villa Ciani.',
+      keepClear: [
+        // The low entrance hall (H 2.80 m), main doors to the foyer: the arrival flow.
+        [[45.83, 42.52], [59.35, 42.52], [59.28, 48.59], [45.83, 48.59]],
+        // Foot of the main stair, 2.5 m apron on its west side.
+        [[60.18, 24.81], [62.68, 24.81], [62.68, 29.93], [60.18, 29.93]],
+        // In front of the main lift, 1.5 m all round.
+        [[64.34, 29.93], [69.84, 29.93], [69.84, 34.74], [64.34, 34.74]],
+      ],
+    },
+    {
+      id: 'buffet-west',
+      kind: 'buffet',
+      rooms: ['foyer-west'],
+      note: 'Buffet / refreshments, the west foyer. Marked "2": a booth sometimes stands here too.',
+    },
+    {
+      id: 'buffet-wardrobe',
+      kind: 'buffet',
+      rooms: ['foyer-wardrobe', 'foyer-bar'],
+      note: 'Buffet / refreshments, the wardrobe foyer up to the bar.',
+      keepClear: [
+        // The steps' landing from the main foyer.
+        [[59.99, 38.58], [63.20, 38.58], [63.20, 46.00], [59.99, 46.00]],
+      ],
+    },
   ],
 };

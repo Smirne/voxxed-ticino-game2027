@@ -1,5 +1,5 @@
 export * from './types';
-export { buildWalls, inPoly, polyArea } from './build';
+export { buildWalls, inPoly, inZone, polyArea } from './build';
 export { GROUND } from './ground';
 export { FIRST } from './first';
 

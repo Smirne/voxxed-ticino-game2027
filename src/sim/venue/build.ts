@@ -9,7 +9,7 @@
 import { px } from '../units';
 import { polyWalls } from '../walls';
 import type { Wall } from '../types';
-import { WALL_T_M, type FloorPlan, type P, type VenueWall } from './types';
+import { WALL_T_M, type FloorPlan, type P, type VenueWall, type VenueZone } from './types';
 
 export interface BuildOptions {
   /** Folding walls (Sala B, Sala C) that stand shut. Default: all of them. */
@@ -24,6 +24,8 @@ function wallFlags(w: VenueWall): Partial<Wall> {
   // Glass and rails stop robots but not light — the engine's `glass` and `low`.
   if (kind === 'glass') out.glass = true;
   if (kind === 'rail') out.low = true;
+  // A ledge stops robots in the air too (only `low` is skipped by a hop) and passes light.
+  if (kind === 'ledge') out.glass = true;
   return out;
 }
 
@@ -63,4 +65,12 @@ export function inPoly(x: number, y: number, poly: readonly P[]): boolean {
     if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) inside = !inside;
   }
   return inside;
+}
+
+/** Is (x, y) metres inside the zone: in one of its rooms, not kept clear, not on steps? */
+export function inZone(floor: FloorPlan, zone: VenueZone, x: number, y: number): boolean {
+  const inRoom = floor.rooms.some((r) => zone.rooms.includes(r.id) && inPoly(x, y, r.poly));
+  if (!inRoom) return false;
+  if (zone.keepClear?.some((p) => inPoly(x, y, p))) return false;
+  return !floor.stairs.some((s) => inPoly(x, y, s.poly));
 }

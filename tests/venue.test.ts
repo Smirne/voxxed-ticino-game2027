@@ -6,10 +6,11 @@
  * from the foyer, nothing reachable outside the building.
  */
 import { describe, expect, it } from 'vitest';
-import { DEFS } from '../src/sim/constants';
+import { mkBot, stepBot } from '../src/sim/bot';
+import { DEFS, DT_MAX } from '../src/sim/constants';
 import { px } from '../src/sim/units';
 import { circleWall } from '../src/sim/walls';
-import { FLOORS, buildWalls, inPoly, polyArea, type FloorPlan } from '../src/sim/venue';
+import { FLOORS, buildWalls, inPoly, inZone, polyArea, type FloorPlan } from '../src/sim/venue';
 import type { RobotKind, Wall } from '../src/sim/types';
 
 /** Cells a robot of radius r (px) can stand in, on a grid of `cell` metres over the sheet. */
@@ -178,5 +179,55 @@ describe('the two floors agree', () => {
         expect(room.get(s.from)?.public && room.get(s.to)?.public, `${f.id} ${s.id}`).toBe(true);
       }
     }
+  });
+});
+
+describe('conference zones', () => {
+  const g = FLOORS.ground;
+  const rooms = new Map(g.rooms.map((r) => [r.id, r]));
+
+  it('are whole public rooms, and no room belongs to two zones', () => {
+    const seen = new Set<string>();
+    for (const z of g.zones) {
+      for (const id of z.rooms) {
+        expect(rooms.get(id)?.public, `${z.id}: ${id}`).toBe(true);
+        expect(seen.has(id), `${id} in two zones`).toBe(false);
+        seen.add(id);
+      }
+    }
+  });
+
+  it('booths reach west to the steps by Sala A, and leave the entrance, stair foot and lift clear', () => {
+    const booths = g.zones.find((z) => z.id === 'booths')!;
+    expect(inZone(g, booths, 38.5, 30)).toBe(true); // just east of the west steps
+    expect(inZone(g, booths, 51, 22.5)).toBe(true); // Foyer Villa Ciani
+    expect(inZone(g, booths, 52, 46)).toBe(false); // entrance hall
+    expect(inZone(g, booths, 61.5, 27)).toBe(false); // foot of the main stair
+    expect(inZone(g, booths, 66, 34)).toBe(false); // in front of the lift
+    expect(inZone(g, booths, 36.9, 30)).toBe(false); // on the west steps
+  });
+
+  it('booth floor is a realistic size for a sponsor hall', () => {
+    // Sample the zone on a 0.25 m grid: net area after keep-clear and steps.
+    const booths = g.zones.find((z) => z.id === 'booths')!;
+    let n = 0;
+    for (let x = 35; x < 76; x += 0.25) for (let y = 19; y < 50; y += 0.25) if (inZone(g, booths, x, y)) n++;
+    const area = n * 0.0625;
+    expect(area).toBeGreaterThan(350);
+    expect(area).toBeLessThan(600);
+  });
+});
+
+describe('the Sala A stage', () => {
+  it('Voxxy cannot hop onto it over the front edge; it takes the speaker steps', () => {
+    const walls = buildWalls(FLOORS.ground);
+    const b = mkBot('voxxy', px(26), px(56));
+    for (let i = 0; i < 200; i++) {
+      b.ix = 0;
+      b.iy = 1;
+      b.air = 0.5; // permanently mid-hop: the ledge must stop her anyway
+      stepBot(b, DT_MAX, walls);
+    }
+    expect(b.y).toBeLessThan(px(58.64));
   });
 });

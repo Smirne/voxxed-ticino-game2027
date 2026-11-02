@@ -22,7 +22,12 @@ export type WallKind =
   /** Balustrade, handrail, the balcony's parapet: blocks robots, passes light. */
   | 'rail'
   /** Sala B's folding walls between B1, B2, B3: a wall that can be open or shut. */
-  | 'folding';
+  | 'folding'
+  /**
+   * A raised edge too high to hop: the Sala A stage front (~1 m). Blocks every robot,
+   * airborne or not — unlike a `rail`, which Voxxy vaults — and passes light.
+   */
+  | 'ledge';
 
 export interface VenueWall {
   /** Optional name, for walls the game will talk about. */
@@ -82,13 +87,17 @@ export interface VenueStair {
 
 /**
  * An area of the floor with a use during the conference — where the sponsor booths
- * stand, where the buffet is laid out. Hand-drawn by Michele on the plan
- * (`plans/PCL_PT_zones-michele.pdf`), so the outline is a sketch, not a wall.
+ * stand, where the buffet is laid out. From Michele's sketch on the plan
+ * (`plans/PCL_PT_zones-michele.pdf`), made realistic: a zone is whole rooms, minus
+ * the floor that must stay clear (entrance flow, stair feet, lift doors) and minus
+ * every step flight. Rooms do not overlap, so zones cannot either.
  */
 export interface VenueZone {
   id: string;
   kind: 'booths' | 'buffet';
-  poly: P[];
+  rooms: string[];
+  /** Floor inside those rooms that stays clear for circulation. */
+  keepClear?: P[][];
   note?: string;
 }
 
