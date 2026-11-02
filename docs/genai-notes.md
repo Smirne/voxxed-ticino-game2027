@@ -44,3 +44,22 @@ the stage. These are kept as the building's own gates, not geometry bugs.
 
 **Open for Michele:** the calls listed in `docs/venue.md` (Sala E access, the bridge, stage steps,
 seat blocks, exits).
+
+### Same day, later — Michele's answers, zones, photos
+
+- **Decided by Michele:** Sala E out ("small and not so relevant"); the bridge over the entrance out
+  (not public); Biggy-on-stage is a puzzle, not a geometry fix (ideas in `docs/ideas.md`); booth and
+  buffet areas sketched on the plan, then "don't keep my sign as law, stretch it to be realistic".
+- **Agent:** zones became whole rooms minus keep-clear floor, so they cannot overlap; a new `ledge`
+  wall kind (blocks robots mid-hop, passes light) for the stage front, with a test that Voxxy cannot
+  hop it.
+- **Photos.** Michele pushed eleven of WellD's own photos straight to the public branch: full size
+  (40 MB), GPS in the EXIF, recognisable attendees. With his go-ahead the agent rewrote the branch:
+  1600 px, metadata stripped, faces blurred with OpenCV's YuNet detector. The first detector pass
+  also "found faces" in the foyer painting and smeared walls; fixed by excluding the painting and
+  filtering box size and confidence, then two missed profiles were blurred by hand after a visual
+  check. Lesson for the talk: the detector is a first pass, a human-style look at every frame is the
+  real check.
+- A local Claude session on Michele's PC (the cloud one could not reach the sites) collected 76
+  linked photos and found the venue's **Matterport** tours, whose measure tool can answer the open
+  questions the plans cannot (storey height, step rises, stage height).
