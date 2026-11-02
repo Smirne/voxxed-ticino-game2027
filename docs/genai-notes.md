@@ -111,3 +111,13 @@ on the drawing: the outline follows the drawn walls, so it was documented and no
 **Not done / assumed.** The agent opened Sala C's folds by inference from "B3 is the only closed
 one". It asked, and Michele confirmed: one room. First-floor zones not traced (Michele: raw reference is fine). Podiums are
 not collision yet.
+
+**Michele's 2D run, same day.** "I can't pass from floor 0 to 1": the stairs to Sala A walked, the stair
+to B/C/D did not. Two causes. (1) The plan check had no floor change at all, only the G button. The
+reachability tests never noticed, because they seed the flood fill inside every stair. (2) The
+ground-floor main stair was walled on the wrong side. On the drawing it is one straight flight rising
+east, entered from the west (the "1° PIANO" arrow) and left at the east on the first floor; the
+digitisation had a balustrade on the west and a 1.2 m gap at the south-west corner. Fixed: robots now
+change floor by walking fully onto a cross-floor stair or into a lift, and the view follows the active
+robot. New `tests/stairs.test.ts` drives each robot up into Atrio B and back down. The agent could not
+drive it in the browser itself (the pane was hidden, so no frames ran); that check is Michele's.

@@ -38,10 +38,9 @@ export const GROUND: FloorPlan = {
     { id: 'cassa', pts: [[58.71, 46.00], [60.91, 46.00], [60.85, 48.50], [58.71, 48.59]], closed: true },
     // Lift, ground <-> first.
     { id: 'lift-main', pts: [[65.84, 30.67], [68.14, 30.67], [68.34, 33.24], [65.84, 33.24]], closed: true },
-    // Main stair, west balustrade.
-    { pts: [[62.68, 24.81], [62.68, 29.73]], t: 0.15, kind: 'rail' },
-    // Main stair, south and east side.
-    { pts: [[63.90, 29.73], [68.01, 29.73], [68.01, 24.93]], t: 0.15, kind: 'rail' },
+    // Main stair: one straight flight rising east, entered from the west ("1° PIANO" arrow);
+    // balustrade on the south and east side.
+    { pts: [[62.68, 29.73], [68.01, 29.73], [68.01, 24.93]], t: 0.15, kind: 'rail' },
     // Guardaroba counter; coats behind it.
     // The plan's GUARDAROBA counter. At Voxxed it is a row of tables used as the counter,
     // with coat racks and backpack space behind (Michele, 2 Nov 2026). Same line, same block.
@@ -104,7 +103,7 @@ export const GROUND: FloorPlan = {
     { id: 'sala-e', a: [107.06, 35.39], b: [108.87, 35.48], kind: 'door' },
     { id: 'atrio-e-out-1', a: [109.69, 29.27], b: [109.69, 30.26], kind: 'exit' },
     { id: 'atrio-e-out-2', a: [109.69, 31.26], b: [109.69, 33.05], kind: 'exit' },
-    { id: 'main-stair', a: [62.68, 29.73], b: [63.90, 29.73], kind: 'opening' },
+    { id: 'main-stair', a: [62.68, 24.81], b: [62.68, 29.73], kind: 'opening' },
   ],
   rooms: [
     { id: 'foyer-principale', name: 'Atrio / Foyer principale', label: [51.00, 34.00], poly: [[37.43, 24.93], [42.02, 24.84], [43.14, 28.18], [55.47, 28.18], [57.54, 31.78], [62.39, 31.78], [63.03, 30.67], [63.79, 29.93], [68.01, 29.93], [68.01, 24.93], [70.18, 24.76], [72.54, 28.68], [74.53, 28.77], [74.53, 36.30], [73.11, 36.30], [71.89, 37.94], [60.82, 37.94], [59.35, 40.49], [59.28, 46.00], [58.71, 46.00], [58.71, 48.59], [47.59, 48.59], [46.01, 45.89], [45.83, 42.52], [43.59, 38.69], [42.63, 37.69], [40.68, 34.31], [39.93, 35.54], [37.43, 34.10]], area: 480, ceiling: [6.50, 4.95, 2.80], public: true },
