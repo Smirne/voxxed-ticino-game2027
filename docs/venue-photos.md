@@ -84,6 +84,27 @@ Matterport **measure** tool gives real dimensions (stair widths, door widths, ce
 which are worth checking against the 1:200 plans. Screenshots of it fall under the same
 link-don't-commit rule.
 
+### Video: "Convention Center - Palazzo dei Congressi - Lugano, Switzerland"
+
+- URL: https://www.youtube.com/watch?v=CQtAe6q7CG8 (24 s, channel **Lugano Convention & Exhibition**,
+  uploaded c. March 2026; no licence stated: link only, no frames committed). Found by Michele.
+- Contents: aerial of the building and Villa Ciani (0–3 s), the main foyer and stair (~4 s and
+  ~20–24 s, "one venue"), Sala A empty and then full (6–8 s, "1'300 sqm", "up to 1130"), aerial
+  of the roofs (~12 s, "up to 11 meeting rooms"). Text overlays sit on top of most shots.
+- **Frame at 0:24, the stair to the upper landing (`foyer-principale`).** Camera on the light
+  speckled stone floor of the main foyer, looking at the back wall (board-marked / aggregate
+  concrete, the large figurative painting high up). On the far left, the recessed counter of #56
+  (dark fascia, light stone counter top). In the middle, a short, wide flight of about four stone
+  steps with a red rope on chrome posts leads to a landing. From the landing a **single straight
+  flight climbs to the right along the wall** (dark steel handrail on the wall, and a stepped solid
+  parapet with a rail on the open side). It arrives on an **upper landing / mezzanine** whose edge
+  is a white parapet wall topped by a steel tube rail. **Directly under that landing is a Sala A
+  door (red curtain)**, so the landing sits over the Sala A entrance and is the likely route to the
+  balcony (to verify on the 1:200 plan). The bronze statue of #64 stands on a plinth at the foot of
+  the climbing flight. A digital signage totem and a square aggregate column in front, the park
+  glazing at the right edge, a speaker high on the right. The same stair is in #31 and #64 and in
+  WellD's `2019-10-05 08.31.14.jpg` (where its rail is blue; in this video it reads dark grey).
+
 ### Lugano Conventions photo galleries
 
 Source pages (all `https://www.luganoconventions.com/it/strutture/palazzo-congressi…`): main page
@@ -716,7 +737,9 @@ the measure tool.
 - **Sala B sections one at a time**, with the folding walls closed and seen from inside. Only #46
   comes close.
 - **Sala C1/C2/C3 one at a time** and the partitions deployed. Sala D's own entrance door.
-- **Sala A balcony access** from the foyer side: #34 may be it, to verify on the plan / in Matterport.
+- **Sala A balcony access** from the foyer side: most likely the straight stair up the painting wall
+  to the landing over the Sala A door (video frame at 0:24, #31, #64). #34 may be a second route.
+  To verify on the plan / in Matterport.
 - **Atrio C** and the Sala C/D rooms only appear in the January 2020 shoot. The first floor's newer finishes
   (red core, signage totems) may have reached them too.
 - **Signage close-ups**: only #19 and #56 show the room-letter signs (dark-brown squares, white
