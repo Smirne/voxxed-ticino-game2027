@@ -29,9 +29,57 @@ plant rooms, service stairs and the goods lift are walled off at their doors.
 
 ## Rooms
 
-See `src/sim/venue/ground.ts` and `first.ts`; `tests/venue.test.ts` checks each room's outline
-against the m² the plan prints, and that every public room is reachable from the main foyer
-(ground) or Atrio B (first) while the building stays sealed.
+`src/sim/venue/ground.ts` and `first.ts`, digitised 2 Nov 2026 (vertices snapped to the PDF's own
+lines within 0.35 m). `tests/venue.test.ts` checks each outline against the m² the plan prints, that
+every public room is reachable from the floor's hub or a stair/lift, that the building is sealed,
+and that the two floors' stairs name each other's rooms.
+
+| Floor | Room id | Plan m² | Outline m² |
+|---|---|---|---|
+| ground | foyer-principale | 480 | 487 |
+| ground | foyer-villa-ciani | 137 | 138 |
+| ground | foyer-west | 280 | 312 (+11.5%: probably the WC corner and stair well) |
+| ground | foyer-wardrobe | 200 | 199 (west of the column line x 74.6; the strip by the bar is `foyer-bar`) |
+| ground | sala-e | 115 | 120 |
+| ground | sala-a, sala-a-stage, atrio-e, corridoio-villa-ciani, foyer-bar | — | 604, 237, 67, 17, 108 |
+| first | atrio-b | 199 | 204 |
+| first | sala-b1 / b2 / b3 | 335 / 140 / 365 | 342 / 143 / 367 |
+| first | sala-c1 / c2 / c3 | 59 / 27 / 35 | 56 / 26 / 35 |
+| first | atrio-c | 54 | 57 |
+| first | sala-d | 30 | 31 |
+| first | sala-a-balcony | — | 438 |
+
+Not public, walled off: restaurant, kitchen (both floors), `bridge-a` (see below), backstage, service
+stairs and cores, the goods lift.
+
+### Calls made while digitising — confirm or overrule
+
+- **Sala E is out of scope** (Michele, 2 Nov 2026: *"leave that out, it's small and not so
+  relevant"*). On site it is reached from the secondary entrance or by the east stair down from
+  Atrio C; here Sala E and its atrium are `public: false` and the east lift door is shut.
+- **The bridge over the main entrance (`bridge-a`, first floor)** has no drawn opening to Sala A, and
+  B1's only door onto it is a 0.9 m leaf. Kept closed, not public.
+- **Sala A stage steps** are not drawn on the plan; two 1.5 m flights were added at the stage front
+  from the venue photo. Their clear gap is 1.18 m, so **Biggy cannot get on stage** — a gate, or move them.
+- **Seat blocks** (stalls and balcony) are outlined by eye, ±0.5 m, keeping every aisle ≥ 1.0 m:
+  Voxxy and Droid walk the aisles, Biggy (1.44 m) stays on the cross-aisles.
+- **The hatched strip at Sala B3's east end** is part of B3's floor (the 365 m² only adds up with it),
+  left walkable. Probably a platform or technical zone.
+- **Exits are sealed** with glass for now (main entrance, park door, Villa Ciani link, Atrio E,
+  terraces off C1, C3 and D) and recorded as `exit` doors.
+- **Balcony stair directions** are inferred from the treads, not from printed arrows.
+- **WC / Tel** are only arrows on the plan; no room was invented for them.
+
+## How Voxxed Days Ticino uses it
+
+Michele marked it on the ground plan (`plans/PCL_PT_zones-michele.pdf`, 2 Nov 2026), traced into
+`GROUND.zones`:
+
+- **Sponsor booths (red):** Atrio/Foyer principale and Foyer Villa Ciani, from the entrance hall up
+  to the Villa Ciani corridor. All booths go here — WellD's included.
+- **Buffet / refreshments (green):** the west foyer beside Sala A (marked "2": a booth sometimes
+  stands there too) and the wardrobe foyer.
+- Talks: Sala A (keynotes, with its balcony) and the first-floor rooms.
 
 ## What the robots' size means here
 
@@ -46,5 +94,5 @@ robot's voice explaining why).
   H. 7.00 m) bound it. `STOREY_H_M` is still Kinepolis's 5.5 m.
 - **Steps between foyers.** The ground floor has several flights of `GRADINI / STEPS` between the
   foyers; their rise is not printed. They are marked as steps, not yet as height plates.
-- **Which rooms Voxxed Days Ticino uses**, and where the sponsor booths stand.
-- **The corridor to Villa Ciani**: in or out of scope?
+- **The corridor to Villa Ciani**: in or out of scope? (Digitised as a stub up to the link door.)
+- **Main stair top landing** north of the façade line (y 23.3–24.7) is outside the model.
