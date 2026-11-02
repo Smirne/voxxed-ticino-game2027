@@ -6,9 +6,10 @@
  *
  * Each robot is on a floor of its own; the view shows one floor. A robot that
  * walks onto a stair or into a lift that changes floor (its centre 0.3 m in)
- * comes out on the other floor at the same spot (the two drawings share one
- * registration), and the view follows the active robot. To go back it steps
- * off the stair and on again.
+ * comes out on the other floor at that stair's mouth, facing out (or at the
+ * same spot, if no mouth is drawn: the two drawings share one registration),
+ * and the view follows the active robot. To go back it steps off the stair and
+ * on again.
  *
  * Headless, like everything in `src/sim`; `src/plan` only draws it.
  */
@@ -144,11 +145,26 @@ export function createSandbox(floorId: FloorId = 'ground'): Sandbox {
     const s = stairs.find((q) => deepInside(c, STAIR_DEPTH, q.poly));
     if (!s) return;
     const there = otherEnd(s, here)!;
-    // Same spot on the other floor if the robot fits there; otherwise the
-    // middle of that floor's matching stair.
-    if (wallsOf(there).some((w) => circleWall({ x: b.x, y: b.y, r: b.r }, w))) {
-      const twin = FLOORS[there].stairs.find((q) => q.kind === s.kind && q.from === s.from && q.to === s.to);
-      if (twin) [b.x, b.y] = centroid(twin.poly).map(px);
+    const twin = FLOORS[there].stairs.find((q) => q.kind === s.kind && q.from === s.from && q.to === s.to);
+    const walls = wallsOf(there);
+    const blocked = (): boolean => walls.some((w) => circleWall({ x: b.x, y: b.y, r: b.r }, w));
+    if (twin?.mouth) {
+      // Just off the twin's mouth, facing away from it: one step back takes it down again.
+      const [[ax, ay], [bx, by]] = twin.mouth;
+      const [cx, cy] = centroid(twin.poly);
+      const len = Math.hypot(bx - ax, by - ay);
+      let [nx, ny] = [(ay - by) / len, (bx - ax) / len];
+      const [mx, my] = [(ax + bx) / 2, (ay + by) / 2];
+      if ((cx - mx) * nx + (cy - my) * ny < 0) [nx, ny] = [-nx, -ny];
+      for (let out = m(b.r) + 0.1; out < m(b.r) + 1.5; out += 0.1) {
+        [b.x, b.y] = [px(mx - nx * out), px(my - ny * out)];
+        if (!blocked()) break;
+      }
+      b.vx = 0;
+      b.vy = 0;
+      b.face = Math.atan2(-ny, -nx);
+    } else if (twin && blocked()) {
+      [b.x, b.y] = centroid(twin.poly).map(px);
     }
     sb.on[b.kind] = there;
     arrived.add(b.kind);

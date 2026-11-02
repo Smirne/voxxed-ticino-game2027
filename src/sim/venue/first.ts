@@ -161,9 +161,9 @@ export const FIRST: FloorPlan = {
       poly: [[97.19, 34.98], [110.55, 35.29], [113.35, 36.31], [113.25, 51.50], [100.15, 51.51], [97.19, 53.42]] },
   ],
   stairs: [
-    { id: 'main-stair', kind: 'stair', from: 'foyer-principale', to: 'atrio-b', poly: [[62.45, 24.84], [68.08, 24.84], [68.08, 29.76], [62.45, 29.76]] },
-    { id: 'lift-main', kind: 'lift', from: 'foyer-principale', to: 'atrio-b', poly: [[66.50, 31.56], [68.19, 31.56], [68.19, 33.06], [66.50, 33.06]] },
-    { id: 'balcony-stair-east', kind: 'stair', from: 'foyer-west', to: 'sala-a-balcony', poly: [[36.83, 33.98], [39.76, 35.66], [38.27, 38.26], [35.30, 36.64]] },
+    { id: 'main-stair', kind: 'stair', from: 'foyer-principale', to: 'atrio-b', poly: [[62.45, 24.84], [68.08, 24.84], [68.08, 29.76], [62.45, 29.76]], mouth: [[68.08, 24.84], [68.08, 29.76]] },
+    { id: 'lift-main', kind: 'lift', from: 'foyer-principale', to: 'atrio-b', poly: [[66.50, 31.56], [68.19, 31.56], [68.19, 33.06], [66.50, 33.06]], mouth: [[68.19, 31.86], [68.19, 32.76]] },
+    { id: 'balcony-stair-east', kind: 'stair', from: 'foyer-west', to: 'sala-a-balcony', poly: [[36.83, 33.98], [39.76, 35.66], [38.27, 38.26], [35.30, 36.64]], mouth: [[35.30, 36.64], [36.83, 33.98]] },
     { id: 'balcony-stair-west', kind: 'stair', from: 'foyer-west', to: 'sala-a-balcony', poly: [[12.43, 31.05], [15.50, 28.67], [16.96, 31.22], [13.73, 33.31]] },
   ],
   // Speaker podiums in the Voxxed layout (Michele, 2 Nov 2026): B1 (also B1+B2
