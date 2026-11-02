@@ -22,11 +22,12 @@ export const FIRST: FloorPlan = {
     // Atrio B north façade, over the main stair to the C1 corner
     { pts: [[62.45, 24.84], [68.08, 24.84], [70.24, 24.79], [71.00, 26.09], [89.49, 26.01]] },
     // main stair south balustrade, then Atrio B west edge to the lift
-    { kind: 'rail', pts: [[62.45, 29.76], [68.40, 29.96], [68.40, 31.91]] },
+    { kind: 'rail', pts: [[62.45, 29.76], [68.40, 29.96], [68.40, 31.86]] },
     // stair foot: the flight drops west to the ground floor here
     { id: 'main-stair-foot', kind: 'rail', pts: [[62.45, 24.84], [62.45, 29.76]] },
     // main lift shaft; door on its east face
-    { pts: [[68.40, 32.71], [68.40, 33.27], [66.30, 33.27], [66.30, 31.36], [68.40, 31.36]] },
+    // (the drawn slot is about 0.75 m; opened to 0.9 m, as on the ground floor)
+    { pts: [[68.40, 32.76], [68.40, 33.27], [66.30, 33.27], [66.30, 31.36], [68.40, 31.36]] },
     // riser by the north door
     { closed: true, pts: [[69.06, 24.88], [69.90, 24.88], [69.90, 25.73], [69.06, 25.73]] },
     // B1 west side and Sala B north wall; B1 west door (45.68-46.58) kept shut
@@ -125,7 +126,7 @@ export const FIRST: FloorPlan = {
     { id: 'door-c2', kind: 'door', a: [101.60, 27.64], b: [102.85, 27.64] },
     { id: 'door-c3', kind: 'door', a: [104.00, 27.64], b: [105.14, 27.64] },
     { id: 'door-d', kind: 'door', a: [105.36, 30.26], b: [105.36, 31.17] },
-    { id: 'lift-main-door', kind: 'door', a: [68.40, 31.91], b: [68.40, 32.71] },
+    { id: 'lift-main-door', kind: 'door', a: [68.40, 31.86], b: [68.40, 32.76] },
     { id: 'door-balcony-seats', kind: 'door', a: [20.70, 34.00], b: [21.70, 34.00] },
     { id: 'door-galleria', kind: 'door', a: [32.36, 35.01], b: [33.40, 35.75] },
     { id: 'exit-b1-west', kind: 'exit', a: [59.24, 45.68], b: [59.24, 46.57] },
@@ -162,7 +163,7 @@ export const FIRST: FloorPlan = {
   stairs: [
     { id: 'main-stair', kind: 'stair', from: 'foyer-principale', to: 'atrio-b', poly: [[62.45, 24.84], [68.08, 24.84], [68.08, 29.76], [62.45, 29.76]] },
     { id: 'lift-main', kind: 'lift', from: 'foyer-principale', to: 'atrio-b', poly: [[66.50, 31.56], [68.19, 31.56], [68.19, 33.06], [66.50, 33.06]] },
-    { id: 'balcony-stair-east', kind: 'stair', from: 'foyer-principale', to: 'sala-a-balcony', poly: [[36.83, 33.98], [39.76, 35.66], [38.27, 38.26], [35.30, 36.64]] },
+    { id: 'balcony-stair-east', kind: 'stair', from: 'foyer-west', to: 'sala-a-balcony', poly: [[36.83, 33.98], [39.76, 35.66], [38.27, 38.26], [35.30, 36.64]] },
     { id: 'balcony-stair-west', kind: 'stair', from: 'foyer-west', to: 'sala-a-balcony', poly: [[12.43, 31.05], [15.50, 28.67], [16.96, 31.22], [13.73, 33.31]] },
   ],
   // Speaker podiums in the Voxxed layout (Michele, 2 Nov 2026): B1 (also B1+B2

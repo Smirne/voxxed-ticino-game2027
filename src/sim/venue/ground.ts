@@ -37,10 +37,15 @@ export const GROUND: FloorPlan = {
     // Cassa / cashier kiosk.
     { id: 'cassa', pts: [[58.71, 46.00], [60.91, 46.00], [60.85, 48.50], [58.71, 48.59]], closed: true },
     // Lift, ground <-> first.
-    { id: 'lift-main', pts: [[65.84, 30.67], [68.14, 30.67], [68.34, 33.24], [65.84, 33.24]], closed: true },
+    // Door on the west face: the drawing's slot is about 0.75 m, opened to 0.9 m like every single
+    // door here, so Voxxy fits and Droid and Biggy do not (a call for Michele, 2 Nov 2026).
+    { id: 'lift-main', pts: [[65.84, 32.32], [65.84, 33.24], [68.34, 33.24], [68.14, 30.67], [65.84, 30.67], [65.84, 31.42]] },
     // Main stair: one straight flight rising east, entered from the west ("1° PIANO" arrow);
     // balustrade on the south and east side.
     { pts: [[62.68, 29.73], [68.01, 29.73], [68.01, 24.93]], t: 0.15, kind: 'rail' },
+    // Sala A balcony, east stair: entered from the west by the WC (the dashed line), balustrade on
+    // the north side and the east end down to Sala A's wall.
+    { pts: [[37.17, 33.92], [39.92, 35.50], [38.55, 38.65]], t: 0.15, kind: 'rail' },
     // Guardaroba counter; coats behind it.
     // The plan's GUARDAROBA counter. At Voxxed it is a row of tables used as the counter,
     // with coat racks and backpack space behind (Michele, 2 Nov 2026). Same line, same block.
@@ -125,7 +130,8 @@ export const GROUND: FloorPlan = {
     { id: 'stair-main', kind: 'stair', poly: [[62.68, 24.81], [68.01, 24.93], [68.01, 29.73], [62.68, 29.73]], from: 'foyer-principale', to: 'atrio-b' },
     { id: 'lift-main', kind: 'lift', poly: [[65.84, 30.67], [68.14, 30.67], [68.34, 33.24], [65.84, 33.24]], from: 'foyer-principale', to: 'atrio-b' },
     { id: 'steps-villa-ciani', kind: 'steps', poly: [[41.70, 25.68], [42.34, 25.51], [43.51, 27.55], [55.84, 27.55], [57.91, 31.14], [62.02, 31.14], [62.71, 30.59], [63.03, 30.67], [62.39, 31.78], [57.54, 31.78], [55.47, 28.18], [43.14, 28.18]], from: 'foyer-villa-ciani', to: 'foyer-principale' },
-    { id: 'steps-west', kind: 'steps', poly: [[36.47, 26.44], [37.43, 26.44], [37.43, 34.10], [39.93, 35.54], [39.08, 36.99], [37.31, 35.98], [36.47, 34.40]], from: 'foyer-west', to: 'foyer-principale' },
+    { id: 'steps-west', kind: 'steps', poly: [[36.47, 26.44], [37.43, 26.44], [37.43, 34.10], [36.47, 34.40]], from: 'foyer-west', to: 'foyer-principale' },
+    { id: 'stair-balcony-east', kind: 'stair', poly: [[37.10, 33.95], [39.76, 35.66], [38.27, 38.26], [37.42, 37.75]], from: 'foyer-west', to: 'sala-a-balcony' },
     { id: 'steps-desk', kind: 'steps', poly: [[40.29, 34.91], [40.68, 34.31], [42.63, 37.69], [42.08, 38.03]], from: 'foyer-west', to: 'foyer-principale' },
     { id: 'ramp-west', kind: 'steps', poly: [[32.83, 24.93], [37.43, 24.93], [37.43, 26.44], [32.83, 26.44]], from: 'foyer-west', to: 'foyer-principale' },
     { id: 'steps-wardrobe', kind: 'steps', poly: [[59.35, 44.48], [59.35, 40.49], [60.82, 37.94], [71.89, 37.94], [73.11, 36.30], [74.53, 36.30], [74.53, 36.55], [73.53, 36.83], [72.26, 38.58], [61.19, 38.58], [59.99, 40.66], [59.99, 44.48]], from: 'foyer-principale', to: 'foyer-wardrobe' },

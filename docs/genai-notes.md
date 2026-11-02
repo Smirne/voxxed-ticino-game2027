@@ -121,3 +121,14 @@ digitisation had a balustrade on the west and a 1.2 m gap at the south-west corn
 change floor by walking fully onto a cross-floor stair or into a lift, and the view follows the active
 robot. New `tests/stairs.test.ts` drives each robot up into Atrio B and back down. The agent could not
 drive it in the browser itself (the pane was hidden, so no frames ran); that check is Michele's.
+
+**Second 2D run.** "Going upstairs from here doesn't work. You can't descend from room A", with a
+screenshot of the stair by the WC. The ground floor had no stair there: the agent's digitisation had
+merged the east flight to the Sala A balcony into the `steps-west` polygon, which only labels a step.
+It is now its own stair with its balustrade. The agent then wrote one test that walks onto every stair
+and lift on both floors and checks that the robot comes off on the other floor in the right room.
+That test caught something nobody had reported: neither lift could be entered. The ground-floor car
+was a closed box, and both drawn doors are about 0.75 m, narrower than Voxxy. The agent opened both
+doors to 0.9 m and flagged this in `docs/venue.md` as a call for Michele. The floor change now
+triggers 0.3 m onto a stair, not when the whole robot is on it, so Biggy changes floor on narrow
+flights too.
