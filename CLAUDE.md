@@ -39,8 +39,8 @@
 - **Booth constraints** (new): playable in short sessions by someone who has never seen it,
   restartable at any moment, no setup, readable from a step back. Prefer a loop of short challenges
   over a long story.
-- **Venue photos:** links and captions only in `docs/venue-photos.md` — copyrighted images are not
-  committed (Michele, 2 Nov 2026).
+- **Venue photos:** `docs/venue-photos.md`. Web photos are links and captions only — copyrighted images are not
+  committed (Michele, 2 Nov 2026). WellD's own photos live in `media/welld/`.
 - Tooling: pnpm, Vite, TypeScript strict, vitest, three. No physics engine, no external 3D/audio
   asset files (After Dark's one exception, its opening music, did not come over). Small PRs, one
   step each.
