@@ -60,6 +60,6 @@ tests pin the layout: only B3 shut, every section still reachable with all folds
 inside its section, the balcony reachable. Re-checked `foyer-west` (312 m² against the printed 280)
 on the drawing: the outline follows the drawn walls, so it was documented and not moved.
 
-**Not done / assumed.** Sala C left open from "B3 is the only closed one". That is an inference,
-flagged for the 2D run. First-floor zones not traced (Michele: raw reference is fine). Podiums are
+**Not done / assumed.** The agent opened Sala C's folds by inference from "B3 is the only closed
+one". It asked, and Michele confirmed: one room. First-floor zones not traced (Michele: raw reference is fine). Podiums are
 not collision yet.
