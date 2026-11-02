@@ -11,7 +11,7 @@ import type { Wall } from '../src/sim/types';
 
 describe('segWall', () => {
   it('a horizontal segment wall collides exactly like the axis-aligned slab it is', () => {
-    const seg = segWall(10, 20, 50, 20, 6);
+    const seg = segWall(10, 20, 50, 20, 6, {}, 3, 3);
     const box = { x: 7, y: 17, w: 46, h: 6 };
     for (const [x, y] of [[30, 12], [30, 28], [4, 20], [55, 19], [52, 25], [30, 21]]) {
       const a = circleWall({ x, y, r: 6 }, seg);
@@ -73,6 +73,14 @@ describe('robots against a diagonal wall', () => {
     });
   }
 
+  it('a free end is not lengthened: a doorway between two walls keeps its full width', () => {
+    // Two walls ending 12 px apart: the gap is 12 px, whatever their thickness.
+    const walls = [...polyWalls([[0, 0], [100, 0]], 6), ...polyWalls([[112, 0], [200, 0]], 6)];
+    expect(circleWall({ x: 106, y: 0, r: 5.9 }, walls[0])).toBeNull();
+    expect(circleWall({ x: 106, y: 0, r: 5.9 }, walls[1])).toBeNull();
+    expect(circleWall({ x: 106, y: 0, r: 6.1 }, walls[0])).not.toBeNull();
+  });
+
   it('a polyline is closed at its joints: nobody squeezes through an outside corner', () => {
     // A V with its point at (100, 100); the robot pushes into the point from inside.
     const walls = polyWalls([[0, 0], [100, 100], [200, 0]], 6);
@@ -90,7 +98,7 @@ describe('robots against a diagonal wall', () => {
 
 describe('rayWall', () => {
   it('matches rayRect for an axis-aligned segment wall', () => {
-    const seg = segWall(10, 20, 50, 20, 6);
+    const seg = segWall(10, 20, 50, 20, 6, {}, 3, 3);
     const box = { x: 7, y: 17, w: 46, h: 6 };
     for (let k = 0; k < 16; k++) {
       const a = (k / 16) * Math.PI * 2;

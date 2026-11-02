@@ -51,32 +51,49 @@ export function rayWall(px: number, py: number, dx: number, dy: number, w: Wall)
 /**
  * A wall slab of thickness `t` whose centre line runs from (ax, ay) to (bx, by).
  *
- * The slab is lengthened by `t / 2` at both ends, so two segments that share an
- * end point overlap at the corner instead of leaving a notch on its outside — a
- * polyline of these is closed at every joint, at any angle up to a hairpin.
+ * `extA` / `extB` lengthen the slab past each end. `polyWalls` sets them to `t / 2`
+ * at a joint, so two segments that meet overlap at the corner instead of leaving a
+ * notch on its outside, and to 0 at a free end — a free end is a door jamb, and
+ * lengthening it there would steal `t / 2` from every doorway.
  */
-export function segWall(ax: number, ay: number, bx: number, by: number, t: number, extra: Partial<Wall> = {}): Wall {
+export function segWall(
+  ax: number,
+  ay: number,
+  bx: number,
+  by: number,
+  t: number,
+  extra: Partial<Wall> = {},
+  extA = 0,
+  extB = 0,
+): Wall {
   const len = Math.hypot(bx - ax, by - ay);
   const c = len > 0 ? (bx - ax) / len : 1;
   const s = len > 0 ? (by - ay) / len : 0;
-  const hx = len / 2 + t / 2;
+  const hx = (len + extA + extB) / 2;
   const hy = t / 2;
-  const cx = (ax + bx) / 2;
-  const cy = (ay + by) / 2;
+  // The centre moves toward whichever end is lengthened more.
+  const cx = (ax + bx) / 2 + ((extB - extA) / 2) * c;
+  const cy = (ay + by) / 2 + ((extB - extA) / 2) * s;
   // World bounding box of the oriented box.
   const ex = Math.abs(c) * hx + Math.abs(s) * hy;
   const ey = Math.abs(s) * hx + Math.abs(c) * hy;
   return { ...extra, x: cx - ex, y: cy - ey, w: 2 * ex, h: 2 * ey, obb: { cx, cy, hx, hy, c, s } };
 }
 
-/** One slab per segment of a polyline; `closed` adds the segment back to the start. */
+/**
+ * One slab per segment of a polyline; `closed` adds the segment back to the start.
+ * Joints are overlapped by `t / 2`; the two free ends of an open polyline are not.
+ */
 export function polyWalls(pts: ReadonlyArray<readonly [number, number]>, t: number, closed = false, extra: Partial<Wall> = {}): Wall[] {
   const out: Wall[] = [];
   const n = pts.length;
-  for (let i = 0; i < (closed ? n : n - 1); i++) {
+  const segs = closed ? n : n - 1;
+  for (let i = 0; i < segs; i++) {
     const [ax, ay] = pts[i];
     const [bx, by] = pts[(i + 1) % n];
-    out.push(segWall(ax, ay, bx, by, t, extra));
+    const freeA = !closed && i === 0;
+    const freeB = !closed && i === segs - 1;
+    out.push(segWall(ax, ay, bx, by, t, extra, freeA ? 0 : t / 2, freeB ? 0 : t / 2));
   }
   return out;
 }
