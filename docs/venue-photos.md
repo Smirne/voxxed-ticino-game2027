@@ -128,21 +128,21 @@ is out of scope.
 
 #### Sala B, Atrio B (first floor)
 
-6. **`sala-b`: Sala B empty, from a corner**
+6. **`sala-b1/b2/b3`: Sala B empty, from a corner**
    - Image: https://www.luganoconventions.com/system/files/2020-04/IGORG_200125_PCL-15_1.jpg
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi/sala-b
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-igorg_200125_pcl-15_1.jpg`
-   - Floor: navy/blue-grey carpet with a fine grid of light dots, wall to wall. Ceiling: the folded roof, V-shaped board-marked concrete plates, with a warm (~3000 K) linear LED along every fold, so the ceiling reads as glowing ribs. A black steel lattice lighting truss hangs below in a rectangle. Left wall: continuous floor-to-ceiling glazing behind white sheers, square concrete columns on the glass line. Far wall: beige pleated curtains. Right: a folding acoustic partition stacked in its pocket (pale grey accordion panels). Camera in one corner, looking diagonally down the full 38 m length. **Michele (2 Nov 2026):** for the game the room has chairs and splits in two with temporary walls.
+   - Floor: navy/blue-grey carpet with a fine grid of light dots, wall to wall. Ceiling: the folded roof, V-shaped board-marked concrete plates, with a warm (~3000 K) linear LED along every fold, so the ceiling reads as glowing ribs. A black steel lattice lighting truss hangs below in a rectangle. Left wall: continuous floor-to-ceiling glazing behind white sheers, square concrete columns on the glass line. Far wall: beige pleated curtains. Right: a folding acoustic partition stacked in its pocket (pale grey accordion panels). Camera in one corner, looking diagonally down the full 38 m length. **Michele (2 Nov 2026):** for the game the room has chairs and splits in two with temporary walls. **Michele (2 Nov 2026):** #6–8 show the full space. The temporary walls go under the lower arches (the arched steel girders); in #6 the folded walls are the stack on the right.
 
-7. **`sala-b`: Sala B, opposite corner, the arched girder**
+7. **`sala-b1/b2/b3`: Sala B, opposite corner, the arched girder**
    - Image: https://www.luganoconventions.com/system/files/2020-03/IGORG_200125_PCL-17.jpg
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi/sala-b
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-igorg_200125_pcl-17.jpg`
    - A big arched steel girder (dark grey) spans the room and carries the folded roof; spotlights hang on it. The stacked folding partition is on the left. Far wall: glass doors and glazing to Atrio B with daylight, beige curtains between the square columns. Same blue dotted carpet, with a granite strip at the edge. Camera in the corner opposite #6.
 
-8. **`sala-b`: Sala B, from the partition end**
+8. **`sala-b1/b2/b3`: Sala B, from the partition end**
    - Image: https://www.luganoconventions.com/system/files/2020-03/IGORG_200125_PCL-18.jpg
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi/sala-b
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
@@ -154,7 +154,7 @@ is out of scope.
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-dsc_0391---copia.jpg`
-   - Speaker at a white lectern under a big white screen. Behind: pale pleated beige curtains, a pale accordion folding wall on the left with a black column speaker, and a board-marked concrete beam with a dark recess above, all matching Sala B's detailing. Audience on beech plywood chairs. Camera in the audience looking at the stage end. Room inferred from the detailing, not captioned by the site. **Michele (2 Nov 2026):** B2.
+   - Speaker at a white lectern under a big white screen. Behind: pale pleated beige curtains, a pale accordion folding wall on the left with a black column speaker, and a board-marked concrete beam with a dark recess above, all matching Sala B's detailing. Audience on beech plywood chairs. Camera in the audience looking at the stage end. Room inferred from the detailing, not captioned by the site. **Michele (2 Nov 2026):** B2. Temporary walls on the left and right. Usually not used on its own at Voxxed: B2 is merged with B1.
 
 10. **`atrio-b`: Atrio B gallery, current colours (red core)**
    - Image: https://www.luganoconventions.com/system/files/images/Atrio%20B_0.jpg
@@ -414,12 +414,12 @@ was viewed while writing its caption.
 
 #### Sala B, Atrio B
 
-44. **`sala-b`: Sala B opened up, Voxxed 2025 keynote, long side**
+44. **`sala-b1+b2`: Sala B1+B2 merged, Voxxed 2025 keynote, long side**
    - Image: https://live.staticflickr.com/65535/54278348783_05b0396720_b.jpg
    - Page: https://www.flickr.com/photos/bejug/54278348783/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54278348783-sala-b.jpg`
-   - Sala B as one room during a talk, seen from a side corner. A low timber-topped stage platform (~30 cm) with a lectern on the right. Blue dotted carpet throughout, chairs in rows for several hundred people. The folded concrete roof has warm cove light in every fold, and the dark steel lattice truss carries spotlights. A board-marked concrete pier in the left foreground. Far wall: dark-grey/navy curtains drawn over the glazing (Sala B fully blacked out), stage lit by stage spots. Camera at standing height by the side wall.
+   - Sala B as one room during a talk, seen from a side corner. A low timber-topped stage platform (~30 cm) with a lectern on the right. Blue dotted carpet throughout, chairs in rows for several hundred people. The folded concrete roof has warm cove light in every fold, and the dark steel lattice truss carries spotlights. A board-marked concrete pier in the left foreground. Far wall: dark-grey/navy curtains drawn over the glazing (Sala B fully blacked out), stage lit by stage spots. Camera at standing height by the side wall. **Michele (2 Nov 2026):** B1+B2, the usual Voxxed set-up; the temporary walls are behind the audience.
 
 45. **`sala-b`: Sala B from the audience to the screen**
    - Image: https://live.staticflickr.com/65535/54278348318_dcbbf892c2_b.jpg
@@ -428,19 +428,19 @@ was viewed while writing its caption.
    - Local: `media/reference/vx-2025-54278348318-sala-b.jpg`
    - Full house facing a big front-projection screen on the left wall. The arched steel girder and the board-marked concrete roof ribs with warm light between them. Dark grey curtains all round. At the far right end a glass door to the foyer shows bright daylight (an exit). Beech chairs. Camera in the audience looking diagonally.
 
-46. **`sala-b`: One section of Sala B, sunlit**
+46. **`sala-b1 (probable)`: Sala B1 (probable), sunlit**
    - Image: https://live.staticflickr.com/65535/54278097646_d271df75b8_b.jpg
    - Page: https://www.flickr.com/photos/bejug/54278097646/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54278097646-sala-b.jpg`
    - A narrower section closed off by the folding wall (back of the picture, dark grey). Big screen on a frame, speaker and lectern under it. Sunlight from the left glazing lands on the blue dotted carpet. High on the left (long) wall, under the folded ceiling: a band of plain white panels above a concrete ledge. On the far right, dark vertical slats at the same height. What the band is: open question for Michele (see #47). Spotlight bar on the girder. Camera at the back of the section. **Michele (2 Nov 2026):** yes, part of Sala B divided off with temporary walls.
 
-47. **`sala-b`: Sala B, full room from the back, timber gallery screen**
+47. **`sala-b3`: Sala B3 from the back, high slatted strip**
    - Image: https://live.staticflickr.com/65535/54277217722_6a909c1828_b.jpg
    - Page: https://www.flickr.com/photos/bejug/54277217722/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54277217722-sala-b.jpg`
-   - From the back of the opened-up room. At top left, a high row of **pale vertical slats** (timber or painted metal fins) runs along the top of the long wall under the roof, on a concrete ledge. It could be a balustrade to a gallery or walkway, a screen in front of clerestory glazing to Atrio B, or cladding: open question for Michele. Grey pleated curtains below, blue carpet, the screen at the far end (Voxxed slide). The folded roof plates have warm linear light, the arched girder crosses diagonally. **Michele (2 Nov 2026):** probably not walkable, and no robot goes up there: treat it as cladding.
+   - From the back of the opened-up room. At top left, a high row of **pale vertical slats** (timber or painted metal fins) runs along the top of the long wall under the roof, on a concrete ledge. It could be a balustrade to a gallery or walkway, a screen in front of clerestory glazing to Atrio B, or cladding: open question for Michele. Grey pleated curtains below, blue carpet, the screen at the far end (Voxxed slide). The folded roof plates have warm linear light, the arched girder crosses diagonally. **Michele (2 Nov 2026):** probably not walkable, and no robot goes up there: treat it as cladding. **Michele (2 Nov 2026):** B3.
 
 48. **`sala-b`: Sala B empty (luganoregion)**
    - Image: https://cdn.sanity.io/images/z6ahwmgv/production/bc9da8152fbfce3962c46bf48a781d03fb2123a8-1024x768.jpg
@@ -708,7 +708,7 @@ and the low entrance ceiling (`08.58.35`).
 
 | Room id | Photos | Entries | Notes |
 |---|---|---|---|
-| `sala-b1` / `sala-b2` / `sala-b3` | 10 | 6–8, 9 (B2), 44–49 | #46 is one section behind temporary walls; folding-wall stacks in #6–8 |
+| `sala-b1` / `sala-b2` / `sala-b3` | 10 | full 6–8; B1+B2 44; B1 46?; B2 9; B3 47; 45, 48–49 | Voxxed uses B1+B2 merged + B3 |
 | `atrio-b` | 4 | 10–12, 50 | Core red by Jan 2025 (blue in 2019–2020) |
 | `sala-c1` / `sala-c2` / `sala-c3` | 7 (+1 probable) | 13–18, 51 (55) | All show C opened up |
 | `atrio-c` | 2 | 19–20 | Best signage close-up (#19) |
@@ -733,7 +733,13 @@ Answers to the review questions, as given:
   it as board-marked concrete folded plates with warm light in the folds.
 - **The slatted strip high in Sala B** is probably not walkable, and no robot goes up there.
   Treat it as cladding.
-- **For the game, Sala B has chairs and splits in two with temporary walls** (#6, #46). #9 is B2.
+- **For the game, Sala B has chairs and splits with temporary walls** set under the lower arches
+  (the arched girders). At Voxxed the usual form is **B1+B2 merged** (#44), with B3 separate (#47);
+  B2 alone (#9) is rare. #6–8 show the full space, #46 is probably B1.
+- **The podium faces a different way per section:** in B1 (also merged with B2) it is on the **east**
+  side, in B2 alone and in B3 on the **north** side, "presuming parking is north" (Michele's
+  words). In `docs/venue.md`'s frame the park and lake are north and Piazza Indipendenza is south,
+  so check his "north" against the plan before placing podiums.
 - **The counter under the painting is the conference reception** (badges), not the wardrobe.
   **The wardrobe is in catering area 1** (`foyer-wardrobe`): no counter, just coat racks and backpack
   space behind the tables.
@@ -758,7 +764,6 @@ in the digitisation (Michele, 2 Nov 2026). `foyer-west` stays the park-side foye
 - **Coat racks / backpack area** behind the tables of #28: no photo yet.
 - **Lift**: only the outside of the red core is seen. If robots ride it (Biggy cannot take stairs),
   the lift doors and the inside of the cabin would help.
-- **Sala B split in two with the temporary walls closed**, seen from inside. #46 comes close.
 - **Sala C1/C2/C3 one at a time.**
 - **Atrio C** and the Sala C/D rooms only appear in the January 2020 shoot.
 - **Signage close-ups**: only #19 and #56 (room-letter signs: dark-brown squares, white serif
