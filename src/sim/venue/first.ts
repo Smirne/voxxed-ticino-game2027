@@ -48,7 +48,7 @@ export const FIRST: FloorPlan = {
     { t: 1.05, pts: [[98.45, 27.64], [101.60, 27.64]] },
     { t: 1.05, pts: [[102.85, 27.64], [104.00, 27.64]] },
     { t: 1.05, pts: [[105.14, 27.64], [109.70, 27.64]] },
-    // Sala C as one room, as in the Voxxed photos ("B3 is the only closed one").
+    // Sala C as one room (Michele confirmed, 2 Nov 2026).
     { id: 'fold-c1-c2', kind: 'folding', open: true, pts: [[99.05, 21.18], [99.05, 27.04]] },
     { id: 'fold-c2-c3', kind: 'folding', open: true, pts: [[103.45, 21.18], [103.45, 27.04]] },
     // Atrio B | Atrio C glazing, sliding doors open between

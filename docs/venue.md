@@ -85,8 +85,8 @@ The first-floor zones in Michele's marked plan are a raw reference only, not tra
 his photo review (2 Nov 2026, `docs/venue-photos.md`):
 
 - **Folding walls, the Voxxed layout** (`VenueWall.open`, the default of `buildWalls`): Sala B1 and
-  B2 merged, **B3 the only section closed off**. Sala C is left as one room on the strength of "B3 is
-  the only closed one". That is an inference, to confirm in the 2D run. Other layouts are a candidate
+  B2 merged, **B3 the only section closed off**. Sala C is one room, its folds open (Michele confirmed,
+  2 Nov 2026). Other layouts are a candidate
   for challenges: `buildWalls(floor, { foldingShut })` closes any set of them.
 - **Podiums** (`FIRST.zones`, kind `podium`, not collision yet): west side of B1 (and of B1+B2
   merged), south side of B2 and of B3. Sizes are guesses, about 0.3 m high.
