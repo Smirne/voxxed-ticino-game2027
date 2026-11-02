@@ -12,7 +12,7 @@ import type { Wall } from '../types';
 import { WALL_T_M, type FloorPlan, type P, type VenueWall } from './types';
 
 export interface BuildOptions {
-  /** Folding walls (Sala B, Sala C) that stand shut. Default: all of them. */
+  /** Folding walls (Sala B, Sala C) that stand shut. Default: the Voxxed layout (`VenueWall.open`). */
   foldingShut?: (id: string | undefined) => boolean;
 }
 
@@ -29,10 +29,9 @@ function wallFlags(w: VenueWall): Partial<Wall> {
 
 /** Every solid thing on one floor, in sim pixels. */
 export function buildWalls(floor: FloorPlan, opts: BuildOptions = {}): Wall[] {
-  const shut = opts.foldingShut ?? (() => true);
   const out: Wall[] = [];
   for (const w of floor.walls) {
-    if (w.kind === 'folding' && !shut(w.id)) continue;
+    if (w.kind === 'folding' && !(opts.foldingShut ? opts.foldingShut(w.id) : !w.open)) continue;
     out.push(...polyWalls(toPx(w.pts), px(w.t ?? WALL_T_M), w.closed ?? false, wallFlags(w)));
   }
   for (const c of floor.columns) {

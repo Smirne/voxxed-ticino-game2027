@@ -180,3 +180,37 @@ describe('the two floors agree', () => {
     }
   });
 });
+
+describe('the Voxxed Days layout (Michele, 2 Nov 2026)', () => {
+  const first = FLOORS.first;
+
+  it('B3 is the only folding section closed off: B1+B2 merged, Sala C one room', () => {
+    const shut = first.walls.filter((w) => w.kind === 'folding' && !w.open).map((w) => w.id);
+    expect(shut).toEqual(['fold-b2-b3']);
+    const built = buildWalls(first).length;
+    expect(buildWalls(first, { foldingShut: () => true }).length).toBeGreaterThan(built);
+  });
+
+  it('with every folding wall shut, each section still has its own way in', () => {
+    const g = freeGrid(buildWalls(first, { foldingShut: () => true }), DEFS.voxxy.r);
+    const seen = reach(g, first);
+    const missing = first.rooms.filter((r) => r.public && !reached(g, seen, r.label[0], r.label[1])).map((r) => r.id);
+    expect(missing).toEqual([]);
+  });
+
+  it('each podium stands inside the Sala B section it is for', () => {
+    const podiums = first.zones.filter((z) => z.kind === 'podium');
+    expect(podiums.map((z) => z.id).sort()).toEqual(['podium-b1', 'podium-b2', 'podium-b3']);
+    for (const z of podiums) {
+      const room = first.rooms.find((r) => r.id === `sala-${z.id.slice('podium-'.length)}`)!;
+      for (const [x, y] of z.poly) expect(inPoly(x, y, room.poly), `${z.id} corner ${x},${y}`).toBe(true);
+    }
+  });
+
+  it('the Sala A balcony is closed during the conference, yet a robot can still get in', () => {
+    const balcony = first.rooms.find((r) => r.id === 'sala-a-balcony')!;
+    expect(balcony.conference).toBe('closed');
+    const g = freeGrid(buildWalls(first), DEFS.voxxy.r);
+    expect(reached(g, reach(g, first), balcony.label[0], balcony.label[1])).toBe(true);
+  });
+});

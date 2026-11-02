@@ -49,7 +49,7 @@ export function createSandbox(floorId: FloorPlan['id'] = 'ground'): Sandbox {
     setFloor(id) {
       sb.floor = FLOORS[id];
       sb.folding = {};
-      for (const w of sb.floor.walls) if (w.kind === 'folding' && w.id) sb.folding[w.id] = true;
+      for (const w of sb.floor.walls) if (w.kind === 'folding' && w.id) sb.folding[w.id] = !w.open;
       rebuild();
       const room = sb.floor.rooms.find((r) => r.id === START[id]) ?? sb.floor.rooms[0];
       const [x, y] = room.label;

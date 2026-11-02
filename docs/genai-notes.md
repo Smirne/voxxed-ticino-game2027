@@ -92,3 +92,22 @@ some challenges and add new ones (folding-wall layouts are a candidate); brainst
 Reserved" on the album and CC BY-NC-ND on each photo, so treated as all rights reserved. The
 "zones" Michele drew on the first-floor plan stay a raw reference for now (he offered to help trace
 them properly). Merging PR #1 was left to Michele (the agent's merge was blocked as unreviewed).
+
+## 2 Nov 2026 — the Voxxed layout on the venue (local session, Claude Code desktop)
+
+**Asked.** Michele: apply the answers from the photo review to the venue, then a quick 2D run.
+
+**Human decisions.** B1+B2 merged and B3 the only folding section closed. Room B taken from the venue
+description as prescriptive: podium on the west side of B1, the south side of B2 and B3. The Sala A
+balcony is closed during the conference but robots can get in. The wardrobe is tables, not a counter.
+The lift core is red.
+
+**What the agent did.** Folding walls carry `open`, and `buildWalls` defaults to the Voxxed layout.
+Podiums are zones, rooms can be marked `conference: 'closed'`, and the plan view draws both. Four
+tests pin the layout: only B3 shut, every section still reachable with all folds shut, each podium
+inside its section, the balcony reachable. Re-checked `foyer-west` (312 m² against the printed 280)
+on the drawing: the outline follows the drawn walls, so it was documented and not moved.
+
+**Not done / assumed.** The agent opened Sala C's folds by inference from "B3 is the only closed
+one". It asked, and Michele confirmed: one room. First-floor zones not traced (Michele: raw reference is fine). Podiums are
+not collision yet.

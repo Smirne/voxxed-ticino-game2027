@@ -37,7 +37,8 @@ export const FIRST: FloorPlan = {
     { pts: [[91.44, 33.43], [97.12, 33.51]] },
     // Sala B south and east walls; service doors on the east kept shut
     { pts: [[59.24, 51.35], [62.10, 56.31], [97.02, 56.31], [97.12, 33.51]] },
-    { id: 'fold-b1-b2', kind: 'folding', pts: [[74.70, 33.50], [74.70, 56.23]] },
+    // Voxxed Days layout: B1 and B2 merged, B3 closed off (Michele, 2 Nov 2026).
+    { id: 'fold-b1-b2', kind: 'folding', open: true, pts: [[74.70, 33.50], [74.70, 56.23]] },
     { id: 'fold-b2-b3', kind: 'folding', pts: [[81.00, 33.50], [81.00, 56.23]] },
     // C rooms north/east, Sala D east and south; terrace exits kept shut
     { pts: [[89.49, 26.01], [92.36, 21.19], [108.55, 21.19], [109.66, 23.13], [109.58, 35.29], [105.40, 35.53]] },
@@ -47,8 +48,9 @@ export const FIRST: FloorPlan = {
     { t: 1.05, pts: [[98.45, 27.64], [101.60, 27.64]] },
     { t: 1.05, pts: [[102.85, 27.64], [104.00, 27.64]] },
     { t: 1.05, pts: [[105.14, 27.64], [109.70, 27.64]] },
-    { id: 'fold-c1-c2', kind: 'folding', pts: [[99.05, 21.18], [99.05, 27.04]] },
-    { id: 'fold-c2-c3', kind: 'folding', pts: [[103.45, 21.18], [103.45, 27.04]] },
+    // Sala C as one room (Michele confirmed, 2 Nov 2026).
+    { id: 'fold-c1-c2', kind: 'folding', open: true, pts: [[99.05, 21.18], [99.05, 27.04]] },
+    { id: 'fold-c2-c3', kind: 'folding', open: true, pts: [[103.45, 21.18], [103.45, 27.04]] },
     // Atrio B | Atrio C glazing, sliding doors open between
     { kind: 'glass', pts: [[97.12, 28.16], [97.12, 29.51]] },
     { kind: 'glass', pts: [[97.12, 32.08], [97.12, 33.51]] },
@@ -150,7 +152,7 @@ export const FIRST: FloorPlan = {
       poly: [[97.12, 28.16], [105.36, 28.16], [105.36, 35.21], [100.10, 35.31], [100.10, 34.89], [97.12, 34.92]] },
     { id: 'sala-d', name: 'Sala / Room D', label: [107.50, 30.60], public: true, area: 30, ceiling: [3.15],
       poly: [[105.36, 28.16], [109.66, 28.16], [109.70, 35.37], [105.40, 35.37]] },
-    { id: 'sala-a-balcony', name: 'Sala A — Balconata / Balcony and Galleria', label: [26.00, 32.60], public: true,
+    { id: 'sala-a-balcony', name: 'Sala A — Balconata / Balcony and Galleria', label: [26.00, 32.60], public: true, conference: 'closed',
       poly: [[16.58, 31.41], [34.90, 31.41], [36.77, 33.85], [35.30, 36.64], [40.56, 40.05], [41.52, 40.59], [43.98, 45.30], [43.34, 47.51], [43.90, 49.50], [43.40, 51.69], [41.00, 55.40], [34.00, 56.00], [33.25, 53.25], [35.25, 51.00], [36.10, 45.35], [32.69, 43.38], [26.00, 42.66], [19.50, 43.37], [15.83, 45.35], [13.53, 47.49], [9.90, 42.20], [9.92, 39.39], [10.41, 37.84], [11.44, 37.00], [13.69, 35.69], [10.59, 34.12], [10.50, 33.26], [11.29, 31.71], [12.43, 31.05], [13.73, 33.31], [16.96, 31.22]] },
     { id: 'bridge-a', name: 'Bridge over the main entrance', label: [52.50, 48.00], public: false, ceiling: [3.15],
       poly: [[46.94, 44.70], [59.24, 44.70], [59.28, 51.60], [45.89, 51.52], [44.45, 49.05], [45.06, 47.27]] },
@@ -163,5 +165,12 @@ export const FIRST: FloorPlan = {
     { id: 'balcony-stair-east', kind: 'stair', from: 'foyer-principale', to: 'sala-a-balcony', poly: [[36.83, 33.98], [39.76, 35.66], [38.27, 38.26], [35.30, 36.64]] },
     { id: 'balcony-stair-west', kind: 'stair', from: 'foyer-west', to: 'sala-a-balcony', poly: [[12.43, 31.05], [15.50, 28.67], [16.96, 31.22], [13.73, 33.31]] },
   ],
-  zones: [],
+  // Speaker podiums in the Voxxed layout (Michele, 2 Nov 2026): B1 (also B1+B2
+  // merged) on its west side, B2 alone and B3 on their south side. A low platform
+  // about 0.3 m high (Voxxed 2025 photos); not collision yet.
+  zones: [
+    { id: 'podium-b1', kind: 'podium', note: 'Podium, Sala B1 (and B1+B2 merged): west side.', poly: [[59.80, 42.90], [61.80, 42.90], [61.80, 46.90], [59.80, 46.90]] },
+    { id: 'podium-b2', kind: 'podium', note: 'Podium, Sala B2 when on its own: south side.', poly: [[76.35, 54.00], [79.35, 54.00], [79.35, 56.00], [76.35, 56.00]] },
+    { id: 'podium-b3', kind: 'podium', note: 'Podium, Sala B3: south side.', poly: [[87.07, 54.00], [91.07, 54.00], [91.07, 56.00], [87.07, 56.00]] },
+  ],
 };

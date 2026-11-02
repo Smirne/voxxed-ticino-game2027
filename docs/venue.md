@@ -38,7 +38,7 @@ and that the two floors' stairs name each other's rooms.
 |---|---|---|---|
 | ground | foyer-principale | 480 | 487 |
 | ground | foyer-villa-ciani | 137 | 138 |
-| ground | foyer-west | 280 | 312 (+11.5%: probably the WC corner and stair well) |
+| ground | foyer-west | 280 | 312 (+11.5%; re-checked on the drawing 2 Nov 2026: the outline follows the drawn walls, the H. 7.00 m north wall, the steps on the east and the Sala A doors on the south. The surplus is the low corner by the WC and the steps to Sala A, which the printed figure probably leaves out. Kept as drawn) |
 | ground | foyer-wardrobe | 200 | 199 (west of the column line x 74.6; the strip by the bar is `foyer-bar`) |
 | ground | sala-e | 115 | 120 |
 | ground | sala-a, sala-a-stage, atrio-e, corridoio-villa-ciani, foyer-bar | — | 604, 237, 67, 17, 108 |
@@ -79,7 +79,23 @@ Michele marked it on the ground plan (`plans/PCL_PT_zones-michele.pdf`, 2 Nov 20
   to the Villa Ciani corridor. All booths go here — WellD's included.
 - **Buffet / refreshments (green):** the west foyer beside Sala A (marked "2": a booth sometimes
   stands there too) and the wardrobe foyer.
-- Talks: Sala A (keynotes, with its balcony) and the first-floor rooms.
+- Talks: Sala A (keynotes) and the first-floor rooms.
+
+The first-floor zones in Michele's marked plan are a raw reference only, not traced. The rest comes from
+his photo review (2 Nov 2026, `docs/venue-photos.md`):
+
+- **Folding walls, the Voxxed layout** (`VenueWall.open`, the default of `buildWalls`): Sala B1 and
+  B2 merged, **B3 the only section closed off**. Sala C is one room, its folds open (Michele confirmed,
+  2 Nov 2026). Other layouts are a candidate
+  for challenges: `buildWalls(floor, { foldingShut })` closes any set of them.
+- **Podiums** (`FIRST.zones`, kind `podium`, not collision yet): west side of B1 (and of B1+B2
+  merged), south side of B2 and of B3. Sizes are guesses, about 0.3 m high.
+- **Sala A balcony:** closed to the audience during the conference (`conference: 'closed'`), but a
+  robot can still get up there by its stairs.
+- **Wardrobe** (`wardrobe-counter`, ground floor): no real counter. A line of tables in the west foyer
+  acts as one, with coat racks and space for backpacks behind. Same line as the plan's GUARDAROBA
+  counter.
+- **Lift core** (3D note): the lift doors are red now; the WellD photo shows the older finish.
 
 ## What the robots' size means here
 
