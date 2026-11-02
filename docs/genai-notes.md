@@ -132,3 +132,12 @@ was a closed box, and both drawn doors are about 0.75 m, narrower than Voxxy. Th
 doors to 0.9 m and flagged this in `docs/venue.md` as a call for Michele. The floor change now
 triggers 0.3 m onto a stair, not when the whole robot is on it, so Biggy changes floor on narrow
 flights too.
+
+**Third 2D run.** "Stairs from room B are blocked in descent." The tests were green because they
+always walked off the top of the stair before coming back. Michele climbed and turned round. A robot
+arrived at the same spot on the other floor, which on the main stair is the foot of the flight, with
+the rail behind it. So it could only get down by walking 5 m to Atrio B and back. Stairs and lifts
+now carry a `mouth` (where you step on, on that floor). A robot comes out just off the other floor's
+mouth, facing away, so one step back takes it down again. New tests: each robot climbs and walks
+straight back; Voxxy rides the lift up and straight back down. **Human decision:** lift doors at
+0.9 m, so Voxxy only ("Biggy will take the stairs").

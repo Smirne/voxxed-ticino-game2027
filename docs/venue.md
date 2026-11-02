@@ -71,14 +71,16 @@ stairs and cores, the goods lift.
 - **WC / Tel** are only arrows on the plan; no room was invented for them.
 - **Lift doors are 0.9 m**, not the ~0.75 m slot drawn on both sheets. At 0.75 m no robot fits a lift
   (Voxxy is 0.76 m across); at 0.9 m, like every single door here, Voxxy rides it and Droid and Biggy
-  take the stairs. Ground door on the west face, first-floor door on the east face. Overrule if the
-  lift should be a gate for everyone.
+  take the stairs (Michele, 2 Nov 2026: "Door at 0.9 are fine, Biggy will take the stairs"). Ground
+  door on the west face, first-floor door on the east face.
 - **Main stair:** one straight flight rising east. On the ground floor it is entered from the west
   (the "1° PIANO" arrow) and on the first floor it is left at the east, onto Atrio B.
 - **Sala A balcony, east stair** (by the WC and the desk): the ground-floor end is entered from the
   WC corner of `foyer-west` (the dashed line) and has a balustrade on its north side and east end.
 - **Changing floor** (plan check): a robot whose centre is 0.3 m onto a stair or lift that changes
-  floor comes out on the other floor at the same spot. To go back it steps off and on again.
+  floor comes out on the other floor just off that stair's `mouth` (where you step on from, on that
+  floor), facing away. One step back takes it down again. The Sala A west balcony stair has no mouth
+  traced yet, so a robot comes out at the same spot there.
 
 ## How Voxxed Days Ticino uses it
 

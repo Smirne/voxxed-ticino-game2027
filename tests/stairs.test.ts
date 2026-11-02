@@ -130,3 +130,33 @@ describe('the Sala A balcony, east stair by the WC (Michele\'s 2D run)', () => {
     expect(sb.on.voxxy).toBe('ground');
   });
 });
+
+describe('turning straight back (Michele\'s 2D run: "stairs from room B are blocked in descent")', () => {
+  for (const k of ['voxxy', 'droid', 'biggy'] as RobotKind[]) {
+    it(`${k} climbs the main stair, then walks straight back down it`, () => {
+      const sb = createSandbox('ground');
+      sb.select(k);
+      for (const b of sb.bots) [b.x, b.y] = b.kind === k ? [px(60.5), px(27.3)] : [px(50), px(36 + b.r)];
+      drive(sb, 1, 0, 20, () => sb.on[k] === 'first');
+      expect(sb.on[k]).toBe('first');
+      // Comes off at the top, in Atrio B, not at the foot of the flight.
+      expect(m(bot(sb, k).x)).toBeGreaterThan(68);
+      drive(sb, -1, 0, 10, () => sb.on[k] === 'ground');
+      expect(sb.on[k]).toBe('ground');
+      expect(m(bot(sb, k).x)).toBeLessThan(62.68);
+    });
+  }
+
+  it('Voxxy rides the lift up and straight back down', () => {
+    const sb = createSandbox('ground');
+    const v = bot(sb, 'voxxy');
+    for (const b of sb.bots) if (b !== v) [b.x, b.y] = [px(50), px(36 + b.r)];
+    [v.x, v.y] = [px(64.8), px(31.87)];
+    drive(sb, 1, 0, 10, () => sb.on.voxxy === 'first');
+    expect(sb.on.voxxy).toBe('first');
+    expect(m(v.x)).toBeGreaterThan(68.4);
+    drive(sb, -1, 0, 10, () => sb.on.voxxy === 'ground');
+    expect(sb.on.voxxy).toBe('ground');
+    expect(m(v.x)).toBeLessThan(65.84);
+  });
+});

@@ -38,7 +38,7 @@ export const GROUND: FloorPlan = {
     { id: 'cassa', pts: [[58.71, 46.00], [60.91, 46.00], [60.85, 48.50], [58.71, 48.59]], closed: true },
     // Lift, ground <-> first.
     // Door on the west face: the drawing's slot is about 0.75 m, opened to 0.9 m like every single
-    // door here, so Voxxy fits and Droid and Biggy do not (a call for Michele, 2 Nov 2026).
+    // door here, so Voxxy fits and Droid and Biggy take the stairs (Michele, 2 Nov 2026).
     { id: 'lift-main', pts: [[65.84, 32.32], [65.84, 33.24], [68.34, 33.24], [68.14, 30.67], [65.84, 30.67], [65.84, 31.42]] },
     // Main stair: one straight flight rising east, entered from the west ("1° PIANO" arrow);
     // balustrade on the south and east side.
@@ -127,16 +127,16 @@ export const GROUND: FloorPlan = {
     { id: 'kitchen', name: 'Cucina / Kitchen', label: [91.00, 47.00], poly: [[84.04, 39.98], [100.20, 39.98], [100.24, 41.58], [105.04, 41.78], [104.92, 51.98], [84.04, 51.98]], public: false },
   ],
   stairs: [
-    { id: 'stair-main', kind: 'stair', poly: [[62.68, 24.81], [68.01, 24.93], [68.01, 29.73], [62.68, 29.73]], from: 'foyer-principale', to: 'atrio-b' },
-    { id: 'lift-main', kind: 'lift', poly: [[65.84, 30.67], [68.14, 30.67], [68.34, 33.24], [65.84, 33.24]], from: 'foyer-principale', to: 'atrio-b' },
+    { id: 'stair-main', kind: 'stair', poly: [[62.68, 24.81], [68.01, 24.93], [68.01, 29.73], [62.68, 29.73]], from: 'foyer-principale', to: 'atrio-b', mouth: [[62.68, 24.81], [62.68, 29.73]] },
+    { id: 'lift-main', kind: 'lift', poly: [[65.84, 30.67], [68.14, 30.67], [68.34, 33.24], [65.84, 33.24]], from: 'foyer-principale', to: 'atrio-b', mouth: [[65.84, 31.42], [65.84, 32.32]] },
     { id: 'steps-villa-ciani', kind: 'steps', poly: [[41.70, 25.68], [42.34, 25.51], [43.51, 27.55], [55.84, 27.55], [57.91, 31.14], [62.02, 31.14], [62.71, 30.59], [63.03, 30.67], [62.39, 31.78], [57.54, 31.78], [55.47, 28.18], [43.14, 28.18]], from: 'foyer-villa-ciani', to: 'foyer-principale' },
     { id: 'steps-west', kind: 'steps', poly: [[36.47, 26.44], [37.43, 26.44], [37.43, 34.10], [36.47, 34.40]], from: 'foyer-west', to: 'foyer-principale' },
-    { id: 'stair-balcony-east', kind: 'stair', poly: [[37.10, 33.95], [39.76, 35.66], [38.27, 38.26], [37.42, 37.75]], from: 'foyer-west', to: 'sala-a-balcony' },
+    { id: 'stair-balcony-east', kind: 'stair', poly: [[37.10, 33.95], [39.76, 35.66], [38.27, 38.26], [37.42, 37.75]], from: 'foyer-west', to: 'sala-a-balcony', mouth: [[37.10, 33.95], [37.42, 37.75]] },
     { id: 'steps-desk', kind: 'steps', poly: [[40.29, 34.91], [40.68, 34.31], [42.63, 37.69], [42.08, 38.03]], from: 'foyer-west', to: 'foyer-principale' },
     { id: 'ramp-west', kind: 'steps', poly: [[32.83, 24.93], [37.43, 24.93], [37.43, 26.44], [32.83, 26.44]], from: 'foyer-west', to: 'foyer-principale' },
     { id: 'steps-wardrobe', kind: 'steps', poly: [[59.35, 44.48], [59.35, 40.49], [60.82, 37.94], [71.89, 37.94], [73.11, 36.30], [74.53, 36.30], [74.53, 36.55], [73.53, 36.83], [72.26, 38.58], [61.19, 38.58], [59.99, 40.66], [59.99, 44.48]], from: 'foyer-principale', to: 'foyer-wardrobe' },
     { id: 'ramp-wardrobe', kind: 'steps', poly: [[59.35, 44.48], [62.98, 44.48], [62.98, 45.86], [59.35, 45.79]], from: 'foyer-principale', to: 'foyer-wardrobe' },
-    { id: 'stair-balcony-west', kind: 'stair', poly: [[12.93, 30.70], [15.03, 29.40], [17.44, 31.78], [16.05, 32.94], [14.30, 33.02]], from: 'foyer-west', to: 'sala-a-balcony' },
+    { id: 'stair-balcony-west', kind: 'stair', poly: [[12.93, 30.70], [15.03, 29.40], [17.44, 31.78], [16.05, 32.94], [14.30, 33.02]], from: 'foyer-west', to: 'sala-a-balcony', mouth: [[37.10, 33.95], [37.42, 37.75]] },
     { id: 'stage-steps-left', kind: 'steps', poly: [[16.72, 58.10], [18.20, 58.10], [18.20, 58.64], [16.72, 58.64]], from: 'sala-a', to: 'sala-a-stage' },
     { id: 'stage-steps-right', kind: 'steps', poly: [[33.60, 58.10], [35.15, 58.10], [35.15, 58.64], [33.60, 58.64]], from: 'sala-a', to: 'sala-a-stage' },
   ],
