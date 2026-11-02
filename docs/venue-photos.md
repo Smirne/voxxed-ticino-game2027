@@ -293,7 +293,7 @@ is out of scope.
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi/atri-foyer
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-igorg_200125_pcl-22_0.jpg`
-   - A sunken rectangular field of charcoal speckled carpet, framed by light granite edging with double black anti-slip strips on the steps down. Ceiling: dark sprayed/exposed-aggregate concrete with round downlights and suspended linear LED bars (neutral). Square board-marked columns. Back wall: the glazed front of **"CIANI LUGANO – Ristorante | Vinoteca | Lounge Bar | Catering & Eventi"** (black fascia, white sans-serif lettering, a red-lit wine wall). Beside it, a **white panelled counter in a dark-grey frame, shuttered** (a catering counter, shut during the conference). Tall white service-cupboard doors on the right. Benches and street-side glazing far right (parked cars). Camera looks across the foyer from beside a column. Same space as #58. Room id from the digitisation: this sunken area (`steps-wardrobe` lead down to it from the main foyer) lies inside the plan's `foyer-wardrobe` outline, beside `foyer-bar` and the restaurant at the east end. **Michele (2 Nov 2026):** the tables here separate it from the wardrobe proper; the white shuttered counter stays shut during the conference (catering use only). He okayed calling this "foyer west", but the plan's `foyer-west` is the Sala A side foyer (#32, #33, #63): see Decisions.
+   - A sunken rectangular field of charcoal speckled carpet, framed by light granite edging with double black anti-slip strips on the steps down. Ceiling: dark sprayed/exposed-aggregate concrete with round downlights and suspended linear LED bars (neutral). Square board-marked columns. Back wall: the glazed front of **"CIANI LUGANO – Ristorante | Vinoteca | Lounge Bar | Catering & Eventi"** (black fascia, white sans-serif lettering, a red-lit wine wall). Beside it, a **white panelled counter in a dark-grey frame, shuttered** (a catering counter, shut during the conference). Tall white service-cupboard doors on the right. Benches and street-side glazing far right (parked cars). Camera looks across the foyer from beside a column. Same space as #58. Room id from the digitisation: this sunken area (`steps-wardrobe` lead down to it from the main foyer) lies inside the plan's `foyer-wardrobe` outline, beside `foyer-bar` and the restaurant at the east end. **Michele (2 Nov 2026):** the tables here separate it from the wardrobe proper; the white shuttered counter stays shut during the conference (catering use only). Named `foyer-wardrobe` (Michele, 2 Nov 2026). Behind these tables stand the coat racks and the backpack space; there is no wardrobe counter.
 
 29. **`foyer-principale`: Main stair from the top, looking down**
    - Image: https://www.luganoconventions.com/system/files/images/Atrio%20scale.jpg
@@ -507,7 +507,7 @@ was viewed while writing its caption.
    - Page: https://www.flickr.com/photos/bejug/54277216977/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54277216977-foyer-wardrobe.jpg`
-   - **The counter.** A long recessed counter under a dark grey fascia, set into a tall board-marked concrete wall with a long black panel above. Inside the recess: a white-lit back wall and a magenta pop-up banner. A queue snakes between chrome stanchions with black belt barriers. Top left: a small light sign with dark-brown squares holding white serif letters (same family as #19), on a concrete beam. Speckled grey stone floor, a green EXIT pictogram, the main stair and gallery parapet at the right edge. This is the wall in #31. **Michele (2 Nov 2026):** this is the conference **reception**, where you collect your badge, not the wardrobe. The wardrobe is in catering area 1 (`foyer-wardrobe`).
+   - **The counter.** A long recessed counter under a dark grey fascia, set into a tall board-marked concrete wall with a long black panel above. Inside the recess: a white-lit back wall and a magenta pop-up banner. A queue snakes between chrome stanchions with black belt barriers. Top left: a small light sign with dark-brown squares holding white serif letters (same family as #19), on a concrete beam. Speckled grey stone floor, a green EXIT pictogram, the main stair and gallery parapet at the right edge. This is the wall in #31. **Michele (2 Nov 2026):** this is the conference **reception**, where you collect your badge, not the wardrobe. The wardrobe is coat racks behind the tables in `foyer-wardrobe` (#28).
 
 57. **`foyer-principale`: Main foyer full, reception counter under the painting**
    - Image: https://live.staticflickr.com/65535/55092290781_e5e8e28d8f_o.jpg
@@ -716,7 +716,7 @@ and the low entrance ceiling (`08.58.35`).
 | `sala-e` | 7 (+1 uncertain) | 23–27, 53–54 (52) | Out of scope for now; kept in case that changes |
 | `foyer-principale` | 13 | 29–31, 56–57, 59–60, 62, 64–68 | Reception counter: 56–57; main stair: 29, 60, 64; roped balcony stair: 57 + video |
 | `foyer-west` | 3 | 32–33, 63 | West balcony stair: 63 |
-| `foyer-wardrobe` | 3 | 28, 58, 61 | Sunken area by the Ciani bar; the wardrobe counter itself not yet photographed |
+| `foyer-wardrobe` | 3 | 28, 58, 61 | Sunken area by the Ciani bar; tables, then coat racks and backpack space behind them |
 | `sala-a` | 7 | 37–40, 69–71 | Stage steps: 39, 69 |
 | `sala-a-balcony` | 4 | 34–36, 72 | #34: landing at the top of the east balcony stair |
 | `foyer-villa-ciani`, `corridoio-villa-ciani` | 0 | | Not needed (Michele) |
@@ -735,7 +735,8 @@ Answers to the review questions, as given:
   Treat it as cladding.
 - **For the game, Sala B has chairs and splits in two with temporary walls** (#6, #46). #9 is B2.
 - **The counter under the painting is the conference reception** (badges), not the wardrobe.
-  **The wardrobe is in catering area 1**, i.e. the wardrobe foyer.
+  **The wardrobe is in catering area 1** (`foyer-wardrobe`): no counter, just coat racks and backpack
+  space behind the tables.
 - **The Sala A balcony is reached by two stairs:** the one at the back of #63 (`balcony-stair-west`,
   from the foyer along Sala A) and the roped one up the painting wall (#57, video frame;
   `balcony-stair-east`). #34 is the top of the roped one, past the door beyond the column. Both
@@ -746,17 +747,17 @@ Answers to the review questions, as given:
 - **Foyer Villa Ciani and the corridor: no photos, not needed.**
 - **The shuttered counter by the Ciani bar** stays shut during the conference (catering use only).
 
-**Open: one naming clash.** Michele okayed "foyer west" for the sunken area by the Ciani bar
-(#28, #58). In the digitisation (`src/sim/venue/ground.ts`, `docs/venue.md`), though, `foyer-west`
-is the park-side foyer along Sala A at the west end (buffet "2", the west balcony stair). The area
-by the Ciani bar lies inside `foyer-wardrobe` (steps lead down into it from the main foyer). These
-entries use the plan's ids; if the names should change, that is a change to the venue data, not
-to this file.
+**Naming (settled):** the sunken area by the Ciani bar (#28, #58, #61) is **`foyer-wardrobe`**, as
+in the digitisation (Michele, 2 Nov 2026). `foyer-west` stays the park-side foyer along Sala A.
+
+- **There is no wardrobe counter.** In `foyer-wardrobe` the tables of #28 come first; behind them
+  stand mobile **coat racks** and an open space for backpacks.
 
 **Gaps**
 
-- **Wardrobe counter** in the wardrobe foyer: no photo yet (it is behind the tables of #28).
-- **Lift**: only the outside of the red core is seen, with no doors, call panel or car.
+- **Coat racks / backpack area** behind the tables of #28: no photo yet.
+- **Lift**: only the outside of the red core is seen. If robots ride it (Biggy cannot take stairs),
+  the lift doors and the inside of the cabin would help.
 - **Sala B split in two with the temporary walls closed**, seen from inside. #46 comes close.
 - **Sala C1/C2/C3 one at a time.**
 - **Atrio C** and the Sala C/D rooms only appear in the January 2020 shoot.
