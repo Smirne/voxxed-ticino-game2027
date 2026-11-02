@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palazzo plan check</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #f4f4f0; font: 13px/1.4 system-ui, sans-serif; color: #222; overflow: hidden; }
+      canvas { display: block; width: 100vw; height: 100vh; cursor: crosshair; }
+      #panel { position: fixed; top: 10px; left: 10px; background: rgba(255,255,255,.94); border: 1px solid #ccc; border-radius: 6px; padding: 10px 12px; max-width: 330px; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+      #panel h1 { font-size: 14px; margin: 0 0 6px; }
+      #panel label { display: block; margin: 3px 0; }
+      #panel .row { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0; }
+      #panel button { font: inherit; padding: 3px 8px; border: 1px solid #999; border-radius: 4px; background: #fff; cursor: pointer; }
+      #panel button.on { background: #234; color: #fff; border-color: #234; }
+      #panel small { color: #666; }
+      #coords { position: fixed; bottom: 10px; left: 10px; background: rgba(255,255,255,.9); padding: 4px 8px; border-radius: 4px; font-family: ui-monospace, monospace; }
+      #rooms { max-height: 34vh; overflow: auto; margin-top: 6px; border-top: 1px solid #ddd; padding-top: 6px; font-size: 12px; }
+      #rooms div { display: flex; justify-content: space-between; gap: 8px; cursor: pointer; }
+      #rooms .bad { color: #b00; }
+    </style>
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <div id="panel">
+      <h1>Palazzo dei Congressi — plan check</h1>
+      <div class="row" id="floors"></div>
+      <div class="row" id="robots"></div>
+      <label>Drawing <input id="plan" type="range" min="0" max="100" value="55" /></label>
+      <label><input id="trace" type="checkbox" /> vector trace</label>
+      <label><input id="follow" type="checkbox" checked /> follow robot</label>
+      <div class="row" id="folding"></div>
+      <small>Arrows/WASD drive · 1 2 3 robot · G floor · drag to pan · wheel to zoom</small>
+      <div id="rooms"></div>
+    </div>
+    <div id="coords"></div>
+    <script type="module" src="/src/plan/main.ts"></script>
+  </body>
+</html>
