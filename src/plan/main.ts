@@ -7,7 +7,7 @@
 import { DEFS } from '../sim/constants';
 import { createSandbox } from '../sim/sandbox';
 import { m } from '../sim/units';
-import { polyArea, type FloorPlan, type P } from '../sim/venue';
+import { inPoly, polyArea, type FloorPlan, type P } from '../sim/venue';
 import type { RobotKind, Wall } from '../sim/types';
 import groundPng from '../../plans/ground-floor.png';
 import firstPng from '../../plans/first-floor.png';
@@ -126,7 +126,8 @@ cv.addEventListener('pointerdown', (e) => {
 addEventListener('pointerup', () => (drag = null));
 cv.addEventListener('pointermove', (e) => {
   const [wx, wy] = toWorld(e.clientX * devicePixelRatio, e.clientY * devicePixelRatio);
-  $('coords').textContent = `x ${wx.toFixed(2)} m   y ${wy.toFixed(2)} m   (${sb.floor.id} floor)`;
+  const zone = sb.floor.zones.find((z) => inPoly(wx, wy, z.poly));
+  $('coords').textContent = `x ${wx.toFixed(2)} m   y ${wy.toFixed(2)} m   (${sb.floor.id} floor)${zone ? '   · ' + zone.note : ''}`;
   if (!drag) return;
   view.x -= ((e.clientX - drag[0]) * devicePixelRatio) / view.scale;
   view.y -= ((e.clientY - drag[1]) * devicePixelRatio) / view.scale;
@@ -192,6 +193,17 @@ function draw(): void {
     path(r.poly, true);
     ctx.fillStyle = r.public ? 'rgba(60,130,220,.10)' : 'rgba(120,120,120,.22)';
     ctx.fill();
+  }
+  // Conference zones (Michele's sketch): booths red, buffet green.
+  for (const z of f.zones) {
+    path(z.poly, true);
+    ctx.fillStyle = z.kind === 'booths' ? 'rgba(220,40,40,.10)' : 'rgba(40,170,70,.12)';
+    ctx.fill();
+    ctx.strokeStyle = z.kind === 'booths' ? '#d22' : '#2a2';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([10, 6]);
+    ctx.stroke();
+    ctx.setLineDash([]);
   }
   // Stairs, steps, lifts.
   for (const s of f.stairs) {
@@ -272,6 +284,20 @@ function frame(now: number): void {
   draw();
   requestAnimationFrame(frame);
 }
+
+/*
+ * A position you can send someone: ?floor=first&x=52&y=48&z=30 opens there,
+ * follow off. Handy for "this wall is wrong" and for review screenshots.
+ */
+const q = new URLSearchParams(location.search);
+if (q.get('floor') === 'first') sb.setFloor('first');
+if (q.has('x') && q.has('y')) {
+  $<HTMLInputElement>('follow').checked = false;
+  view.x = Number(q.get('x'));
+  view.y = Number(q.get('y'));
+}
+if (q.has('z')) view.scale = Number(q.get('z')) * devicePixelRatio;
+if (q.has('plan')) $<HTMLInputElement>('plan').value = q.get('plan')!;
 
 panel();
 requestAnimationFrame(frame);

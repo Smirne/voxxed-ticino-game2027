@@ -54,9 +54,9 @@ stairs and cores, the goods lift.
 
 ### Calls made while digitising — confirm or overrule
 
-- **Sala E has no public route from the main foyer.** On the drawing it opens only onto its own
-  Atrio E (secondary entrance, to the outside); from inside you would cross the restaurant or kitchen.
-  Atrio E has a lift up to Atrio C. As digitised, Sala E is reachable only by that lift.
+- **Sala E is out of scope** (Michele, 2 Nov 2026: *"leave that out, it's small and not so
+  relevant"*). On site it is reached from the secondary entrance or by the east stair down from
+  Atrio C; here Sala E and its atrium are `public: false` and the east lift door is shut.
 - **The bridge over the main entrance (`bridge-a`, first floor)** has no drawn opening to Sala A, and
   B1's only door onto it is a 0.9 m leaf. Kept closed, not public.
 - **Sala A stage steps** are not drawn on the plan; two 1.5 m flights were added at the stage front
@@ -69,6 +69,17 @@ stairs and cores, the goods lift.
   terraces off C1, C3 and D) and recorded as `exit` doors.
 - **Balcony stair directions** are inferred from the treads, not from printed arrows.
 - **WC / Tel** are only arrows on the plan; no room was invented for them.
+
+## How Voxxed Days Ticino uses it
+
+Michele marked it on the ground plan (`plans/PCL_PT_zones-michele.pdf`, 2 Nov 2026), traced into
+`GROUND.zones`:
+
+- **Sponsor booths (red):** Atrio/Foyer principale and Foyer Villa Ciani, from the entrance hall up
+  to the Villa Ciani corridor. All booths go here — WellD's included.
+- **Buffet / refreshments (green):** the west foyer beside Sala A (marked "2": a booth sometimes
+  stands there too) and the wardrobe foyer.
+- Talks: Sala A (keynotes, with its balcony) and the first-floor rooms.
 
 ## What the robots' size means here
 
@@ -83,6 +94,5 @@ robot's voice explaining why).
   H. 7.00 m) bound it. `STOREY_H_M` is still Kinepolis's 5.5 m.
 - **Steps between foyers.** The ground floor has several flights of `GRADINI / STEPS` between the
   foyers; their rise is not printed. They are marked as steps, not yet as height plates.
-- **Which rooms Voxxed Days Ticino uses**, and where the sponsor booths stand.
 - **The corridor to Villa Ciani**: in or out of scope? (Digitised as a stub up to the link door.)
 - **Main stair top landing** north of the façade line (y 23.3–24.7) is outside the model.

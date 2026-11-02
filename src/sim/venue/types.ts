@@ -80,6 +80,18 @@ export interface VenueStair {
   to: string;
 }
 
+/**
+ * An area of the floor with a use during the conference — where the sponsor booths
+ * stand, where the buffet is laid out. Hand-drawn by Michele on the plan
+ * (`plans/PCL_PT_zones-michele.pdf`), so the outline is a sketch, not a wall.
+ */
+export interface VenueZone {
+  id: string;
+  kind: 'booths' | 'buffet';
+  poly: P[];
+  note?: string;
+}
+
 export interface FloorPlan {
   id: 'ground' | 'first';
   /** Which PDF in `plans/` this was measured from. */
@@ -89,6 +101,7 @@ export interface FloorPlan {
   doors: VenueDoor[];
   rooms: VenueRoom[];
   stairs: VenueStair[];
+  zones: VenueZone[];
 }
 
 /** Default wall thickness: the drawing's double wall lines are ~0.3 m apart. */

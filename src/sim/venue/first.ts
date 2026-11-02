@@ -54,7 +54,8 @@ export const FIRST: FloorPlan = {
     { kind: 'glass', pts: [[97.12, 32.08], [97.12, 33.51]] },
     // Atrio C south: service corridor door and stair core kept shut
     { pts: [[97.12, 33.51], [97.12, 34.92], [100.10, 34.89], [100.30, 35.21], [104.14, 35.21]] },
-    { pts: [[104.97, 35.21], [105.36, 35.21]] },
+    // East lift door shut: it serves Sala E, left out of scope (Michele, 2 Nov 2026).
+    { pts: [[104.14, 35.21], [105.36, 35.21]] },
     // Sala D west wall, door 30.28-31.17
     { pts: [[105.36, 28.16], [105.36, 30.26]] },
     { pts: [[105.36, 31.17], [105.36, 35.21]] },
@@ -123,7 +124,6 @@ export const FIRST: FloorPlan = {
     { id: 'door-c3', kind: 'door', a: [104.00, 27.64], b: [105.14, 27.64] },
     { id: 'door-d', kind: 'door', a: [105.36, 30.26], b: [105.36, 31.17] },
     { id: 'lift-main-door', kind: 'door', a: [68.40, 31.91], b: [68.40, 32.71] },
-    { id: 'lift-east-door', kind: 'door', a: [104.14, 35.21], b: [104.97, 35.21] },
     { id: 'door-balcony-seats', kind: 'door', a: [20.70, 34.00], b: [21.70, 34.00] },
     { id: 'door-galleria', kind: 'door', a: [32.36, 35.01], b: [33.40, 35.75] },
     { id: 'exit-b1-west', kind: 'exit', a: [59.24, 45.68], b: [59.24, 46.57] },
@@ -160,8 +160,8 @@ export const FIRST: FloorPlan = {
   stairs: [
     { id: 'main-stair', kind: 'stair', from: 'foyer-principale', to: 'atrio-b', poly: [[62.45, 24.84], [68.08, 24.84], [68.08, 29.76], [62.45, 29.76]] },
     { id: 'lift-main', kind: 'lift', from: 'foyer-principale', to: 'atrio-b', poly: [[66.50, 31.56], [68.19, 31.56], [68.19, 33.06], [66.50, 33.06]] },
-    { id: 'lift-east', kind: 'lift', from: 'atrio-e', to: 'atrio-c', poly: [[103.59, 35.42], [105.19, 35.42], [105.19, 37.21], [103.59, 37.21]] },
     { id: 'balcony-stair-east', kind: 'stair', from: 'foyer-principale', to: 'sala-a-balcony', poly: [[36.83, 33.98], [39.76, 35.66], [38.27, 38.26], [35.30, 36.64]] },
     { id: 'balcony-stair-west', kind: 'stair', from: 'foyer-west', to: 'sala-a-balcony', poly: [[12.43, 31.05], [15.50, 28.67], [16.96, 31.22], [13.73, 33.31]] },
   ],
+  zones: [],
 };
