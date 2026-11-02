@@ -736,10 +736,11 @@ Answers to the review questions, as given:
 - **For the game, Sala B has chairs and splits with temporary walls** set under the lower arches
   (the arched girders). At Voxxed the usual form is **B1+B2 merged** (#44), with B3 separate (#47);
   B2 alone (#9) is rare. #6–8 show the full space, #46 is probably B1.
-- **The podium faces a different way per section:** in B1 (also merged with B2) it is on the **east**
-  side, in B2 alone and in B3 on the **north** side, "presuming parking is north" (Michele's
-  words). In `docs/venue.md`'s frame the park and lake are north and Piazza Indipendenza is south,
-  so check his "north" against the plan before placing podiums.
+- **Podium side per section**, in `docs/venue.md`'s frame (north = park and lake, south = Piazza
+  Indipendenza and the car park). Sala B is on the building's south side. The podium is on the
+  **west** side of **B1** (also when B1 and B2 are merged), and on the **south** side of **B2**
+  (alone) and **B3**. Michele first answered with the car park as "north"; restated in the plan's
+  frame on 2 Nov 2026, which is the one to use.
 - **The counter under the painting is the conference reception** (badges), not the wardrobe.
   **The wardrobe is in catering area 1** (`foyer-wardrobe`): no counter, just coat racks and backpack
   space behind the tables.
