@@ -1,3 +1,12 @@
+> **Carried over from After Dark (Devoxx Belgium 2026) — read this first.**
+> The decision below was made on the Kinepolis build and still holds here: one scale,
+> `PX_PER_M = 12.5`, and the frozen speeds and radii it produced. What changed for the
+> Palazzo dei Congressi: the venue is digitised **at true scale** in metres off the 1:200
+> plans (`docs/venue.md`), so the prototype's ×1.25 corridor stretch and compressed room
+> depths described below no longer exist. Kinepolis room numbers are history, not geometry.
+> `STOREY_H_M` in `src/sim/units.ts` is still the Kinepolis figure (5.5 m) until the
+> Palazzo's floor-to-floor height is known — see `docs/venue.md`, open questions.
+
 # Scale and units — **decided, 23 Sep 2026** (open question raised 16 Sep)
 
 One scale, `PX_PER_M = 12.5`, for the geometry *and* for the speeds. Room 8 is 383 sim px = 30.6 m,

@@ -1,10 +1,9 @@
 /**
  * Sim pixels -> metres.
  *
- * The Devoxx floor plans are drawn at roughly 10 px/m; the prototype stretches the
- * corridor axis x1.25 and compresses room depth, so the sim runs at about 12.5 px/m
- * along the corridor (see docs/scale-and-units.md). Room 8 is 383 sim px wide
- * -> 30.6 m, which matches a real Kinepolis auditorium.
+ * One scale, inherited from After Dark (docs/scale-and-units.md), where the frozen
+ * speeds and radii were measured against it. The Palazzo dei Congressi is digitised
+ * in true metres (src/sim/venue) and converted with `px()` on the way in.
  *
  * The sim computes in pixels — every physics constant, every wall, every radius —
  * and only ever converts on the way OUT: the renderer places rigs in metres, and a
@@ -49,5 +48,8 @@ export const ROBOT_HEIGHT_M = Object.freeze({
   biggy: 1.45,
 });
 
-/** Storey height from the exhibition-hall floor to the cinema corridor, metres. */
+/**
+ * Storey height, metres. Still Kinepolis's (exhibition hall to cinema corridor):
+ * the Palazzo's floor-to-floor height is not on the 1:200 plans. See docs/venue.md.
+ */
 export const STOREY_H_M = 5.5;
