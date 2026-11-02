@@ -5,9 +5,10 @@
  * wrong place" before anything is built on it.
  *
  * Each robot is on a floor of its own; the view shows one floor. A robot that
- * walks fully onto a stair or into a lift that changes floor comes out on the
- * other floor at the same spot (the two drawings share one registration), and
- * the view follows the active robot.
+ * walks onto a stair or into a lift that changes floor (its centre 0.3 m in)
+ * comes out on the other floor at the same spot (the two drawings share one
+ * registration), and the view follows the active robot. To go back it steps
+ * off the stair and on again.
  *
  * Headless, like everything in `src/sim`; `src/plan` only draws it.
  */
@@ -65,8 +66,11 @@ function distToSeg([x, y]: P, [ax, ay]: P, [bx, by]: P): number {
   return Math.hypot(x - ax - t * dx, y - ay - t * dy);
 }
 
-/** The whole disc (centre and radius in metres) lies inside the polygon. */
-function discInside(c: P, r: number, poly: readonly P[]): boolean {
+/** How far onto a stair a robot's centre must be to change floor, metres. */
+const STAIR_DEPTH = 0.3;
+
+/** The point (metres) lies inside the polygon, at least r from its edges. */
+function deepInside(c: P, r: number, poly: readonly P[]): boolean {
   if (!inPoly(c[0], c[1], poly)) return false;
   return poly.every((a, i) => distToSeg(c, a, poly[(i + 1) % poly.length]) >= r);
 }
@@ -137,7 +141,7 @@ export function createSandbox(floorId: FloorId = 'ground'): Sandbox {
       if (!stairs.some((s) => inPoly(c[0], c[1], s.poly))) arrived.delete(b.kind);
       return;
     }
-    const s = stairs.find((q) => discInside(c, m(b.r), q.poly));
+    const s = stairs.find((q) => deepInside(c, STAIR_DEPTH, q.poly));
     if (!s) return;
     const there = otherEnd(s, here)!;
     // Same spot on the other floor if the robot fits there; otherwise the
