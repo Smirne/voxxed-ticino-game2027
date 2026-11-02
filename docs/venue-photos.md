@@ -412,14 +412,14 @@ was viewed while writing its caption.
    - Page: https://www.flickr.com/photos/bejug/54278097646/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54278097646-sala-b.jpg`
-   - A narrower section closed off by the folding wall (back of the picture, dark grey). Big screen on a frame, speaker and lectern under it. Sunlight from the left glazing lands on the blue dotted carpet. High on the left wall, a **band of vertical timber slats** under the folded ceiling. Spotlight bar on the girder. Camera at the back of the section.
+   - A narrower section closed off by the folding wall (back of the picture, dark grey). Big screen on a frame, speaker and lectern under it. Sunlight from the left glazing lands on the blue dotted carpet. High on the left (long) wall, under the folded ceiling: a band of plain white panels above a concrete ledge. On the far right, dark vertical slats at the same height. What the band is: open question for Michele (see #47). Spotlight bar on the girder. Camera at the back of the section.
 
 47. **`sala-b`: Sala B, full room from the back, timber gallery screen**
    - Image: https://live.staticflickr.com/65535/54277217722_6a909c1828_b.jpg
    - Page: https://www.flickr.com/photos/bejug/54277217722/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54277217722-sala-b.jpg`
-   - From the back of the opened-up room. At top left, a high **timber-slatted balustrade/screen** runs along the end wall under the roof (a gallery or technical walkway: check the plan). Grey pleated curtains below, blue carpet, the screen at the far end (Voxxed slide). The folded roof plates have warm linear light, the arched girder crosses diagonally.
+   - From the back of the opened-up room. At top left, a high row of **pale vertical slats** (timber or painted metal fins) runs along the top of the long wall under the roof, on a concrete ledge. It could be a balustrade to a gallery or walkway, a screen in front of clerestory glazing to Atrio B, or cladding: open question for Michele. Grey pleated curtains below, blue carpet, the screen at the far end (Voxxed slide). The folded roof plates have warm linear light, the arched girder crosses diagonally.
 
 48. **`sala-b`: Sala B empty (luganoregion)**
    - Image: https://cdn.sanity.io/images/z6ahwmgv/production/bc9da8152fbfce3962c46bf48a781d03fb2123a8-1024x768.jpg
