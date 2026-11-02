@@ -44,3 +44,51 @@ the stage. These are kept as the building's own gates, not geometry bugs.
 
 **Open for Michele:** the calls listed in `docs/venue.md` (Sala E access, the bridge, stage steps,
 seat blocks, exits).
+
+## 2 Nov 2026: venue photos (local session, Claude Code desktop)
+
+**Asked.** Michele: collect reference photos of the Palazzo (interior first, rooms with no coverage),
+link and caption them for a 3D artist, never commit web photos; find out what the virtual tour is.
+
+**What the agent did.**
+- The network was open in this session. Scraped the Lugano Conventions room pages (full-size
+  originals behind the resized gallery copies, several 6720 px wide). Found the "virtual tour" is
+  four **Matterport** models (building, Sala A, stage, Sala B), and listed their direct URLs.
+- **One subagent** searched the other sources in parallel: Commons, Flickr, luganoregion, lugano.ch,
+  swiss-congress, myswitzerland, and the official Voxxed Days Ticino Flickr albums (the richest
+  source: Sala B and the foyers in use). Commons had **one** photo of the building (CC BY 3.0), the only
+  image committed (`media/venue/`).
+- Captioned 76 photos for a 3D artist after looking at each (surfaces, light temperature, signage,
+  glazing, camera position). Cropping at full resolution read the room signs: dark-brown squares with
+  white **serif** capitals.
+- Built throwaway local review pages (gitignored) with keep/drop buttons and a questions-only page,
+  so Michele could answer 9 questions instead of scanning 76 photos. Drew boxes on photos when asked
+  "highlight this", and a plan crop with the traced `wardrobe-counter` line over the 1:200 drawing.
+- Stepped through Lugano Convention's 24 s promo video in the browser pane (seeking the `<video>`
+  element) instead of asking for screenshots.
+- Created `main` (the repo only had the auto-named `claude/funny-bohr-98o502`), made it the default,
+  opened PR #1.
+
+**Mistakes, caught.**
+- The subagent filed a Sala E photo as Sala D; the agent caught it from the plaster relief. The
+  agent then renamed files in the doc but not on disk, so two cards showed no image; Michele noticed.
+- The agent called a band of white panels in Sala B "timber slats" from a thumbnail; drawing the
+  highlight box at full size showed it was wrong. Fixed in the doc.
+- Room ids: the agent labelled the sunken area by the Ciani bar `foyer-west` and Michele okayed it,
+  but the digitisation already uses `foyer-west` for the foyer along Sala A. Checking the answers
+  against `src/sim/venue/ground.ts` caught the clash; Michele chose to keep the plan's ids.
+- Michele answered the podium question with the car park as "north"; restated in the plan's frame.
+
+**Human decisions.** Sala B ceiling is concrete; the high slats are cladding, no robot up there.
+The counter under the painting is the reception (badges); the wardrobe is tables with coat racks
+behind. Two stairs reach the Sala A balcony (both already in the plan). Sala D is the speakers' room.
+Build the lift core red. Keep the Sala E photos. Villa Ciani foyer and corridor: not needed. Voxxed
+layout: B1+B2 merged, **B3 the only closed-off section**; podium west in B1, south in B2 and B3.
+The Sala A balcony is **closed to the public during the conference, but robots may get in**. Work on
+`main` from now on, one PR per step. Storyline and challenges: keep After Dark's storyline, recycle
+some challenges and add new ones (folding-wall layouts are a candidate); brainstorm after this phase.
+
+**Rejected / not done.** No photo committed except the CC one; the 2026 Voxxed album says "All Rights
+Reserved" on the album and CC BY-NC-ND on each photo, so treated as all rights reserved. The
+"zones" Michele drew on the first-floor plan stay a raw reference for now (he offered to help trace
+them properly). Merging PR #1 was left to Michele (the agent's merge was blocked as unreviewed).
