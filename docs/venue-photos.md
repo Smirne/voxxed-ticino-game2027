@@ -50,7 +50,7 @@ Ours, so committed. Captions say what a 3D build can take from each.
 | `2019-10-05 08.31.14.jpg` | foyer-principale (booths) | Wide, before doors open: WellD booth under the **large colourful figurative painting** on the concrete wall, the stair with blue rail rising left-to-right behind it, a small bronze sculpture on the landing, red curtain at a doorway far right, high-table bar further back. Light from the glazing on the right. |
 | `2019-10-05 08.31.21.jpg` | foyer-principale (booths) | Same booth from the side: painting, pillar, stair rail, red curtain at the Sala A doorway, coffered concrete ceiling. |
 | `2019-10-05 08.58.35.jpg` | foyer-principale → entrance | Crowd coming in under the low entrance ceiling (H 2.80 m on the plan, recessed downlights), opening into the tall foyer; glazing left and right. |
-| `2019-10-05 09.23.16.jpg` | a talk room (likely Sala B: flat floor, chairs in rows) | Opening keynote slide with the sponsors (WellD among them); dark slatted timber ceiling with deep beams, track spotlights, projection screen, curtains on the left wall. |
+| `2019-10-05 09.23.16.jpg` | a talk room (likely Sala B: flat floor, chairs in rows) | Opening keynote slide with the sponsors (WellD among them); ceiling with deep beams (concrete, Michele 2 Nov 2026: "mostly concrete, maybe some wooden parts"), track spotlights, projection screen, curtains on the left wall. |
 | `2019-10-05 10.06.51.jpg` | foyer-principale (booths) | Booth crowd at the break, red Voxxed Days bags; pillar and tall glazing. |
 | `2019-10-05 10.08.56.jpg` | foyer-principale, looking up | Booth crowd with the first-floor gallery behind: **blue-clad lift shaft**, glass balustrade along the upper level, tall windows. |
 | `2019-10-05 12.55.12.jpg` | foyer-principale (booths) | The WellD booth at midday, nearly empty foyer: painting, stair, pillar, the full depth of the hall to the far glazing; the steps (`GRADINI`) edge visible bottom right. |
@@ -133,7 +133,7 @@ is out of scope.
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi/sala-b
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-igorg_200125_pcl-15_1.jpg`
-   - Floor: navy/blue-grey carpet with a fine grid of light dots, wall to wall. Ceiling: the folded roof, V-shaped board-marked concrete plates, with a warm (~3000 K) linear LED along every fold, so the ceiling reads as glowing ribs. A black steel lattice lighting truss hangs below in a rectangle. Left wall: continuous floor-to-ceiling glazing behind white sheers, square concrete columns on the glass line. Far wall: beige pleated curtains. Right: a folding acoustic partition stacked in its pocket (pale grey accordion panels). Camera in one corner, looking diagonally down the full 38 m length.
+   - Floor: navy/blue-grey carpet with a fine grid of light dots, wall to wall. Ceiling: the folded roof, V-shaped board-marked concrete plates, with a warm (~3000 K) linear LED along every fold, so the ceiling reads as glowing ribs. A black steel lattice lighting truss hangs below in a rectangle. Left wall: continuous floor-to-ceiling glazing behind white sheers, square concrete columns on the glass line. Far wall: beige pleated curtains. Right: a folding acoustic partition stacked in its pocket (pale grey accordion panels). Camera in one corner, looking diagonally down the full 38 m length. **Michele (2 Nov 2026):** for the game the room has chairs and splits in two with temporary walls.
 
 7. **`sala-b`: Sala B, opposite corner, the arched girder**
    - Image: https://www.luganoconventions.com/system/files/2020-03/IGORG_200125_PCL-17.jpg
@@ -149,26 +149,26 @@ is out of scope.
    - Local: `media/reference/lc-igorg_200125_pcl-18.jpg`
    - Light-grey granite floor margin in the right foreground meets the carpet. Pale accordion partition right. A low dark-grey soffit with recessed downlights runs along the left (the lower ceiling on the foyer side), and the arched girder with its spotlight bars crosses overhead. Doors at the far end open to the bright foyer. Camera looks diagonally across the hall.
 
-9. **`sala-b`: probable Sala B section, talk in progress**
+9. **`sala-b2`: Sala B2, talk in progress**
    - Image: https://www.luganoconventions.com/system/files/2020-06/DSC_0391%20-%20Copia.jpg
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-dsc_0391---copia.jpg`
-   - Speaker at a white lectern under a big white screen. Behind: pale pleated beige curtains, a pale accordion folding wall on the left with a black column speaker, and a board-marked concrete beam with a dark recess above, all matching Sala B's detailing. Audience on beech plywood chairs. Camera in the audience looking at the stage end. Room inferred from the detailing, not captioned by the site.
+   - Speaker at a white lectern under a big white screen. Behind: pale pleated beige curtains, a pale accordion folding wall on the left with a black column speaker, and a board-marked concrete beam with a dark recess above, all matching Sala B's detailing. Audience on beech plywood chairs. Camera in the audience looking at the stage end. Room inferred from the detailing, not captioned by the site. **Michele (2 Nov 2026):** B2.
 
 10. **`atrio-b`: Atrio B gallery, current colours (red core)**
    - Image: https://www.luganoconventions.com/system/files/images/Atrio%20B_0.jpg
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi/atri-foyer
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-atrio-b_0.jpg`
-   - Long first-floor gallery outside Sala B. Floor: polished pale grey speckled stone/terrazzo. Left: Sala B's glazed partitions and doors (black steel frames) and two black freestanding portrait digital-signage totems. Right: square board-marked concrete columns, then floor-to-ceiling glazing onto greenery/terrace with white sheers. Ceiling: folded board-marked concrete with warm cove light and a spotlight track. At the far end a **glossy red-clad box** with white joint lines (the stair/lift core), under a black sign with white pictograms. In the January 2020 shoot (#11) this core is **blue**, so it has been re-clad red since. Camera at one end looking down the gallery.
+   - Long first-floor gallery outside Sala B. Floor: polished pale grey speckled stone/terrazzo. Left: Sala B's glazed partitions and doors (black steel frames) and two black freestanding portrait digital-signage totems. Right: square board-marked concrete columns, then floor-to-ceiling glazing onto greenery/terrace with white sheers. Ceiling: folded board-marked concrete with warm cove light and a spotlight track. At the far end a **glossy red-clad box** with white joint lines (the stair/lift core), under a black sign with white pictograms. In the January 2020 shoot (#11) this core is **blue**, so it has been re-clad red since. Camera at one end looking down the gallery. **Michele (2 Nov 2026):** build the core **red**.
 
 11. **`atrio-b`: Atrio B gallery, 2020 (blue core)**
    - Image: https://www.luganoconventions.com/system/files/2020-03/IGORG_200125_PCL-14.jpg
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi/sala-b
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-igorg_200125_pcl-14.jpg`
-   - Same gallery in 2020. Left: sliding glass doors into Sala B (wood-slat wall and grey carpet visible inside), black mullions, a square sign with a white **B** on a dark ground. Right: frosted/curtained glazing and square concrete columns. Floor: pinkish-beige speckled granite. Ceiling: deep folded concrete coffers with warm uplight in the folds and spots on a rail. The far end shows the blue-clad core and daylight. Steel bins.
+   - Same gallery in 2020. Left: sliding glass doors into Sala B (wood-slat wall and grey carpet visible inside), black mullions, a square sign with a white **B** on a dark ground. Right: frosted/curtained glazing and square concrete columns. Floor: pinkish-beige speckled granite. Ceiling: deep folded concrete coffers with warm uplight in the folds and spots on a rail. The far end shows the blue-clad core and daylight. Steel bins. (Historic colour: the game uses red, see #10.)
 
 12. **`atrio-b`: Atrio B, park side**
    - Image: https://www.luganoconventions.com/system/files/2020-03/IGORG_200125_PCL-19_1.jpg
@@ -288,12 +288,12 @@ is out of scope.
 
 #### Ground-floor foyers, main stair
 
-28. **`foyer-west`: Ground-floor foyer at the restaurant end**
+28. **`foyer-wardrobe`: Sunken foyer in front of the Ciani bar**
    - Image: https://www.luganoconventions.com/system/files/2020-03/IGORG_200125_PCL-22_0.jpg
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi/atri-foyer
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-igorg_200125_pcl-22_0.jpg`
-   - A sunken rectangular field of charcoal speckled carpet, framed by light granite edging with double black anti-slip strips on the steps down. Ceiling: dark sprayed/exposed-aggregate concrete with round downlights and suspended linear LED bars (neutral). Square board-marked columns. Back wall: the glazed front of **"CIANI LUGANO – Ristorante | Vinoteca | Lounge Bar | Catering & Eventi"** (black fascia, white sans-serif lettering, a red-lit wine wall). Beside it, a **white panelled counter in a dark-grey frame, shuttered** (a bar or service counter, not the wardrobe: see #56). Tall white service-cupboard doors on the right. Benches and street-side glazing far right (parked cars). Camera looks across the foyer from beside a column. Same space as #58. Room id is a best guess: this is the restaurant / Villa Ciani end of the ground floor, i.e. west in the world frame of `docs/venue.md`.
+   - A sunken rectangular field of charcoal speckled carpet, framed by light granite edging with double black anti-slip strips on the steps down. Ceiling: dark sprayed/exposed-aggregate concrete with round downlights and suspended linear LED bars (neutral). Square board-marked columns. Back wall: the glazed front of **"CIANI LUGANO – Ristorante | Vinoteca | Lounge Bar | Catering & Eventi"** (black fascia, white sans-serif lettering, a red-lit wine wall). Beside it, a **white panelled counter in a dark-grey frame, shuttered** (a catering counter, shut during the conference). Tall white service-cupboard doors on the right. Benches and street-side glazing far right (parked cars). Camera looks across the foyer from beside a column. Same space as #58. Room id from the digitisation: this sunken area (`steps-wardrobe` lead down to it from the main foyer) lies inside the plan's `foyer-wardrobe` outline, beside `foyer-bar` and the restaurant at the east end. **Michele (2 Nov 2026):** the tables here separate it from the wardrobe proper; the white shuttered counter stays shut during the conference (catering use only). He okayed calling this "foyer west", but the plan's `foyer-west` is the Sala A side foyer (#32, #33, #63): see Decisions.
 
 29. **`foyer-principale`: Main stair from the top, looking down**
    - Image: https://www.luganoconventions.com/system/files/images/Atrio%20scale.jpg
@@ -314,28 +314,28 @@ is out of scope.
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi (and /atri-foyer)
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-atrio-principale_0.jpg`
-   - Vast faceted concrete ceiling (folded slab on square columns). Polished light stone floor with a stepped band of black anti-slip strips. Left: full-height curtain wall onto Parco Ciani / the forecourt, with doors. Back wall: board-marked concrete with a large colourful figurative painting (reds and blues), a long black panel over a recessed counter (the wardrobe/cashier counter, see #56 and #57), and a stone stair with a steel handrail rising right to an upper landing. A red curtain glimpse at far right (Sala A). Warm wall-washer spots on the concrete plus daylight.
+   - Vast faceted concrete ceiling (folded slab on square columns). Polished light stone floor with a stepped band of black anti-slip strips. Left: full-height curtain wall onto Parco Ciani / the forecourt, with doors. Back wall: board-marked concrete with a large colourful figurative painting (reds and blues), a long black panel over a recessed counter (the reception / badge counter, see #56 and #57), and a stone stair with a steel handrail rising right to an upper landing. A red curtain glimpse at far right (Sala A). Warm wall-washer spots on the concrete plus daylight. The recessed counter under the painting is the conference **reception**, where badges are collected (Michele).
 
-32. **`foyer-principale`: Sala A foyer along the red curtain**
+32. **`foyer-west`: Sala A foyer along the red curtain**
    - Image: https://www.luganoconventions.com/system/files/images/Atrio%20A.jpg
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi/atri-foyer
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-atrio-a.jpg`
-   - Wide, low foyer along Sala A. Floor: speckled grey. Ceiling: faceted board-marked concrete (the underside of Sala A's rake). A fat round concrete column on an octagonal plinth. Left: a faceted wall of full-height glazing with white sheer blinds onto the park (stone steps outside). Right: a full-length **deep-red velvet curtain** lit by a warm cove strip, along the Sala A wall. A couple of shallow steps mid-distance, daylight at the far end. Camera looks along the foyer.
+   - Wide, low foyer along Sala A. Floor: speckled grey. Ceiling: faceted board-marked concrete (the underside of Sala A's rake). A fat round concrete column on an octagonal plinth. Left: a faceted wall of full-height glazing with white sheer blinds onto the park (stone steps outside). Right: a full-length **deep-red velvet curtain** lit by a warm cove strip, along the Sala A wall. A couple of shallow steps mid-distance, daylight at the far end. Camera looks along the foyer. Room id per the digitisation: the park-side foyer along Sala A is the plan's `foyer-west`.
 
-33. **`foyer-principale`: Sala A foyer under the rake, park light**
+33. **`foyer-west`: Sala A foyer under the rake, park light**
    - Image: https://www.luganoconventions.com/system/files/2020-04/IGORG_200125_PCL-26.jpg
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi (also /sala-a)
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-igorg_200125_pcl-26.jpg`
-   - A heavy exposed-aggregate concrete soffit overhead, with a warm linear light strip beneath. Speckled grey floor. Right: bright full-height glazing with white sheers onto Parco Ciani; sunlight casts stripes, outdoor stone steps beyond. Left: red velvet curtain at a Sala A door. A stair up at the far end. Camera looks along the foyer towards the park.
+   - A heavy exposed-aggregate concrete soffit overhead, with a warm linear light strip beneath. Speckled grey floor. Right: bright full-height glazing with white sheers onto Parco Ciani; sunlight casts stripes, outdoor stone steps beyond. Left: red velvet curtain at a Sala A door. A stair up at the far end. Camera looks along the foyer towards the park. Room id per the digitisation (`foyer-west`).
 
-34. **`sala-a-balcony`: Raised landing in the Sala A foyer (balcony route?)**
+34. **`sala-a-balcony`: Landing at the top of the east balcony stair**
    - Image: https://www.luganoconventions.com/system/files/images/Foyer%20A.jpg
    - Page: https://www.luganoconventions.com/it/strutture/palazzo-congressi/atri-foyer
    - Credit / licence: "Credits: Eventi e congressi, Città di Lugano"; no licence stated
    - Local: `media/reference/lc-foyer-a.jpg`
-   - Camera on a raised landing or ramp with a low concrete parapet capped in timber (left), looking down into a low foyer. Speckled grey floor, a single board-marked column on an octagonal plinth, a faceted concrete soffit just overhead, a curved wall of full-height glazing with white roller sheers onto the park (concrete amphitheatre steps outside, trees). Right: glazing onto a paved outdoor court. Small square niches in the concrete wall on the left. **To verify on the plan**: whether this is the route up to the Sala A balcony doors.
+   - Camera on a raised landing or ramp with a low concrete parapet capped in timber (left), looking down into a low foyer. Speckled grey floor, a single board-marked column on an octagonal plinth, a faceted concrete soffit just overhead, a curved wall of full-height glazing with white roller sheers onto the park (concrete amphitheatre steps outside, trees). Right: glazing onto a paved outdoor court. Small square niches in the concrete wall on the left. **Michele (2 Nov 2026):** this is the upper part of the stair in the video frame (the roped stair up the painting wall, `balcony-stair-east`), taken through the door on the upper floor, beyond the column.
 
 #### Sala A (only what is new: balcony, stage steps, aisles)
 
@@ -428,19 +428,19 @@ was viewed while writing its caption.
    - Local: `media/reference/vx-2025-54278348318-sala-b.jpg`
    - Full house facing a big front-projection screen on the left wall. The arched steel girder and the board-marked concrete roof ribs with warm light between them. Dark grey curtains all round. At the far right end a glass door to the foyer shows bright daylight (an exit). Beech chairs. Camera in the audience looking diagonally.
 
-46. **`sala-b`: One section of Sala B (B2 or B3), sunlit**
+46. **`sala-b`: One section of Sala B, sunlit**
    - Image: https://live.staticflickr.com/65535/54278097646_d271df75b8_b.jpg
    - Page: https://www.flickr.com/photos/bejug/54278097646/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54278097646-sala-b.jpg`
-   - A narrower section closed off by the folding wall (back of the picture, dark grey). Big screen on a frame, speaker and lectern under it. Sunlight from the left glazing lands on the blue dotted carpet. High on the left (long) wall, under the folded ceiling: a band of plain white panels above a concrete ledge. On the far right, dark vertical slats at the same height. What the band is: open question for Michele (see #47). Spotlight bar on the girder. Camera at the back of the section.
+   - A narrower section closed off by the folding wall (back of the picture, dark grey). Big screen on a frame, speaker and lectern under it. Sunlight from the left glazing lands on the blue dotted carpet. High on the left (long) wall, under the folded ceiling: a band of plain white panels above a concrete ledge. On the far right, dark vertical slats at the same height. What the band is: open question for Michele (see #47). Spotlight bar on the girder. Camera at the back of the section. **Michele (2 Nov 2026):** yes, part of Sala B divided off with temporary walls.
 
 47. **`sala-b`: Sala B, full room from the back, timber gallery screen**
    - Image: https://live.staticflickr.com/65535/54277217722_6a909c1828_b.jpg
    - Page: https://www.flickr.com/photos/bejug/54277217722/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54277217722-sala-b.jpg`
-   - From the back of the opened-up room. At top left, a high row of **pale vertical slats** (timber or painted metal fins) runs along the top of the long wall under the roof, on a concrete ledge. It could be a balustrade to a gallery or walkway, a screen in front of clerestory glazing to Atrio B, or cladding: open question for Michele. Grey pleated curtains below, blue carpet, the screen at the far end (Voxxed slide). The folded roof plates have warm linear light, the arched girder crosses diagonally.
+   - From the back of the opened-up room. At top left, a high row of **pale vertical slats** (timber or painted metal fins) runs along the top of the long wall under the roof, on a concrete ledge. It could be a balustrade to a gallery or walkway, a screen in front of clerestory glazing to Atrio B, or cladding: open question for Michele. Grey pleated curtains below, blue carpet, the screen at the far end (Voxxed slide). The folded roof plates have warm linear light, the arched girder crosses diagonally. **Michele (2 Nov 2026):** probably not walkable, and no robot goes up there: treat it as cladding.
 
 48. **`sala-b`: Sala B empty (luganoregion)**
    - Image: https://cdn.sanity.io/images/z6ahwmgv/production/bc9da8152fbfce3962c46bf48a781d03fb2123a8-1024x768.jpg
@@ -461,7 +461,7 @@ was viewed while writing its caption.
    - Page: https://www.flickr.com/photos/bejug/54278097306/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54278097306-atrio-b.jpg`
-   - Same gallery as #10, in use (motion-blurred walkers). The glossy **red-clad core** with white joint lines stands at the end. Above it the folded concrete ceiling opens to a **skylight/clerestory**. A black portrait signage totem on the left, Sala B's glass doors in black frames. A bronze sculpture on a plinth at far right by the glazing. Green EXIT sign under the soffit, speckled grey floor.
+   - Same gallery as #10, in use (motion-blurred walkers). The glossy **red-clad core** with white joint lines stands at the end. Above it the folded concrete ceiling opens to a **skylight/clerestory**. A black portrait signage totem on the left, Sala B's glass doors in black frames. A bronze sculpture on a plinth at far right by the glazing. Green EXIT sign under the soffit, speckled grey floor. Build this colour (red).
 
 #### Sala C, Sala E, small rooms
 
@@ -472,12 +472,12 @@ was viewed while writing its caption.
    - Local: `media/reference/vx-2025-54278343314-sala-c.jpg`
    - Matches #15. Grey **exposed-aggregate pier** on the right, white ceiling panels with diagonal flush LED lines, a white partition bulkhead with a projector and an EXIT sign across the room, dark grey curtains drawn over the window wall (left). Packed beech chairs, screen at the far end. Camera at the back.
 
-52. **`sala-c1/c2/c3`: Sala C or Sala E in use (uncertain)**
+52. **`sala-e (uncertain)`: Sala E or Sala C in use (uncertain)**
    - Image: https://live.staticflickr.com/65535/54278348988_bbdd54a910_b.jpg
    - Page: https://www.flickr.com/photos/bejug/54278348988/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54278348988-sala-c.jpg`
-   - A flat-floor room with grey curtains on both long walls, a white ceiling with long linear LED lines, and a pale end wall with a screen. No aggregate pier or plaster relief is visible to decide between Sala C and Sala E. Grey dotted carpet, beech chairs.
+   - A flat-floor room with grey curtains on both long walls, a white ceiling with long linear LED lines, and a pale end wall with a screen. No aggregate pier or plaster relief is visible to decide between Sala C and Sala E. Grey dotted carpet, beech chairs. **Michele (2 Nov 2026):** might be Sala E.
 
 53. **`sala-e`: Sala E in use, plaster relief**
    - Image: https://live.staticflickr.com/65535/54278097861_a3e60c876f_b.jpg
@@ -493,35 +493,35 @@ was viewed while writing its caption.
    - Local: `media/reference/vx-2025-54277217867-sala-e.jpg`
    - The plaster relief behind the speaker and wall speakers on brackets identify Sala E, not Sala D. Centre aisle on dark dotted carpet, grey curtains along the left, a white wall right, the stepped ceiling with linear lights. Camera at the back of the aisle.
 
-55. **`sala-c1/c2/c3 or sala-d (uncertain)`: Microphone close-up, window wall (luganoregion)**
+55. **`sala-c1/c2/c3 (probable)`: Microphone close-up, window wall (luganoregion)**
    - Image: https://cdn.sanity.io/images/z6ahwmgv/production/20124c5b7f3e1fb96aee7784aa31bddbf6215863-1024x768.jpg
    - Page: https://www.luganoregion.com/en/venues/details/Lugano-Convention-Centre-/42583.html
    - Credit / licence: not stated (luganoregion.com venue page, images served from its Sanity CDN): link only
    - Local: `media/reference/lr-20124c5b-room-detail.jpg`
-   - Gooseneck mic on a grey-cloth head table, beech chairs out of focus, taupe curtains, full-height glazing with trees beyond. Mood and material reference only.
+   - Gooseneck mic on a grey-cloth head table, beech chairs out of focus, taupe curtains, full-height glazing with trees beyond. Mood and material reference only. **Michele (2 Nov 2026):** probably Sala C. Sala D is the speakers' room at Voxxed, very small.
 
 #### Ground-floor foyers, wardrobe, main stair
 
-56. **`foyer-wardrobe`: Queue at the wardrobe/cashier counter**
+56. **`foyer-principale`: Queue at the reception counter**
    - Image: https://live.staticflickr.com/65535/54277216977_2c784097e8_b.jpg
    - Page: https://www.flickr.com/photos/bejug/54277216977/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54277216977-foyer-wardrobe.jpg`
-   - **The counter.** A long recessed counter under a dark grey fascia, set into a tall board-marked concrete wall with a long black panel above. Inside the recess: a white-lit back wall and a magenta pop-up banner. A queue snakes between chrome stanchions with black belt barriers. Top left: a small light sign with dark-brown squares holding white serif letters (same family as #19), on a concrete beam. Speckled grey stone floor, a green EXIT pictogram, the main stair and gallery parapet at the right edge. This is the wall in #31, so the wardrobe/cashier sits on the main foyer's back wall.
+   - **The counter.** A long recessed counter under a dark grey fascia, set into a tall board-marked concrete wall with a long black panel above. Inside the recess: a white-lit back wall and a magenta pop-up banner. A queue snakes between chrome stanchions with black belt barriers. Top left: a small light sign with dark-brown squares holding white serif letters (same family as #19), on a concrete beam. Speckled grey stone floor, a green EXIT pictogram, the main stair and gallery parapet at the right edge. This is the wall in #31. **Michele (2 Nov 2026):** this is the conference **reception**, where you collect your badge, not the wardrobe. The wardrobe is in catering area 1 (`foyer-wardrobe`).
 
-57. **`foyer-wardrobe`: Main foyer full, counter under the painting**
+57. **`foyer-principale`: Main foyer full, reception counter under the painting**
    - Image: https://live.staticflickr.com/65535/55092290781_e5e8e28d8f_o.jpg
    - Page: https://www.flickr.com/photos/bejug/55092290781/
    - Credit / licence: "© dimitris Doutsiopoulos for Voxxed Days Ticino 2026" (Flickr account `bejug`); photo page states **CC BY-NC-ND 4.0** but the album description says "All Rights Reserved": treat as all rights reserved, link only
    - Local: `media/reference/vx-2026-55092290781-foyer-wardrobe.jpg`
-   - From above, looking at the back wall. The recessed counter (white interior, staff behind it, a fire extinguisher) on the left, the large figurative painting above, the stair with a black handrail going up right, a red curtain (Sala A door) far right. Event banners, white cocktail tables, the crowd. Board-marked concrete wall with soft wall-washing.
+   - From above, looking at the back wall. The recessed counter (white interior, staff behind it, a fire extinguisher) on the left, the large figurative painting above, the stair with a black handrail going up right, a red curtain (Sala A door) far right. Event banners, white cocktail tables, the crowd. Board-marked concrete wall with soft wall-washing. **Michele (2 Nov 2026):** the roped stair here is one of the two ways up to the Sala A balcony (`balcony-stair-east`).
 
-58. **`foyer-west`: Restaurant-end foyer during a break**
+58. **`foyer-wardrobe`: Sunken foyer by the Ciani bar during a break**
    - Image: https://live.staticflickr.com/65535/54278528785_6e0d7dd2e5_b.jpg
    - Page: https://www.flickr.com/photos/bejug/54278528785/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54278528785-foyer-west.jpg`
-   - Same space as #28, full of people. Charcoal speckled carpet, the dark sprayed-concrete ceiling with two long suspended linear LED bars, square aggregate columns, buffet tables in white cloths along the left edge (on the higher stone level), the Ciani lettering on the back wall. Camera looks towards the restaurant.
+   - Same space as #28, full of people. Room id per the digitisation (`foyer-wardrobe`), see #28. Charcoal speckled carpet, the dark sprayed-concrete ceiling with two long suspended linear LED bars, square aggregate columns, buffet tables in white cloths along the left edge (on the higher stone level), the Ciani lettering on the back wall. Camera looks towards the restaurant.
 
 59. **`foyer-principale`: Main foyer, empty: island counter and red core (luganoregion)**
    - Image: https://cdn.sanity.io/images/z6ahwmgv/production/2a5596c3b984d6349c38838b2b3c64bf4b399386-1024x768.jpg
@@ -537,7 +537,7 @@ was viewed while writing its caption.
    - Local: `media/reference/vx-2025-54278343699-foyer-principale.jpg`
    - People on the wide main stair (exposed-aggregate treads). The **bronze sculpture** (a figure with a boat or sail, dark bronze) on the landing, top left, in front of white sheers. Right: close-up of the red cladding (glossy red panels, thin white joints) of the core. A board-marked concrete parapet at the side of the stair.
 
-61. **`foyer-principale`: Lower foyer level, step band, red core behind**
+61. **`foyer-wardrobe`: Lower (sunken) foyer level, step band, red core behind**
    - Image: https://live.staticflickr.com/65535/54278342369_16a3e93d2d_b.jpg
    - Page: https://www.flickr.com/photos/bejug/54278342369/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
@@ -551,12 +551,12 @@ was viewed while writing its caption.
    - Local: `media/reference/vx-2025-54278528750-foyer-principale.jpg`
    - Wide view. A tall clerestory band of glazing under the faceted concrete ceiling (daylight), and the first-floor gallery's concrete band. The ground-floor curtain wall to the forecourt with booths in front. Right: board-marked concrete wall with the black panel over the recessed counter (wardrobe) and a green EXIT sign. White cocktail tables, light stone floor.
 
-63. **`foyer-principale`: Booth by the park glazing, side stair**
+63. **`foyer-west`: Booth by the park glazing, west balcony stair**
    - Image: https://live.staticflickr.com/65535/54278528620_64d49430da_b.jpg
    - Page: https://www.flickr.com/photos/bejug/54278528620/
    - Credit / licence: Devoxx Belgium (Flickr account `bejug`), album "Voxxed Days Ticino 2025"; photo page states **CC BY-NC-ND 2.0**: link only (not Commons)
    - Local: `media/reference/vx-2025-54278528620-foyer-principale.jpg`
-   - A sponsor table (USI) in front of floor-to-ceiling glazing with white sheers (park and steps beyond). Left: a broad **stone side stair** rising behind a board-marked concrete wall. Right: an exposed-aggregate column. Speckled grey carpet-like floor (the Sala A foyer level).
+   - A sponsor table (USI) in front of floor-to-ceiling glazing with white sheers (park and steps beyond). Left: a broad **stone side stair** rising behind a board-marked concrete wall. Right: an exposed-aggregate column. Speckled grey carpet-like floor (the Sala A foyer level). **Michele (2 Nov 2026):** the stair at the back is a way up to the Sala A balcony (`balcony-stair-west`). Room id per the digitisation (`foyer-west`).
 
 64. **`foyer-principale`: Foosball at the foot of the stair**
    - Image: https://live.staticflickr.com/65535/54278342049_fee87bd31a_b.jpg
@@ -708,45 +708,63 @@ and the low entrance ceiling (`08.58.35`).
 
 | Room id | Photos | Entries | Notes |
 |---|---|---|---|
-| `sala-b1` / `sala-b2` / `sala-b3` | 10 | 6–9, 44–49 | No photo is labelled by section. #46 shows one closed-off section. Folding-wall stacks are visible in #6–8 |
-| `atrio-b` | 4 | 10–12, 50 | 2020 (blue core) and 2025 (red core) |
-| `sala-c1` / `sala-c2` / `sala-c3` | 7 (+2 uncertain) | 13–18, 51 (52, 55?) | All show C opened up; no single section on its own |
+| `sala-b1` / `sala-b2` / `sala-b3` | 10 | 6–8, 9 (B2), 44–49 | #46 is one section behind temporary walls; folding-wall stacks in #6–8 |
+| `atrio-b` | 4 | 10–12, 50 | Core red by Jan 2025 (blue in 2019–2020) |
+| `sala-c1` / `sala-c2` / `sala-c3` | 7 (+1 probable) | 13–18, 51 (55) | All show C opened up |
 | `atrio-c` | 2 | 19–20 | Best signage close-up (#19) |
-| `sala-d` | 2 (+1 uncertain) | 21–22 (55?) | |
-| `sala-e` | 7 | 23–27, 53–54 | |
-| `foyer-principale` | 15 | 29–33, 59–68 | Includes the main stair (29, 60, 64) and the red core |
-| `foyer-wardrobe` | 2 | 56–57 | The counter is on the board-marked back wall under the painting |
-| `foyer-west` | 2 | 28, 58 | Restaurant (Ciani) end, sunken carpeted level |
+| `sala-d` | 2 | 21–22 | The speakers' room at Voxxed |
+| `sala-e` | 7 (+1 uncertain) | 23–27, 53–54 (52) | Out of scope for now; kept in case that changes |
+| `foyer-principale` | 13 | 29–31, 56–57, 59–60, 62, 64–68 | Reception counter: 56–57; main stair: 29, 60, 64; roped balcony stair: 57 + video |
+| `foyer-west` | 3 | 32–33, 63 | West balcony stair: 63 |
+| `foyer-wardrobe` | 3 | 28, 58, 61 | Sunken area by the Ciani bar; the wardrobe counter itself not yet photographed |
 | `sala-a` | 7 | 37–40, 69–71 | Stage steps: 39, 69 |
-| `sala-a-balcony` | 4 | 34 (?), 35–36, 72 | Balcony aisles/vomitories: 35 |
-| `foyer-villa-ciani` | 0 | | |
-| `corridoio-villa-ciani` | 0 | | |
+| `sala-a-balcony` | 4 | 34–36, 72 | #34: landing at the top of the east balcony stair |
+| `foyer-villa-ciani`, `corridoio-villa-ciani` | 0 | | Not needed (Michele) |
 | `exterior` | 12 | 41–43, 73–81 | Entrance + sign: 74–76 |
 | **Total** | **76** (64 interior) | | |
 
-Plus four Matterport 3D tours (above): they are the best remaining source for the gaps, with
-the measure tool.
+Plus the four Matterport 3D tours and the promo video (above).
+
+### Decisions from Michele's review, 2 Nov 2026
+
+Answers to the review questions, as given:
+
+- **Sala B ceiling is concrete.** There may be some timber parts, but it is mostly concrete. Model
+  it as board-marked concrete folded plates with warm light in the folds.
+- **The slatted strip high in Sala B** is probably not walkable, and no robot goes up there.
+  Treat it as cladding.
+- **For the game, Sala B has chairs and splits in two with temporary walls** (#6, #46). #9 is B2.
+- **The counter under the painting is the conference reception** (badges), not the wardrobe.
+  **The wardrobe is in catering area 1**, i.e. the wardrobe foyer.
+- **The Sala A balcony is reached by two stairs:** the one at the back of #63 (`balcony-stair-west`,
+  from the foyer along Sala A) and the roped one up the painting wall (#57, video frame;
+  `balcony-stair-east`). #34 is the top of the roped one, past the door beyond the column. Both
+  are already in the digitisation.
+- **Sala D is the speakers' room**, very small. #55 is probably Sala C, #52 might be Sala E.
+- **Build the lift core red.**
+- **Keep the Sala E photos** in case it comes back in scope.
+- **Foyer Villa Ciani and the corridor: no photos, not needed.**
+- **The shuttered counter by the Ciani bar** stays shut during the conference (catering use only).
+
+**Open: one naming clash.** Michele okayed "foyer west" for the sunken area by the Ciani bar
+(#28, #58). In the digitisation (`src/sim/venue/ground.ts`, `docs/venue.md`), though, `foyer-west`
+is the park-side foyer along Sala A at the west end (buffet "2", the west balcony stair). The area
+by the Ciani bar lies inside `foyer-wardrobe` (steps lead down into it from the main foyer). These
+entries use the plan's ids; if the names should change, that is a change to the venue data, not
+to this file.
 
 **Gaps**
 
-- **Foyer Villa Ciani and the corridor to Villa Ciani: nothing found.** No photo on any source.
-  The main Matterport model's ground floor might reach them (not walked through yet), otherwise
-  this needs a site visit.
-- **Lift**: only the red-clad core is seen from outside (#10, #29, #30, #50, #59, #60, #65). No
-  photo of the lift doors, the call panel or the car.
-- **Sala B sections one at a time**, with the folding walls closed and seen from inside. Only #46
-  comes close.
-- **Sala C1/C2/C3 one at a time** and the partitions deployed. Sala D's own entrance door.
-- **Sala A balcony access** from the foyer side: most likely the straight stair up the painting wall
-  to the landing over the Sala A door (video frame at 0:24, #31, #64). #34 may be a second route.
-  To verify on the plan / in Matterport.
-- **Atrio C** and the Sala C/D rooms only appear in the January 2020 shoot. The first floor's newer finishes
-  (red core, signage totems) may have reached them too.
-- **Signage close-ups**: only #19 and #56 show the room-letter signs (dark-brown squares, white
-  serif capitals) and #74–#75 the entrance lettering. A wayfinding inventory needs a site visit.
-- **Licences**: only #73 (Commons, CC BY 3.0) is reusable and committed. Everything else is
+- **Wardrobe counter** in the wardrobe foyer: no photo yet (it is behind the tables of #28).
+- **Lift**: only the outside of the red core is seen, with no doors, call panel or car.
+- **Sala B split in two with the temporary walls closed**, seen from inside. #46 comes close.
+- **Sala C1/C2/C3 one at a time.**
+- **Atrio C** and the Sala C/D rooms only appear in the January 2020 shoot.
+- **Signage close-ups**: only #19 and #56 (room-letter signs: dark-brown squares, white serif
+  capitals) and #74–#75 (entrance lettering).
+- **Licences**: only #73 (Commons, CC BY 3.0) is reusable and committed; everything else is
   link-only. The 2026 Voxxed album says "All Rights Reserved" while its photo pages say
   CC BY-NC-ND 4.0, so ask the photographer before any reuse beyond reference.
-- Not reachable from the agent: meetings.myswitzerland.com (406) and myswitzerland.com (403).
-  swiss-congress.ch has only a logo collage. voxxeddays.com/ticino returns 404. The 2026 Flickr
-  album (1210 photos) could only be paged to ~300 without logging in.
+- Not reachable: meetings.myswitzerland.com (406) and myswitzerland.com (403). swiss-congress.ch has
+  only a logo collage, and voxxeddays.com/ticino returns 404. The 2026 Flickr album (1210 photos)
+  could only be paged to ~300 without logging in.
