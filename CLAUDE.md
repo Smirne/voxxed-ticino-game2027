@@ -40,7 +40,8 @@
   restartable at any moment, no setup, readable from a step back. Prefer a loop of short challenges
   over a long story.
 - **Venue photos:** `docs/venue-photos.md`. Web photos are links and captions only — copyrighted images are not
-  committed (Michele, 2 Nov 2026). WellD's own photos live in `media/welld/`.
+  committed (Michele, 2 Nov 2026). WellD's own photos live in `media/welld/` and go in **only** through
+  `tools/photos/clean.py` (1600 px, no EXIF/GPS, faces blurred, every preview looked at). Never push raw.
 - Tooling: pnpm, Vite, TypeScript strict, vitest, three. No physics engine, no external 3D/audio
   asset files (After Dark's one exception, its opening music, did not come over). Small PRs, one
   step each.
