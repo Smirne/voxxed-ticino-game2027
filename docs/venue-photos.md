@@ -762,8 +762,11 @@ Answers to the review questions, as given:
 **Naming (settled):** the sunken area by the Ciani bar (#28, #58, #61) is **`foyer-wardrobe`**, as
 in the digitisation (Michele, 2 Nov 2026). `foyer-west` stays the park-side foyer along Sala A.
 
-- **There is no wardrobe counter.** In `foyer-wardrobe` the tables of #28 come first; behind them
-  stand mobile **coat racks** and an open space for backpacks.
+- **The wardrobe "counter" is a row of tables acting as a counter**, not a built counter like a
+  bar or reception desk. Behind them are mobile **coat racks** and open space for backpacks.
+  Michele does not remember whether it is staffed or self-service. On the plan it is drawn where the
+  digitisation's `wardrobe-counter` line runs (`src/sim/venue/ground.ts:46`, along the
+  GUARDAROBA / WARDROBE outline): **placement confirmed** by Michele, 2 Nov 2026.
 
 **Gaps**
 
