@@ -748,7 +748,13 @@ Answers to the review questions, as given:
   `balcony-stair-east`). #34 is the top of the roped one, past the door beyond the column. Both
   are already in the digitisation.
 - **Sala D is the speakers' room**, very small. #55 is probably Sala C, #52 might be Sala E.
-- **Build the lift core red.**
+- **Build the lift core red.** The lift door, from WellD's `media/welld/voxxed.jpg` (blue era;
+  Michele: "now it looks red"). The core is a tall box of dark-framed **glass panels** (blue then,
+  red now), standing in the main foyer under the overhang of the first-floor gallery, beside the
+  underside of the main stair. In its face is a **single dark (near-black) door**, flush, under a
+  glass transom, with the **call button** on a small plate on the right-hand jamb at hand height.
+  A blue sign with white WC and telephone pictograms is fixed to the stair stringer beside it.
+  Beyond, the sunken carpeted `foyer-wardrobe` with catering tables and grey screens.
 - **Keep the Sala E photos** in case it comes back in scope.
 - **Foyer Villa Ciani and the corridor: no photos, not needed.**
 - **The shuttered counter by the Ciani bar** stays shut during the conference (catering use only).
@@ -762,8 +768,8 @@ in the digitisation (Michele, 2 Nov 2026). `foyer-west` stays the park-side foye
 **Gaps**
 
 - **Coat racks / backpack area** behind the tables of #28: no photo yet.
-- **Lift**: only the outside of the red core is seen. If robots ride it (Biggy cannot take stairs),
-  the lift doors and the inside of the cabin would help.
+- **Lift**: the door is seen only in the blue era (`media/welld/voxxed.jpg`, below); no photo of
+  it since the core was clad red, and none of the cabin inside.
 - **Sala C1/C2/C3 one at a time.**
 - **Atrio C** and the Sala C/D rooms only appear in the January 2020 shoot.
 - **Signage close-ups**: only #19 and #56 (room-letter signs: dark-brown squares, white serif
