@@ -145,7 +145,12 @@ export function createSandbox(floorId: FloorId = 'ground'): Sandbox {
     const s = stairs.find((q) => deepInside(c, STAIR_DEPTH, q.poly));
     if (!s) return;
     const there = otherEnd(s, here)!;
-    const twin = FLOORS[there].stairs.find((q) => q.kind === s.kind && q.from === s.from && q.to === s.to);
+    // The same stair on the other floor: same kind and rooms, and the nearest (both Sala A balcony
+    // stairs join the same two rooms).
+    const [sx, sy] = centroid(s.poly);
+    const twin = FLOORS[there].stairs
+      .filter((q) => q.kind === s.kind && q.from === s.from && q.to === s.to)
+      .sort((a, b) => Math.hypot(...centroid(a.poly).map((v, i) => v - [sx, sy][i])) - Math.hypot(...centroid(b.poly).map((v, i) => v - [sx, sy][i])))[0];
     const walls = wallsOf(there);
     const blocked = (): boolean => walls.some((w) => circleWall({ x: b.x, y: b.y, r: b.r }, w));
     if (twin?.mouth) {

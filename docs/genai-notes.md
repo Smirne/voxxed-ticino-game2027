@@ -141,3 +141,12 @@ now carry a `mouth` (where you step on, on that floor). A robot comes out just o
 mouth, facing away, so one step back takes it down again. New tests: each robot climbs and walks
 straight back; Voxxy rides the lift up and straight back down. **Human decision:** lift doors at
 0.9 m, so Voxxy only ("Biggy will take the stairs").
+
+**3 Nov 2026, the west balcony stair.** Michele confirmed the agent's reading of the drawing: the
+big stair is the way up to the Sala A balcony. Marking its two ends turned up two of the agent's own
+mistakes. A Python search-and-replace from the previous day had matched two lines, so the west stair
+had been given the east stair's step-on edge. And both balcony stairs join the same two rooms, so the
+"same stair on the other floor" lookup could pick the wrong one; it now also takes the nearest. The
+first step-on edge the agent picked on the first floor turned out to be a rail: the new turn-back
+test failed, and listing the walls around the stair showed the only open side is the landing. A
+test that drove the robot was what caught it, not reading the drawing.
