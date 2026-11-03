@@ -113,7 +113,7 @@ describe('every stair and lift works both ways (Voxxy)', () => {
   }
 });
 
-describe('the Sala A balcony, east stair by the WC (Michele\'s 2D run)', () => {
+describe('the Sala A galleria, east stair by the WC (Michele\'s 2D run)', () => {
   it('Voxxy walks up from the WC corner, steps off on the balcony side, and walks back down', () => {
     const sb = createSandbox('ground');
     const v = bot(sb, 'voxxy');
