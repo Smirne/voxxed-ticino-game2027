@@ -79,8 +79,11 @@ stairs and cores, the goods lift.
   WC corner of `foyer-west` (the dashed line) and has a balustrade on its north side and east end.
 - **Changing floor** (plan check): a robot whose centre is 0.3 m onto a stair or lift that changes
   floor comes out on the other floor just off that stair's `mouth` (where you step on from, on that
-  floor), facing away. One step back takes it down again. The Sala A west balcony stair has no mouth
-  traced yet, so a robot comes out at the same spot there.
+  floor), facing away. One step back takes it down again.
+- **Sala A balcony, west stair** (Michele, 3 Nov 2026: "the big stair is the way UP for room A"): the
+  ground-floor end is stepped on from `foyer-west` on its north-east side. On the first floor it comes
+  out at its west end, on the landing, and round into the balcony lobby; the "scala al piano regia"
+  behind the landing stays closed.
 
 ## How Voxxed Days Ticino uses it
 

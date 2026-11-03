@@ -136,7 +136,7 @@ export const GROUND: FloorPlan = {
     { id: 'ramp-west', kind: 'steps', poly: [[32.83, 24.93], [37.43, 24.93], [37.43, 26.44], [32.83, 26.44]], from: 'foyer-west', to: 'foyer-principale' },
     { id: 'steps-wardrobe', kind: 'steps', poly: [[59.35, 44.48], [59.35, 40.49], [60.82, 37.94], [71.89, 37.94], [73.11, 36.30], [74.53, 36.30], [74.53, 36.55], [73.53, 36.83], [72.26, 38.58], [61.19, 38.58], [59.99, 40.66], [59.99, 44.48]], from: 'foyer-principale', to: 'foyer-wardrobe' },
     { id: 'ramp-wardrobe', kind: 'steps', poly: [[59.35, 44.48], [62.98, 44.48], [62.98, 45.86], [59.35, 45.79]], from: 'foyer-principale', to: 'foyer-wardrobe' },
-    { id: 'stair-balcony-west', kind: 'stair', poly: [[12.93, 30.70], [15.03, 29.40], [17.44, 31.78], [16.05, 32.94], [14.30, 33.02]], from: 'foyer-west', to: 'sala-a-balcony', mouth: [[37.10, 33.95], [37.42, 37.75]] },
+    { id: 'stair-balcony-west', kind: 'stair', poly: [[12.93, 30.70], [15.03, 29.40], [17.44, 31.78], [16.05, 32.94], [14.30, 33.02]], from: 'foyer-west', to: 'sala-a-balcony', mouth: [[15.03, 29.40], [17.44, 31.78]] },
     { id: 'stage-steps-left', kind: 'steps', poly: [[16.72, 58.10], [18.20, 58.10], [18.20, 58.64], [16.72, 58.64]], from: 'sala-a', to: 'sala-a-stage' },
     { id: 'stage-steps-right', kind: 'steps', poly: [[33.60, 58.10], [35.15, 58.10], [35.15, 58.64], [33.60, 58.64]], from: 'sala-a', to: 'sala-a-stage' },
   ],

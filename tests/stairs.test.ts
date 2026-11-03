@@ -160,3 +160,24 @@ describe('turning straight back (Michele\'s 2D run: "stairs from room B are bloc
     expect(m(v.x)).toBeLessThan(65.84);
   });
 });
+
+describe('the Sala A balcony, west stair (the big one, Michele: "the way UP for room A")', () => {
+  it('Voxxy climbs from the west foyer, comes off on the balcony side, and steps straight back down', () => {
+    const sb = createSandbox('ground');
+    const v = bot(sb, 'voxxy');
+    for (const b of sb.bots) if (b !== v) [b.x, b.y] = [px(50), px(36 + b.r)];
+    // In the west foyer, just north-east of the flight's foot; walk south-west onto it.
+    [v.x, v.y] = [px(17.2), px(29.6)];
+    drive(sb, -0.7, 0.7, 10, () => sb.on.voxxy === 'first');
+    expect(sb.on.voxxy).toBe('first');
+    // It came out at the west stair, not the east one.
+    expect(m(v.x)).toBeLessThan(25);
+    const balcony = FLOORS.first.rooms.find((r) => r.id === 'sala-a-balcony')!;
+    expect(reachable('first', 'voxxy', m(v.x), m(v.y))(balcony.label[0], balcony.label[1])).toBe(true);
+    // Straight back: the way it faces now, reversed.
+    const [fx, fy] = [Math.cos(v.face), Math.sin(v.face)];
+    drive(sb, -fx, -fy, 10, () => sb.on.voxxy === 'ground');
+    expect(sb.on.voxxy).toBe('ground');
+    expect(m(v.x)).toBeLessThan(25);
+  });
+});
