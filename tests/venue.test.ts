@@ -207,10 +207,22 @@ describe('the Voxxed Days layout (Michele, 2 Nov 2026)', () => {
     }
   });
 
-  it('the Sala A balcony is closed during the conference, yet a robot can still get in', () => {
-    const balcony = first.rooms.find((r) => r.id === 'sala-a-balcony')!;
-    expect(balcony.conference).toBe('closed');
+  it('the Sala A balcony and galleria are closed during the conference, yet a robot can still get in', () => {
     const g = freeGrid(buildWalls(first), DEFS.voxxy.r);
-    expect(reached(g, reach(g, first), balcony.label[0], balcony.label[1])).toBe(true);
+    const seen = reach(g, first);
+    for (const id of ['sala-a-balcony', 'sala-a-galleria']) {
+      const room = first.rooms.find((r) => r.id === id)!;
+      expect(room.conference, id).toBe('closed');
+      expect(reached(g, seen, room.label[0], room.label[1]), id).toBe(true);
+    }
+  });
+
+  it('the east stair by the WC leads to the galleria, the big west stair to the balcony (Michele, 3 Nov 2026)', () => {
+    for (const f of Object.values(FLOORS)) {
+      for (const s of f.stairs.filter((q) => q.to.startsWith('sala-a-') && q.kind === 'stair')) {
+        const east = s.poly.every(([x]) => x > 30);
+        expect(s.to, `${f.id} ${s.id}`).toBe(east ? 'sala-a-galleria' : 'sala-a-balcony');
+      }
+    }
   });
 });

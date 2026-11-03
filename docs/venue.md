@@ -47,7 +47,7 @@ and that the two floors' stairs name each other's rooms.
 | first | sala-c1 / c2 / c3 | 59 / 27 / 35 | 56 / 26 / 35 |
 | first | atrio-c | 54 | 57 |
 | first | sala-d | 30 | 31 |
-| first | sala-a-balcony | — | 438 |
+| first | sala-a-balcony, sala-a-galleria | — | split 3 Nov 2026 (438 together) |
 
 Not public, walled off: restaurant, kitchen (both floors), `bridge-a` (see below), backstage, service
 stairs and cores, the goods lift.
@@ -75,8 +75,13 @@ stairs and cores, the goods lift.
   door on the west face, first-floor door on the east face.
 - **Main stair:** one straight flight rising east. On the ground floor it is entered from the west
   (the "1° PIANO" arrow) and on the first floor it is left at the east, onto Atrio B.
-- **Sala A balcony, east stair** (by the WC and the desk): the ground-floor end is entered from the
-  WC corner of `foyer-west` (the dashed line) and has a balustrade on its north side and east end.
+- **Sala A galleria, east stair** (by the WC and the desk; Michele, 3 Nov 2026: "the small stair leads
+  to another balcony over the reception, not used during the conf"): the ground-floor end is entered
+  from the WC corner of `foyer-west` (the dashed line), with a balustrade on its north side and east
+  end. Upstairs it comes out at the east end of the balcony lobby, by the double door into the
+  galleria (`sala-a-galleria`): the seat block east of the main balcony, over the desk. Split out of
+  `sala-a-balcony` and also `conference: 'closed'`. The double door to the lobby is on the drawing, so
+  the two balconies stay connected for robots.
 - **Changing floor** (plan check): a robot whose centre is 0.3 m onto a stair or lift that changes
   floor comes out on the other floor just off that stair's `mouth` (where you step on from, on that
   floor), facing away. One step back takes it down again.

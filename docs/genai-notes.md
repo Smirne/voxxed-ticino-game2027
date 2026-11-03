@@ -150,3 +150,12 @@ had been given the east stair's step-on edge. And both balcony stairs join the s
 first step-on edge the agent picked on the first floor turned out to be a rail: the new turn-back
 test failed, and listing the walls around the stair showed the only open side is the landing. A
 test that drove the robot was what caught it, not reading the drawing.
+
+**The galleria.** Michele: "the small stair leads to another balcony over the reception, not used during
+the conf", then confirmed that meant the east stair by the WC, not the closed "scala al piano regia"
+behind the west landing (the agent asked, because both fitted the words). On the drawing that stair
+comes up at the east end of the balcony lobby, by a double door into a separate seat block over the
+desk. The digitisation had lumped that block into `sala-a-balcony`. It is now `sala-a-galleria`,
+closed during the conference, with the east stair leading to it. The door stays, because it is on the
+drawing. A test caught the agent putting the new room's label too close to the seats for Voxxy to
+stand there.
