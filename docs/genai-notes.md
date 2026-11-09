@@ -111,3 +111,32 @@ on the drawing: the outline follows the drawn walls, so it was documented and no
 **Not done / assumed.** The agent opened Sala C's folds by inference from "B3 is the only closed
 one". It asked, and Michele confirmed: one room. First-floor zones not traced (Michele: raw reference is fine). Podiums are
 not collision yet.
+
+## 3–9 Nov 2026: storyline and the first six jobs (local session, Claude Code desktop)
+
+**Asked.** Michele: brainstorm challenges and a storyline. Keep it close to After Dark, reuse some
+of its challenges and add new ones.
+
+**What the agent did.** Read `docs/lessons-from-after-dark.md`, After Dark's README and the header
+comments of its four chapter files (fetched from the reference repo). Wrote
+`docs/challenges-brainstorm.md`: ten After Dark challenges moved into rooms of the Palazzo, seven new
+ones from what the 2D check taught us about the building (the folding walls, the lift only Voxxy
+fits, the stage steps Biggy can't climb, the closed balconies, the wardrobe tables), and a list of
+decisions.
+
+**Human decisions.**
+- **Story:** night, then doors; some jobs come after the doors open.
+- **Why it's dark:** a storm cuts the power.
+- **People:** Federico and Tiziano, the organisers, sleep late after the speakers' dinner, and the
+  robots save the day. They take the place of After Dark's Stephan.
+- **The overload joke:** beer, which there always is at the end of the conference, in the wardrobe
+  foyer.
+- **The coat rush:** backpacks are put under the tables, not fetched.
+- **Scope:** start with six jobs, three before the doors and three after; "then we'll add more".
+
+**Rejected / parked.** The agent's three candidate loads for the overload joke (Merlot, mineral
+water, panettone): Michele had a real one. The soup (the same beat as the beer). The cable run, the
+balconies as a job of their own, and the lift gag: parked for after the first six.
+
+**Flagged, not decided.** Federico and Tiziano are real people and the joke is at their expense, so
+they need to agree before it ships. The same goes for Celestino if he appears.
