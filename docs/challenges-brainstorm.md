@@ -93,18 +93,60 @@ gag (N7, for the curtain call). The night as a whole is about 15–20 minutes.
   organisers, are sleeping late after the speakers' dinner and the robots save the day.
 - **D2 Which jobs for a first version.** *Decided:* the six on the run sheet above, three before
   the doors and three after. *"Start with those 6 jobs. Then we'll add more."*
-- **D3 Chained or free.** Free menu, with the finale unlocked by any three jobs (proposed). Or a
-  fixed order.
+- **D3 Chained or free.** *Michele leans to a fixed order (11 Nov 2026), to discuss.* The tension:
+  a fixed order tells the story; a booth stranger should not have to play jobs 1–3 to see job 4.
+  Proposal, **the relay**: the night runs in a fixed order, and the booth keeps one shared run sheet
+  for the whole day. Each visitor plays *the next job*, picking up where the last visitor stopped,
+  with a 10 s "previously" card. The board at the booth shows how far the crowd has got the
+  Palazzo ready; when job 6 is done the curtain call plays and the night starts again. Story mode
+  for one player at home is the same order from job 1. A hidden operator key (and the debug URL)
+  jumps to any job, for the talk and for testing.
 - **D4 The local joke for R6.** *Answered:* beer for the end of the conference, in the wardrobe
-  foyer. Still open: the wording on the crates. After Dark's line was Devoxx's own signage, so it
-  needs a new one; if the beer is a real local brand, its name is another human decision.
-- **D5 People.** *Answered in part:* Federico and Tiziano, the two main organisers, are in the
-  story (in place of After Dark's Stephan). They are real people and the joke is at their expense
-  (sleeping late, the Merlot), so both need to say yes before it ships, and to how they're drawn.
-  Still open: Celestino at reception, with the same yes.
-- **D6 The WiFi password / sign gag** (After Dark's `DevoxxForever`). Is there a Voxxed Ticino
-  equivalent: a running joke, a slogan, a sign in the building?
-- **D7 Biggy on stage (N3).** A ramp puzzle, or Biggy stays at the foot of the stage and the tower
-  happens there?
-- **D8 Fail states.** Soft everywhere, as After Dark ended up (proposed). The crowd or queue as a
-  clock that costs a line on the ending, never a game over.
+  foyer; **Ticino references or local brands** (Michele, 11 Nov 2026). Proposal: invented names
+  built on Ticino references for v1, e.g. *Birra del Ceresio* (the lake's Italian name), a crate of
+  *gazosa* for the drivers; switch to a real brand only if the actual beer supplier of the
+  conference agrees (a real brand name in a public game is the brewery's call). The heap-error line
+  stays: it is a Java joke.
+- **D5 People.** *Answered:* Federico and Tiziano are in; **Michele is getting their yes**
+  (11 Nov 2026), and Celestino's if he is in. Nothing with their names or likeness ships before.
+- **D6 The running gag** (After Dark's `DevoxxForever`). *Michele: none he knows of; "some Swiss
+  Italian stereotype".* Proposals, kind and local (avoid anything about frontalieri or politics):
+  - **The Gotthard queue.** Every Ticinese knows the *coda al Gottardo*. Every queue in the game —
+    the coats, the coffee, the robots jammed at the lift — is announced like a traffic report:
+    *"Coda al Gottardo: 12 minutes. Coat queue: 14."* Repeats well, readable from a step back.
+  - **Swiss precision, Italian improvisation.** Droid is the Swiss one (on time, by the rulebook,
+    reads the run sheet aloud), Voxxy is the Italian one (improvises, gestures, *"ma dai"*), Biggy
+    is just hungry. A cast note, not a mechanic.
+  - **"Palm trees included."** The site's own joke: a potted palm in the foyer that Biggy keeps
+    knocking over, and the WiFi password `PalmTreesIncluded`.
+  - Food and drink as props: the boccalino of Merlot by the sleeping organisers, polenta, the
+    grotto, *gazosa*.
+- **D7 Biggy on stage (N3).** *Michele: tell me more.* The facts: the stage front is a ~1 m ledge no
+  robot can hop; the speaker steps are 1.18 m clear and Biggy is 1.44 m wide. Four ways up:
+  - **A. The ramp (recommended).** A real stage keeps a portable ramp for speakers in wheelchairs.
+    It is stored backstage. Voxxy cannot reach it from the stalls: she jumps on Biggy, climbs onto
+    the stage from his back (Michele's idea), runs backstage and drops the ramp over the edge.
+    It lands crooked; Droid squares it (he is the only one tall enough to lift its end). Biggy
+    rolls up. All three robots, one puzzle, and an accessibility nod. Needs: Voxxy riding Biggy (a
+    new mount, today only Droid mounts) and a ramp as a height plate.
+  - **B. Build a stair.** Push flight cases against the ledge to make steps wide enough. More
+    physics (stacking, heights), slower to read at a booth.
+  - **C. The goods lift.** The stage has its own goods lift (2.25 × 3.00 m, 1000 kg on the plan),
+    dead since the storm: job 1's power brings it back, a nice callback. But it opens backstage,
+    which is out of scope, so Biggy would appear on stage from the wings off-screen.
+  - **D. No climb.** Biggy stays at the foot of the stage and the tower (Droid on Biggy) hangs the
+    last spotlight. Cheapest; the finale has Biggy below, the others on stage.
+  For the January talk, D is enough; A is the target for the conference.
+- **D8 Fail states.** *Michele: expand.* "Soft" means: **nothing ends the job but finishing it, and
+  nothing leaves a stranger stuck.** In practice:
+  - **Clocks cost stars, not lives.** The coat queue and the filling Sala A are clocks; running
+    over makes the crowd grumble (a line, a sound) and costs a star on the job's ending card
+    (three stars: in time, nothing broken, nobody bumped). The job still finishes.
+  - **Mistakes undo themselves or cost time.** The fifth crate throws the heap error: crates
+    spill and must be restacked. A wrong keypad code buzzes and a robot quips; no lockout. A
+    spilled tray is cleaned by Voxxy, costing time.
+  - **Hints escalate.** After 30 s without progress the chevron points; after 60 s the robot who
+    should act says what to do, in his voice; after 120 s it says exactly how.
+  - **Fail forward at the booth.** After 3 minutes on one job a gag ends it for you (Federico
+    wakes up, shuffles in, does it badly) and the relay moves on: no visitor leaves on a failure.
+  - **Never:** game over, restart-from-the-beginning, a timer that kills.

@@ -140,3 +140,19 @@ balconies as a job of their own, and the lift gag: parked for after the first si
 
 **Flagged, not decided.** Federico and Tiziano are real people and the joke is at their expense, so
 they need to agree before it ships. The same goes for Celestino if he appears.
+
+## 11 Nov 2026 — repo cleanup, the conference site, decisions D3–D8
+
+- **Found:** `main` and three branches had been cut before the photo cleanup and still carried the
+  original photos (GPS, faces). Michele said yes to rewriting them. `photos`, `story-run-sheet` and
+  `venue-voxxed-layout` were rewritten with the cleaned copies and force-pushed (no other file
+  changed, checked by diff). `main` refused: a repository rule requires pull requests, and a PR
+  cannot rewrite history. Waiting on Michele to lift the rule for one push.
+- **Network:** the cloud environment blocked the conference site; with Michele's approval a
+  personal environment allowing `vdt27.voxxeddays.ch` was created and this session moved onto it.
+  `docs/conference.md` records the date (19 Feb 2027, workshops the day before), theme ("From
+  Developer to Builder", "Build, Agents + Debug"), tracks and the copy the game can reuse.
+- **Decided by Michele:** D3 leans fixed order (to discuss); D4 Ticino references or local beer
+  brands; D5 he is asking Federico and Tiziano; D6 "some Swiss Italian stereotype"; January talk
+  wanted, possibly on the old game. The agent expanded D3 (the relay), D6 (the Gotthard queue),
+  D7 (four ways onto the stage, the wheelchair ramp recommended) and D8 (what "soft" means).
