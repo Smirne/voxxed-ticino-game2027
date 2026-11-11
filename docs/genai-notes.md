@@ -157,3 +157,6 @@ they need to agree before it ships. The same goes for Celestino if he appears.
   brands; D5 he is asking Federico and Tiziano; D6 "some Swiss Italian stereotype"; January talk
   wanted, possibly on the old game. The agent expanded D3 (the relay), D6 (the Gotthard queue),
   D7 (four ways onto the stage, the wheelchair ramp recommended) and D8 (what "soft" means).
+- **Later the same day, Michele:** D7 approved, A, the wheelchair ramp (Voxxy climbs Biggy, drops it,
+  Droid squares it, Biggy rolls up). Controls: a gamepad at the booth, but keyboard-first. First
+  deadline: a short talk at GDG Milano in the second half of January.

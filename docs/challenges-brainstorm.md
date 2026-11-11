@@ -80,6 +80,10 @@ gag (N7, for the curtain call). The night as a whole is about 15–20 minutes.
 
 ## What a session at the booth looks like
 
+**Controls (Michele, 11 Nov 2026):** a gamepad at the booth, but the game must be fully playable
+on a keyboard. So: every action on both, one action key plus switch-robot plus move, prompts that
+show the right glyph for whichever device was touched last, and no gamepad-only feature.
+
 1. **Attract loop:** the curtain call, or the night in 30 s cut from real play.
 2. **Any key:** the emergency-light intro (≤10 s), then a menu of jobs with a run-sheet look, the
    undone ones blinking. The first time, it suggests job 1, Lights back.
@@ -136,7 +140,9 @@ gag (N7, for the curtain call). The night as a whole is about 15–20 minutes.
     which is out of scope, so Biggy would appear on stage from the wings off-screen.
   - **D. No climb.** Biggy stays at the foot of the stage and the tower (Droid on Biggy) hangs the
     last spotlight. Cheapest; the finale has Biggy below, the others on stage.
-  For the January talk, D is enough; A is the target for the conference.
+  **Decided (Michele, 11 Nov 2026): A, the wheelchair ramp.** Voxxy riding Biggy is a new mount to
+  build; the ramp is a height plate. For the January talk D is acceptable as a stand-in if A is not
+  ready.
 - **D8 Fail states.** *Michele: expand.* "Soft" means: **nothing ends the job but finishing it, and
   nothing leaves a stranger stuck.** In practice:
   - **Clocks cost stars, not lives.** The coat queue and the filling Sala A are clocks; running

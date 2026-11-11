@@ -38,7 +38,10 @@
   (1.44 m) needs a double door — that is the building, use it.
 - **Booth constraints** (new): playable in short sessions by someone who has never seen it,
   restartable at any moment, no setup, readable from a step back. Prefer a loop of short challenges
-  over a long story.
+  over a long story. **Gamepad at the booth, keyboard-first everywhere** (Michele, 11 Nov 2026):
+  every action works on both.
+- **Dates:** short talk at **GDG Milano, second half of January 2027** (date TBD); **Voxxed Days
+  Ticino, Friday 19 February 2027** (workshops 18 Feb). See `docs/conference.md`.
 - **Venue photos:** `docs/venue-photos.md`. Web photos are links and captions only — copyrighted images are not
   committed (Michele, 2 Nov 2026). WellD's own photos live in `media/welld/`.
 - Tooling: pnpm, Vite, TypeScript strict, vitest, three. No physics engine, no external 3D/audio
