@@ -146,8 +146,9 @@ they need to agree before it ships. The same goes for Celestino if he appears.
 - **Found:** `main` and three branches had been cut before the photo cleanup and still carried the
   original photos (GPS, faces). Michele said yes to rewriting them. `photos`, `story-run-sheet` and
   `venue-voxxed-layout` were rewritten with the cleaned copies and force-pushed (no other file
-  changed, checked by diff). `main` refused: a repository rule requires pull requests, and a PR
-  cannot rewrite history. Waiting on Michele to lift the rule for one push.
+  changed, checked by diff). `main` first refused (a pull-request rule); Michele lifted it and the cleaned
+  `main` was force-pushed the same day. GitHub support still has to purge the merged PRs' frozen
+  heads and the unreachable commits.
 - **Network:** the cloud environment blocked the conference site; with Michele's approval a
   personal environment allowing `vdt27.voxxeddays.ch` was created and this session moved onto it.
   `docs/conference.md` records the date (19 Feb 2027, workshops the day before), theme ("From
