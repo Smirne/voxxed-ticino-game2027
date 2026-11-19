@@ -160,7 +160,7 @@ closed during the conference, with the east stair leading to it. The door stays,
 drawing. A test caught the agent putting the new room's label too close to the seats for Voxxy to
 stand there.
 
-### Same day, later — Michele's answers, zones, photos
+## 2 Nov 2026 — Michele's answers, zones, photo cleanup (cloud session)
 
 - **Decided by Michele:** Sala E out ("small and not so relevant"); the bridge over the entrance out
   (not public); Biggy-on-stage is a puzzle, not a geometry fix (ideas in `docs/ideas.md`); booth and
