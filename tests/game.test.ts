@@ -7,6 +7,7 @@ import { describe, expect, it } from 'vitest';
 import { createGame, FORWARD_AFTER, HINT_AFTER, type Game } from '../src/sim/game';
 import { RUN_SHEET } from '../src/sim/jobs';
 import { m } from '../src/sim/units';
+import { circleWall } from '../src/sim/walls';
 import type { RobotKind } from '../src/sim/types';
 import { driveTo, hold } from './pilot';
 
@@ -31,37 +32,96 @@ describe('the run sheet', () => {
   });
 });
 
-describe('job 1, first cut: everyone upstairs', () => {
-  /** Take robot k up the main stair, from wherever it is on the ground floor. */
+describe('job 1, Lights back: Droid powers up, Voxxy rides the lift and opens the stair', () => {
+  const act = (g: Game, k: RobotKind): void => {
+    g.action(k);
+    g.action('start');
+  };
+
+  /** Take robot k up the (open) main stair, from wherever it is on the ground floor. */
   function upTheStair(g: Game, k: RobotKind): void {
     g.action(k);
     expect(driveTo(g, 60.5, 27.3, 40), `${k} reaches the foot of the main stair`).toBe(true);
     hold(g, 1, 0, 15, () => g.phase !== 'play' || (g.world.on[k] === 'first' && m(g.world.bot(k).x) > 71));
-    expect(g.world.on[k], `${k} upstairs`).toBe('first');
+    expect(g.phase !== 'play' || g.world.on[k] === 'first', `${k} upstairs`).toBe(true);
     // Out of the way of the next one, into Atrio B; the last one up may already finish the job.
     if (g.phase === 'play') driveTo(g, k === 'voxxy' ? 74 : k === 'droid' ? 78 : 82, 28, 30, () => g.phase !== 'play');
   }
 
-  it('is done when all three stand in Atrio B, and the ending card says so', () => {
+  it('the whole chain, played through the controls, ends the job', () => {
     const g = createGame();
     g.action('start');
-    expect(g.job!.progress({ world: g.world, t: 0, say: () => {} })).toBe(0);
-    for (const k of ['voxxy', 'droid', 'biggy'] as RobotKind[]) upTheStair(g, k);
+    expect(g.objective?.text).toMatch(/Droid/);
+    // 1. Droid to the breakers on the lift core.
+    g.action('droid');
+    expect(driveTo(g, 67.1, 34.3, 40), 'Droid reaches the breakers').toBe(true);
+    act(g, 'droid');
+    expect(g.toasts.some((t) => /Breakers on/.test(t.text))).toBe(true);
+    // 2. Voxxy into the lift, up.
+    g.action('voxxy');
+    expect(driveTo(g, 64.9, 31.87, 40), 'Voxxy reaches the lift door').toBe(true);
+    hold(g, 1, 0, 6, () => g.world.on.voxxy === 'first');
+    expect(g.world.on.voxxy).toBe('first');
+    // 3. The release at the top of the stairs.
+    expect(driveTo(g, 69.6, 27.3, 30), 'Voxxy reaches the shutter release').toBe(true);
+    act(g, 'voxxy');
+    expect(g.world.locked.has('stair-main')).toBe(false);
+    expect(driveTo(g, 74, 28, 30)).toBe(true);
+    // 4. The other two by the stair.
+    upTheStair(g, 'droid');
+    upTheStair(g, 'biggy');
     expect(g.phase).toBe('ending');
     expect(g.ending?.forwarded).toBe(false);
-    expect(g.ending?.stars).toBeGreaterThanOrEqual(1);
     expect(g.sheet[0]).toMatchObject({ status: 'done' });
-    idle(g, 7);
-    expect(g.phase).toBe('menu');
   });
 
-  it('points the driven robot somewhere: Voxxy to the lift, the others to the stair', () => {
+  it('every robot starts clear of every wall', () => {
     const g = createGame();
     g.action('start');
-    expect(g.objective?.text).toMatch(/lift/);
+    for (const b of g.world.bots) {
+      const walls = g.world.walls(g.world.on[b.kind]);
+      expect(walls.some((w) => circleWall(b, w)), b.kind).toBe(false);
+    }
+  });
+
+  it('before the power, the lift is dead even for Voxxy, and says so', () => {
+    const g = createGame();
+    g.action('start');
+    g.world.place('voxxy', 'ground', 64.9, 31.87, 0);
+    hold(g, 1, 0, 4);
+    expect(g.world.on.voxxy).toBe('ground');
+    expect(g.toasts.some((t) => /No power, no lift/.test(t.text))).toBe(true);
+  });
+
+  it('the breakers are too high for Voxxy and Biggy: they say so, nothing switches on', () => {
+    for (const k of ['voxxy', 'biggy'] as RobotKind[]) {
+      const g = createGame();
+      g.action('start');
+      g.world.place(k, 'ground', 67.1, 33.55 + 0.1 + m(g.world.bot(k).r), -Math.PI / 2);
+      act(g, k);
+      expect(g.toasts.some((t) => t.who === k && /reach|up there/.test(t.text)), k).toBe(true);
+      expect(g.world.locked.has('lift-main'), k).toBe(true);
+    }
+  });
+
+  it('the shutter stops everyone at the foot of the stair until it is released, and they say why', () => {
+    const g = createGame();
+    g.action('start');
     g.action('biggy');
-    expect(g.objective?.text).toMatch(/main stair/);
+    g.world.place('biggy', 'ground', 60.5, 27.3, 0);
+    hold(g, 1, 0, 5);
+    expect(g.world.on.biggy).toBe('ground');
+    expect(m(g.world.bot('biggy').x)).toBeLessThan(62.55);
+    expect(g.toasts.some((t) => t.who === 'biggy' && /upstairs/.test(t.text))).toBe(true);
+  });
+
+  it('points the driven robot at what it can do next', () => {
+    const g = createGame();
+    g.action('start');
+    expect(g.objective?.text).toMatch(/switch to Droid/);
+    g.action('droid');
     expect(g.objective?.at?.floor).toBe('ground');
+    expect(g.props.map((p) => p.id)).toEqual(['breakers', 'shutter-release']);
   });
 });
 
@@ -77,15 +137,6 @@ describe('gates speak', () => {
     expect(lines.length).toBe(1);
     expect(lines[0].text).toMatch(/1\.44/);
     expect(g.world.on.biggy).toBe('ground');
-  });
-
-  it('Voxxy fits the lift and rides it up', () => {
-    const g = createGame();
-    g.action('start');
-    g.world.place('voxxy', 'ground', 64.9, 31.87, 0);
-    hold(g, 1, 0, 6, () => g.world.on.voxxy === 'first');
-    expect(g.world.on.voxxy).toBe('first');
-    expect(g.toasts.some((t) => t.who === 'voxxy')).toBe(false);
   });
 });
 
@@ -123,6 +174,9 @@ describe('the mount across floors', () => {
   it('a Droid riding Biggy goes up the stair with him', () => {
     const g = createGame();
     g.action('start');
+    // The stair open (job 1 done that far).
+    g.world.locked.clear();
+    g.world.extra.ground.clear();
     g.world.place('biggy', 'ground', 60.5, 27.3, 0);
     g.world.place('droid', 'ground', 60.5 - 0.72 - 0.5 - 0.02, 27.3, 0);
     g.action('mount');

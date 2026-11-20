@@ -247,3 +247,22 @@ they need to agree before it ships. The same goes for Celestino if he appears.
   stair already inside Atrio B, so the job finishes a step earlier than the script expected).
 - **Rejected:** a `?job=` URL parameter that ignored the job named; renamed to `?start=1`, which is
   what it did.
+
+## 20 Nov 2026 — landing the stack; job 1 as a chain
+
+- **Stacked PRs went astray.** #5 and #6 were opened on top of #4's branch; merged in order, each
+  landed in the branch below it, not `main` (GitHub retargets only when the base branch is deleted).
+  Landed all three, plus #3, through #7; #3's conflict resolved by merging `main` in, keeping
+  `main`'s side, after checking every line #3 added was already there. Lesson: no stacked PRs; one
+  PR against `main`, the next only after it merges. Also found: an edit in #6 to CLAUDE.md had
+  matched no line and silently did nothing (a Python `replace` with no assert); landed in #7.
+- **Vercel**: `vercel.json` (static Vite, `/` the game, `/plan` the plan check), checked with a clean
+  frozen install and build; Michele connects the repo in the dashboard.
+- **Michele redesigned job 1**: *"Why should Voxxy take the elevator and the others the stairs?
+  Maybe Voxxy must go first and open/unlock the stairs?"* The agent turned it into a chain where each
+  robot does what only it can: Droid throws breakers too high for the others, the lift wakes and
+  only Voxxy fits it, she releases the stair shutter from upstairs, the other two walk up. Michele:
+  invent the shutter; keep Biggy's ram for a closed room (not in job 1).
+- **Bug caught by the new test**: Droid's start spot was inside the main foyer's round pillar (the
+  physics pushes him out on the first frame, so play looked fine; the test pilot's path-finder saw a
+  robot inside a wall). Now every start is tested clear of walls.

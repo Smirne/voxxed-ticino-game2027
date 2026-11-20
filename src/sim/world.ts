@@ -30,6 +30,10 @@ export interface World {
   on: Record<RobotKind, FloorId>;
   /** Which folding walls stand shut, both floors. */
   folding: Record<string, boolean>;
+  /** Walls a job adds and removes (a shutter, a crate stack), per floor, keyed by id. */
+  extra: Record<FloorId, Map<string, Wall[]>>;
+  /** Stairs and lifts (by id, on either floor) that do not change floor right now: a dead lift, a shut stair. */
+  locked: Set<string>;
   bot(kind: RobotKind): Bot;
   /** The solid walls of a floor, folding walls as they stand now. */
   walls(f: FloorId): Wall[];
@@ -88,12 +92,16 @@ export function createWorld(start: FloorId = 'ground'): World {
   const arrived = new Set<RobotKind>();
   const [x, y] = (FLOORS[start].rooms.find((r) => r.id === HUB[start]) ?? FLOORS[start].rooms[0]).label;
 
+  const extra: Record<FloorId, Map<string, Wall[]>> = { ground: new Map(), first: new Map() };
+  const wallsNow = (f: FloorId): Wall[] => [...wallsOf(f), ...[...extra[f].values()].flat()];
   const w: World = {
+    extra,
+    locked: new Set(),
     bots: KINDS.map((k, i) => mkBot(k, px(x - 2 + 2 * i), px(y + 2))),
     on: { voxxy: start, droid: start, biggy: start },
     folding,
     bot: (kind) => w.bots.find((b) => b.kind === kind)!,
-    walls: wallsOf,
+    walls: wallsNow,
     place(kind, f, px_, py_, face) {
       const b = w.bot(kind);
       w.on[kind] = f;
@@ -113,7 +121,8 @@ export function createWorld(start: FloorId = 'ground'): World {
       const step = Math.min(dt, DT_MAX);
       for (const f of Object.keys(FLOORS) as FloorId[]) {
         const here = w.bots.filter((b) => w.on[b.kind] === f);
-        for (const b of here) stepBot(b, step, wallsOf(f));
+        const walls = wallsNow(f);
+        for (const b of here) stepBot(b, step, walls);
         // A mounted Droid is carried: he collides with nobody, Biggy does it for both.
         const solid = here.filter((b) => !b.mounted);
         for (let i = 0; i < solid.length; i++) for (let j = i + 1; j < solid.length; j++) botsCollide(solid[i], solid[j]);
@@ -139,7 +148,7 @@ export function createWorld(start: FloorId = 'ground'): World {
   function changeFloor(b: Bot): boolean {
     const here = w.on[b.kind];
     const c: P = [m(b.x), m(b.y)];
-    const stairs = FLOORS[here].stairs.filter((s) => otherEnd(s, here));
+    const stairs = FLOORS[here].stairs.filter((s) => otherEnd(s, here) && !w.locked.has(s.id));
     if (arrived.has(b.kind)) {
       if (!stairs.some((s) => inPoly(c[0], c[1], s.poly))) arrived.delete(b.kind);
       return false;
@@ -154,7 +163,7 @@ export function createWorld(start: FloorId = 'ground'): World {
     const twin = FLOORS[there].stairs
       .filter((q) => q.kind === s.kind && q.from === s.from && q.to === s.to)
       .sort((a, q) => dist(a) - dist(q))[0];
-    const walls = wallsOf(there);
+    const walls = wallsNow(there);
     const blocked = (): boolean => walls.some((wl) => circleWall({ x: b.x, y: b.y, r: b.r }, wl));
     if (twin?.mouth) {
       // Just off the twin's mouth, facing away from it: one step back takes it down again.

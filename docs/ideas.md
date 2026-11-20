@@ -18,3 +18,10 @@ Biggy (1.18 m clear, he is 1.44 m). Michele: *"for biggy it could be a puzzle"*.
   Droid mounts Biggy (`toggleMount`), so Voxxy-on-Biggy is a new mechanic.
 
 Natural payoff: all three robots on the Sala A stage, the keynote room, as a finale.
+
+## Biggy's ram, for a closed room — Michele, 20 Nov 2026
+
+Proposed for job 1 (the stair shutter sticks halfway, Biggy rams it open) and moved: *"keep the
+biggy run for a closed room"*. A door or shutter that only gives to Biggy at speed (After Dark's
+jammed door: frozen threshold on the speed into the door), on a room that is closed during the
+conference: the B3 section, the closed Sala A balcony or galleria.

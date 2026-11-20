@@ -22,6 +22,18 @@ export interface Objective {
   at?: { floor: FloorId; x: number; y: number };
 }
 
+/** Something a job puts in the building for the renderer to draw: a panel, a button. */
+export interface Prop {
+  id: string;
+  kind: 'panel' | 'button';
+  floor: FloorId;
+  x: number;
+  y: number;
+  /** Switched on / used. */
+  on: boolean;
+  label: string;
+}
+
 export interface Job {
   id: string;
   title: string;
@@ -31,6 +43,10 @@ export interface Job {
   /** Put the world as the job starts (robots, folding walls, props). */
   setup(ctx: JobCtx): void;
   update?(ctx: JobCtx, dt: number): void;
+  /** The act key (Space / Enter / A) pressed while driving `who`. True if it did something. */
+  use?(ctx: JobCtx, who: RobotKind): boolean;
+  /** What to draw: panels, buttons. */
+  props?(ctx: JobCtx): Prop[];
   /** Sub-goals done so far, 0..goals. Hints wait on this going up. */
   progress(ctx: JobCtx): number;
   goals: number;

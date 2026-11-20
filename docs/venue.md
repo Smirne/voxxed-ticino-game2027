@@ -129,6 +129,17 @@ about 0.9 m: Voxxy fits, Droid and Biggy do not. Double doors fit everyone. That
 in the geometry — it is the building's own gate, and the game should use it (with a line in that
 robot's voice explaining why).
 
+## Invented for the game (not on the plans)
+
+Michele, 20 Nov 2026, on job 1: *"invent it"*.
+
+- **Main-stair security shutter**: a grille across the foot of the main stair (ground floor, x 62.55,
+  y 24.81–29.73), shut for the night, released only from the first floor. Passes light, stops robots.
+- **Shutter release**: on the wall beside the top of the main stair, Atrio B side (first floor,
+  69.6, 26.55).
+- **Breaker panel**: on the south face of the lift core, main foyer (ground floor, 67.1, 33.55), high
+  enough that only Droid reaches it.
+
 ## Open questions
 
 - **Floor-to-floor height.** Not on the plans. The ceiling heights printed per room (H. 2.80 m to
