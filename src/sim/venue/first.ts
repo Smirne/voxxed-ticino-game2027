@@ -22,11 +22,12 @@ export const FIRST: FloorPlan = {
     // Atrio B north façade, over the main stair to the C1 corner
     { pts: [[62.45, 24.84], [68.08, 24.84], [70.24, 24.79], [71.00, 26.09], [89.49, 26.01]] },
     // main stair south balustrade, then Atrio B west edge to the lift
-    { kind: 'rail', pts: [[62.45, 29.76], [68.40, 29.96], [68.40, 31.91]] },
+    { kind: 'rail', pts: [[62.45, 29.76], [68.40, 29.96], [68.40, 31.86]] },
     // stair foot: the flight drops west to the ground floor here
     { id: 'main-stair-foot', kind: 'rail', pts: [[62.45, 24.84], [62.45, 29.76]] },
     // main lift shaft; door on its east face
-    { pts: [[68.40, 32.71], [68.40, 33.27], [66.30, 33.27], [66.30, 31.36], [68.40, 31.36]] },
+    // (the drawn slot is about 0.75 m; opened to 0.9 m, as on the ground floor)
+    { pts: [[68.40, 32.76], [68.40, 33.27], [66.30, 33.27], [66.30, 31.36], [68.40, 31.36]] },
     // riser by the north door
     { closed: true, pts: [[69.06, 24.88], [69.90, 24.88], [69.90, 25.73], [69.06, 25.73]] },
     // B1 west side and Sala B north wall; B1 west door (45.68-46.58) kept shut
@@ -125,7 +126,7 @@ export const FIRST: FloorPlan = {
     { id: 'door-c2', kind: 'door', a: [101.60, 27.64], b: [102.85, 27.64] },
     { id: 'door-c3', kind: 'door', a: [104.00, 27.64], b: [105.14, 27.64] },
     { id: 'door-d', kind: 'door', a: [105.36, 30.26], b: [105.36, 31.17] },
-    { id: 'lift-main-door', kind: 'door', a: [68.40, 31.91], b: [68.40, 32.71] },
+    { id: 'lift-main-door', kind: 'door', a: [68.40, 31.86], b: [68.40, 32.76] },
     { id: 'door-balcony-seats', kind: 'door', a: [20.70, 34.00], b: [21.70, 34.00] },
     { id: 'door-galleria', kind: 'door', a: [32.36, 35.01], b: [33.40, 35.75] },
     { id: 'exit-b1-west', kind: 'exit', a: [59.24, 45.68], b: [59.24, 46.57] },
@@ -152,18 +153,23 @@ export const FIRST: FloorPlan = {
       poly: [[97.12, 28.16], [105.36, 28.16], [105.36, 35.21], [100.10, 35.31], [100.10, 34.89], [97.12, 34.92]] },
     { id: 'sala-d', name: 'Sala / Room D', label: [107.50, 30.60], public: true, area: 30, ceiling: [3.15],
       poly: [[105.36, 28.16], [109.66, 28.16], [109.70, 35.37], [105.40, 35.37]] },
-    { id: 'sala-a-balcony', name: 'Sala A — Balconata / Balcony and Galleria', label: [26.00, 32.60], public: true, conference: 'closed',
-      poly: [[16.58, 31.41], [34.90, 31.41], [36.77, 33.85], [35.30, 36.64], [40.56, 40.05], [41.52, 40.59], [43.98, 45.30], [43.34, 47.51], [43.90, 49.50], [43.40, 51.69], [41.00, 55.40], [34.00, 56.00], [33.25, 53.25], [35.25, 51.00], [36.10, 45.35], [32.69, 43.38], [26.00, 42.66], [19.50, 43.37], [15.83, 45.35], [13.53, 47.49], [9.90, 42.20], [9.92, 39.39], [10.41, 37.84], [11.44, 37.00], [13.69, 35.69], [10.59, 34.12], [10.50, 33.26], [11.29, 31.71], [12.43, 31.05], [13.73, 33.31], [16.96, 31.22]] },
+    { id: 'sala-a-balcony', name: 'Sala A — Balconata / Balcony', label: [26.00, 32.60], public: true, conference: 'closed',
+      poly: [[16.58, 31.41], [34.90, 31.41], [36.77, 33.85], [35.30, 36.64], [33.40, 35.75], [32.48, 34.94], [31.80, 36.00], [32.69, 43.38], [26.00, 42.66], [19.50, 43.37], [15.83, 45.35], [13.53, 47.49], [9.90, 42.20], [9.92, 39.39], [10.41, 37.84], [11.44, 37.00], [13.69, 35.69], [10.59, 34.12], [10.50, 33.26], [11.29, 31.71], [12.43, 31.05], [13.73, 33.31], [16.96, 31.22]] },
+    // The galleria: Sala A's second balcony, east of the main one and over the desk/reception, through
+    // the double door at the lobby's east end. Reached by the east stair; not used during Voxxed Days
+    // (Michele, 3 Nov 2026).
+    { id: 'sala-a-galleria', name: 'Sala A — Galleria (balcony over the reception)', label: [33.60, 36.60], public: true, conference: 'closed',
+      poly: [[32.48, 34.94], [33.40, 35.75], [34.26, 36.20], [35.00, 36.94], [40.56, 40.05], [41.52, 40.59], [43.98, 45.30], [43.34, 47.51], [43.90, 49.50], [43.40, 51.69], [41.00, 55.40], [34.00, 56.00], [33.25, 53.25], [35.25, 51.00], [36.10, 45.35], [32.69, 43.38], [31.80, 36.00]] },
     { id: 'bridge-a', name: 'Bridge over the main entrance', label: [52.50, 48.00], public: false, ceiling: [3.15],
       poly: [[46.94, 44.70], [59.24, 44.70], [59.28, 51.60], [45.89, 51.52], [44.45, 49.05], [45.06, 47.27]] },
     { id: 'kitchen', name: 'Cucina / Kitchen', label: [103.60, 44.60], public: false,
       poly: [[97.19, 34.98], [110.55, 35.29], [113.35, 36.31], [113.25, 51.50], [100.15, 51.51], [97.19, 53.42]] },
   ],
   stairs: [
-    { id: 'main-stair', kind: 'stair', from: 'foyer-principale', to: 'atrio-b', poly: [[62.45, 24.84], [68.08, 24.84], [68.08, 29.76], [62.45, 29.76]] },
-    { id: 'lift-main', kind: 'lift', from: 'foyer-principale', to: 'atrio-b', poly: [[66.50, 31.56], [68.19, 31.56], [68.19, 33.06], [66.50, 33.06]] },
-    { id: 'balcony-stair-east', kind: 'stair', from: 'foyer-principale', to: 'sala-a-balcony', poly: [[36.83, 33.98], [39.76, 35.66], [38.27, 38.26], [35.30, 36.64]] },
-    { id: 'balcony-stair-west', kind: 'stair', from: 'foyer-west', to: 'sala-a-balcony', poly: [[12.43, 31.05], [15.50, 28.67], [16.96, 31.22], [13.73, 33.31]] },
+    { id: 'main-stair', kind: 'stair', from: 'foyer-principale', to: 'atrio-b', poly: [[62.45, 24.84], [68.08, 24.84], [68.08, 29.76], [62.45, 29.76]], mouth: [[68.08, 24.84], [68.08, 29.76]] },
+    { id: 'lift-main', kind: 'lift', from: 'foyer-principale', to: 'atrio-b', poly: [[66.50, 31.56], [68.19, 31.56], [68.19, 33.06], [66.50, 33.06]], mouth: [[68.19, 31.86], [68.19, 32.76]] },
+    { id: 'balcony-stair-east', kind: 'stair', from: 'foyer-west', to: 'sala-a-galleria', poly: [[36.83, 33.98], [39.76, 35.66], [38.27, 38.26], [35.30, 36.64]], mouth: [[35.30, 36.64], [36.83, 33.98]] },
+    { id: 'balcony-stair-west', kind: 'stair', from: 'foyer-west', to: 'sala-a-balcony', poly: [[12.43, 31.05], [15.50, 28.67], [16.96, 31.22], [13.73, 33.31]], mouth: [[12.43, 31.05], [13.73, 33.31]] },
   ],
   // Speaker podiums in the Voxxed layout (Michele, 2 Nov 2026): B1 (also B1+B2
   // merged) on its west side, B2 alone and B3 on their south side. A low platform

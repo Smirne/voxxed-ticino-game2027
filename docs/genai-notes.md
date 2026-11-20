@@ -112,6 +112,73 @@ on the drawing: the outline follows the drawn walls, so it was documented and no
 one". It asked, and Michele confirmed: one room. First-floor zones not traced (Michele: raw reference is fine). Podiums are
 not collision yet.
 
+**Michele's 2D run, same day.** "I can't pass from floor 0 to 1": the stairs to Sala A walked, the stair
+to B/C/D did not. Two causes. (1) The plan check had no floor change at all, only the G button. The
+reachability tests never noticed, because they seed the flood fill inside every stair. (2) The
+ground-floor main stair was walled on the wrong side. On the drawing it is one straight flight rising
+east, entered from the west (the "1° PIANO" arrow) and left at the east on the first floor; the
+digitisation had a balustrade on the west and a 1.2 m gap at the south-west corner. Fixed: robots now
+change floor by walking fully onto a cross-floor stair or into a lift, and the view follows the active
+robot. New `tests/stairs.test.ts` drives each robot up into Atrio B and back down. The agent could not
+drive it in the browser itself (the pane was hidden, so no frames ran); that check is Michele's.
+
+**Second 2D run.** "Going upstairs from here doesn't work. You can't descend from room A", with a
+screenshot of the stair by the WC. The ground floor had no stair there: the agent's digitisation had
+merged the east flight to the Sala A balcony into the `steps-west` polygon, which only labels a step.
+It is now its own stair with its balustrade. The agent then wrote one test that walks onto every stair
+and lift on both floors and checks that the robot comes off on the other floor in the right room.
+That test caught something nobody had reported: neither lift could be entered. The ground-floor car
+was a closed box, and both drawn doors are about 0.75 m, narrower than Voxxy. The agent opened both
+doors to 0.9 m and flagged this in `docs/venue.md` as a call for Michele. The floor change now
+triggers 0.3 m onto a stair, not when the whole robot is on it, so Biggy changes floor on narrow
+flights too.
+
+**Third 2D run.** "Stairs from room B are blocked in descent." The tests were green because they
+always walked off the top of the stair before coming back. Michele climbed and turned round. A robot
+arrived at the same spot on the other floor, which on the main stair is the foot of the flight, with
+the rail behind it. So it could only get down by walking 5 m to Atrio B and back. Stairs and lifts
+now carry a `mouth` (where you step on, on that floor). A robot comes out just off the other floor's
+mouth, facing away, so one step back takes it down again. New tests: each robot climbs and walks
+straight back; Voxxy rides the lift up and straight back down. **Human decision:** lift doors at
+0.9 m, so Voxxy only ("Biggy will take the stairs").
+
+**3 Nov 2026, the west balcony stair.** Michele confirmed the agent's reading of the drawing: the
+big stair is the way up to the Sala A balcony. Marking its two ends turned up two of the agent's own
+mistakes. A Python search-and-replace from the previous day had matched two lines, so the west stair
+had been given the east stair's step-on edge. And both balcony stairs join the same two rooms, so the
+"same stair on the other floor" lookup could pick the wrong one; it now also takes the nearest. The
+first step-on edge the agent picked on the first floor turned out to be a rail: the new turn-back
+test failed, and listing the walls around the stair showed the only open side is the landing. A
+test that drove the robot was what caught it, not reading the drawing.
+
+**The galleria.** Michele: "the small stair leads to another balcony over the reception, not used during
+the conf", then confirmed that meant the east stair by the WC, not the closed "scala al piano regia"
+behind the west landing (the agent asked, because both fitted the words). On the drawing that stair
+comes up at the east end of the balcony lobby, by a double door into a separate seat block over the
+desk. The digitisation had lumped that block into `sala-a-balcony`. It is now `sala-a-galleria`,
+closed during the conference, with the east stair leading to it. The door stays, because it is on the
+drawing. A test caught the agent putting the new room's label too close to the seats for Voxxy to
+stand there.
+
+## 2 Nov 2026 — Michele's answers, zones, photo cleanup (cloud session)
+
+- **Decided by Michele:** Sala E out ("small and not so relevant"); the bridge over the entrance out
+  (not public); Biggy-on-stage is a puzzle, not a geometry fix (ideas in `docs/ideas.md`); booth and
+  buffet areas sketched on the plan, then "don't keep my sign as law, stretch it to be realistic".
+- **Agent:** zones became whole rooms minus keep-clear floor, so they cannot overlap; a new `ledge`
+  wall kind (blocks robots mid-hop, passes light) for the stage front, with a test that Voxxy cannot
+  hop it.
+- **Photos.** Michele pushed eleven of WellD's own photos straight to the public branch: full size
+  (40 MB), GPS in the EXIF, recognisable attendees. With his go-ahead the agent rewrote the branch:
+  1600 px, metadata stripped, faces blurred with OpenCV's YuNet detector. The first detector pass
+  also "found faces" in the foyer painting and smeared walls; fixed by excluding the painting and
+  filtering box size and confidence, then two missed profiles were blurred by hand after a visual
+  check. Lesson for the talk: the detector is a first pass, a human-style look at every frame is the
+  real check.
+- A local Claude session on Michele's PC (the cloud one could not reach the sites) collected 76
+  linked photos and found the venue's **Matterport** tours, whose measure tool can answer the open
+  questions the plans cannot (storey height, step rises, stage height).
+
 ## 3–9 Nov 2026: storyline and the first six jobs (local session, Claude Code desktop)
 
 **Asked.** Michele: brainstorm challenges and a storyline. Keep it close to After Dark, reuse some
@@ -160,3 +227,23 @@ they need to agree before it ships. The same goes for Celestino if he appears.
 - **Later the same day, Michele:** D7 approved, A, the wheelchair ramp (Voxxy climbs Biggy, drops it,
   Droid squares it, Biggy rolls up). Controls: a gamepad at the booth, but keyboard-first. First
   deadline: a short talk at GDG Milano in the second half of January.
+
+## 19 Nov 2026 — PRs for the stranded work, then the game skeleton
+
+- **PRs.** `venue-voxxed-layout` (stairs and lifts between floors) had kept going after #2 was
+  squash-merged: merged `main` back in keeping the branch side, checked the result equal to the
+  branch, opened #4. The 2 Nov cloud-session work (realistic zones, stage ledge, photo tool) was
+  stranded on `claude/funny-bohr-98o502`: cherry-picked onto #4 as #5. The one real conflict was
+  zones: #2 had added podium outlines while #5 turned booths into whole rooms; resolved by letting a
+  zone be either (`rooms` or `poly`).
+- **Skeleton.** `world.ts` lifts the floor-changing logic out of the plan-check sandbox so all three
+  robots move at once on their own floors (the sandbox only stepped the floor on view); a mounted
+  Droid now rides Biggy up the stairs. `game.ts`: menu → job → ending card, fixed order, hints at
+  30/60/120 s, booth-mode fail forward at 180 s (D8 as proposed). Gate lines are computed from door
+  widths: Biggy pushing into the 0.90 m lift says *"Lift? Me? It's 0.90 m, I'm 1.44. Stairs it is."*
+  Input: keyboard and pad to the same actions, prompts follow the last device. Job 1 first cut:
+  everyone up to Atrio B; the breakers and the service door come next.
+- **Tests caught:** a test that kept driving after the job had ended (the last robot steps off the
+  stair already inside Atrio B, so the job finishes a step earlier than the script expected).
+- **Rejected:** a `?job=` URL parameter that ignored the job named; renamed to `?start=1`, which is
+  what it did.

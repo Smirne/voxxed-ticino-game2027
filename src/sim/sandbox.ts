@@ -1,43 +1,51 @@
 /**
- * The plan-check sandbox: the three robots loose on one floor of the Palazzo,
- * driven by the real `stepBot` against the digitised walls. No story, no
- * chapters — it exists so a human can walk the building at robot scale and say
- * "this wall is in the wrong place" before anything is built on it.
+ * The plan-check sandbox: the three robots loose in the Palazzo, driven by the
+ * real `stepBot` against the digitised walls. No story, no jobs — it exists so a
+ * human can walk the building at robot scale and say "this wall is in the wrong
+ * place" before anything is built on it.
+ *
+ * A thin view over `world.ts`: every robot moves on its own floor; the sandbox
+ * shows one floor at a time and follows the active robot when it changes floor.
  *
  * Headless, like everything in `src/sim`; `src/plan` only draws it.
  */
 
-import { botsCollide, mkBot, stepBot } from './bot';
-import { DT_MAX } from './constants';
-import { px } from './units';
+import { createWorld, type FloorId, type World } from './world';
 import type { Bot, RobotKind, Wall } from './types';
-import { buildWalls, FLOORS, type FloorPlan } from './venue';
+import { FLOORS, type FloorPlan } from './venue';
 
 export interface Sandbox {
+  /** The floor on view. */
   floor: FloorPlan;
   walls: Wall[];
+  /** The robots on the floor on view. */
   bots: Bot[];
   active: RobotKind;
-  /** Which folding walls stand shut. */
+  /** Which robot is on which floor. */
+  on: Record<RobotKind, FloorId>;
+  /** Which folding walls stand shut, both floors. */
   folding: Record<string, boolean>;
   setStick(ix: number, iy: number): void;
+  /** Make a robot the active one; the view goes to its floor. */
   select(kind: RobotKind): void;
-  setFloor(id: FloorPlan['id']): void;
+  /** Start over: all three robots at the hub of this floor, folding walls as in the Voxxed layout. */
+  setFloor(id: FloorId): void;
   toggleFolding(id: string): void;
   update(dt: number): void;
 }
 
-const START: Record<FloorPlan['id'], string> = { ground: 'foyer-principale', first: 'atrio-b' };
+export function createSandbox(floorId: FloorId = 'ground'): Sandbox {
+  let world: World = createWorld(floorId);
 
-export function createSandbox(floorId: FloorPlan['id'] = 'ground'): Sandbox {
   const sb: Sandbox = {
     floor: FLOORS[floorId],
     walls: [],
     bots: [],
     active: 'voxxy',
-    folding: {},
+    on: world.on,
+    folding: world.folding,
     setStick(ix, iy) {
-      for (const b of sb.bots) {
+      for (const b of world.bots) {
         b.ix = b.kind === sb.active ? ix : 0;
         b.iy = b.kind === sb.active ? iy : 0;
       }
@@ -45,29 +53,33 @@ export function createSandbox(floorId: FloorPlan['id'] = 'ground'): Sandbox {
     select(kind) {
       sb.active = kind;
       sb.setStick(0, 0);
+      view(sb.on[kind]);
     },
     setFloor(id) {
-      sb.floor = FLOORS[id];
-      sb.folding = {};
-      for (const w of sb.floor.walls) if (w.kind === 'folding' && w.id) sb.folding[w.id] = !w.open;
-      rebuild();
-      const room = sb.floor.rooms.find((r) => r.id === START[id]) ?? sb.floor.rooms[0];
-      const [x, y] = room.label;
-      sb.bots = (['voxxy', 'droid', 'biggy'] as RobotKind[]).map((k, i) => mkBot(k, px(x - 2 + 2 * i), px(y + 2)));
+      world = createWorld(id);
+      sb.on = world.on;
+      sb.folding = world.folding;
+      view(id);
     },
     toggleFolding(id) {
-      sb.folding[id] = !sb.folding[id];
-      rebuild();
+      world.toggleFolding(id);
+      sb.walls = world.walls(sb.floor.id);
     },
     update(dt) {
-      const step = Math.min(dt, DT_MAX);
-      for (const b of sb.bots) stepBot(b, step, sb.walls);
-      for (let i = 0; i < sb.bots.length; i++) for (let j = i + 1; j < sb.bots.length; j++) botsCollide(sb.bots[i], sb.bots[j]);
+      world.update(dt, (b, from, to) => {
+        if (b.kind === sb.active) view(to);
+        else if (from === sb.floor.id || to === sb.floor.id) view(sb.floor.id);
+      });
     },
   };
-  const rebuild = (): void => {
-    sb.walls = buildWalls(sb.floor, { foldingShut: (id) => (id ? sb.folding[id] !== false : true) });
-  };
+
+  /** Show floor `id`: its walls and the robots standing on it. */
+  function view(id: FloorId): void {
+    sb.floor = FLOORS[id];
+    sb.walls = world.walls(id);
+    sb.bots = world.bots.filter((b) => sb.on[b.kind] === id);
+  }
+
   sb.setFloor(floorId);
   return sb;
 }

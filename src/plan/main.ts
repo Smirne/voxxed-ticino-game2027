@@ -7,7 +7,7 @@
 import { DEFS } from '../sim/constants';
 import { createSandbox } from '../sim/sandbox';
 import { m } from '../sim/units';
-import { inPoly, polyArea, type FloorPlan, type P } from '../sim/venue';
+import { inZone, polyArea, type FloorPlan, type P } from '../sim/venue';
 import type { RobotKind, Wall } from '../sim/types';
 import groundPng from '../../plans/ground-floor.png';
 import firstPng from '../../plans/first-floor.png';
@@ -70,7 +70,7 @@ function panel(): void {
   });
   const fold = $('folding');
   fold.innerHTML = '';
-  for (const id of Object.keys(sb.folding)) {
+  for (const id of Object.keys(sb.folding).filter((id) => sb.floor.walls.some((w) => w.id === id))) {
     const b = document.createElement('button');
     b.textContent = `${id} ${sb.folding[id] ? 'shut' : 'open'}`;
     b.className = sb.folding[id] ? 'on' : '';
@@ -97,7 +97,13 @@ function panel(): void {
 
 function setFloor(id: FloorPlan['id']): void {
   sb.setFloor(id);
-  if ($<HTMLInputElement>('trace').checked) void loadTrace(id);
+  showFloor();
+}
+/** The floor on view changed (a button, G, a stair, or picking a robot on the other floor). */
+let shown: FloorPlan['id'] | null = null;
+function showFloor(): void {
+  shown = sb.floor.id;
+  if ($<HTMLInputElement>('trace').checked) void loadTrace(shown);
   panel();
 }
 $('trace').addEventListener('change', () => void loadTrace(sb.floor.id));
@@ -126,7 +132,7 @@ cv.addEventListener('pointerdown', (e) => {
 addEventListener('pointerup', () => (drag = null));
 cv.addEventListener('pointermove', (e) => {
   const [wx, wy] = toWorld(e.clientX * devicePixelRatio, e.clientY * devicePixelRatio);
-  const zone = sb.floor.zones.find((z) => inPoly(wx, wy, z.poly));
+  const zone = sb.floor.zones.find((z) => inZone(sb.floor, z, wx, wy));
   $('coords').textContent = `x ${wx.toFixed(2)} m   y ${wy.toFixed(2)} m   (${sb.floor.id} floor)${zone ? '   · ' + zone.note : ''}`;
   if (!drag) return;
   view.x -= ((e.clientX - drag[0]) * devicePixelRatio) / view.scale;
@@ -148,7 +154,7 @@ cv.addEventListener(
 
 /* ------------------------------------------------------------------- draw */
 
-const WALL_COLOUR: Record<string, string> = { wall: '#c0262d', glass: '#1d8fd1', rail: '#e08a00', folding: '#8a3ccf', column: '#c0262d', pillar: '#c0262d' };
+const WALL_COLOUR: Record<string, string> = { wall: '#c0262d', glass: '#1d8fd1', rail: '#e08a00', ledge: '#6b3a12', folding: '#8a3ccf', column: '#c0262d', pillar: '#c0262d' };
 
 function path(pts: readonly P[], close: boolean): void {
   ctx.beginPath();
@@ -194,16 +200,49 @@ function draw(): void {
     ctx.fillStyle = r.public ? 'rgba(60,130,220,.10)' : 'rgba(120,120,120,.22)';
     ctx.fill();
   }
-  // Conference zones (Michele's sketch): booths red, buffet green, podiums amber.
+  // Conference zones: booths red, buffet green, podiums amber. An outline zone is drawn as
+  // its outline; a room zone is its rooms minus keep-clear areas and step flights: clip to
+  // each room, then fill the screen with the holes cut out (even-odd).
   for (const z of f.zones) {
-    path(z.poly, true);
-    ctx.fillStyle = z.kind === 'booths' ? 'rgba(220,40,40,.10)' : z.kind === 'podium' ? 'rgba(230,150,0,.35)' : 'rgba(40,170,70,.12)';
-    ctx.fill();
-    ctx.strokeStyle = z.kind === 'booths' ? '#d22' : z.kind === 'podium' ? '#d98a00' : '#2a2';
-    ctx.lineWidth = 2;
-    ctx.setLineDash([10, 6]);
-    ctx.stroke();
-    ctx.setLineDash([]);
+    const colour = z.kind === 'booths' ? '#d22' : z.kind === 'podium' ? '#d98a00' : '#2a2';
+    if (z.poly) {
+      path(z.poly, true);
+      ctx.fillStyle = z.kind === 'podium' ? 'rgba(230,150,0,.35)' : 'rgba(40,170,70,.12)';
+      ctx.fill();
+      ctx.strokeStyle = colour;
+      ctx.lineWidth = 2;
+      ctx.setLineDash([10, 6]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      continue;
+    }
+    for (const r of f.rooms.filter((q) => (z.rooms ?? []).includes(q.id))) {
+      ctx.save();
+      path(r.poly, true);
+      ctx.clip();
+      ctx.beginPath();
+      ctx.rect(0, 0, cv.width, cv.height);
+      for (const hole of [...(z.keepClear ?? []), ...f.stairs.map((s) => s.poly)]) {
+        hole.forEach(([x, y], i) => {
+          const [sx, sy] = toScreen(x, y);
+          if (i) ctx.lineTo(sx, sy);
+          else ctx.moveTo(sx, sy);
+        });
+        ctx.closePath();
+      }
+      ctx.fillStyle = z.kind === 'booths' ? 'rgba(220,40,40,.16)' : 'rgba(40,170,70,.18)';
+      ctx.fill('evenodd');
+      ctx.restore();
+    }
+    // Keep-clear areas, outlined so they read as deliberate.
+    for (const hole of z.keepClear ?? []) {
+      path(hole, true);
+      ctx.strokeStyle = colour;
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([6, 5]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
   }
   // Stairs, steps, lifts.
   for (const s of f.stairs) {
@@ -276,6 +315,7 @@ function frame(now: number): void {
     sb.update(s);
     left -= s;
   }
+  if (sb.floor.id !== shown) showFloor();
   if ($<HTMLInputElement>('follow').checked) {
     const b = sb.bots.find((q) => q.kind === sb.active)!;
     view.x = m(b.x);

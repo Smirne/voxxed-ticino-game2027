@@ -37,11 +37,15 @@ export const GROUND: FloorPlan = {
     // Cassa / cashier kiosk.
     { id: 'cassa', pts: [[58.71, 46.00], [60.91, 46.00], [60.85, 48.50], [58.71, 48.59]], closed: true },
     // Lift, ground <-> first.
-    { id: 'lift-main', pts: [[65.84, 30.67], [68.14, 30.67], [68.34, 33.24], [65.84, 33.24]], closed: true },
-    // Main stair, west balustrade.
-    { pts: [[62.68, 24.81], [62.68, 29.73]], t: 0.15, kind: 'rail' },
-    // Main stair, south and east side.
-    { pts: [[63.90, 29.73], [68.01, 29.73], [68.01, 24.93]], t: 0.15, kind: 'rail' },
+    // Door on the west face: the drawing's slot is about 0.75 m, opened to 0.9 m like every single
+    // door here, so Voxxy fits and Droid and Biggy take the stairs (Michele, 2 Nov 2026).
+    { id: 'lift-main', pts: [[65.84, 32.32], [65.84, 33.24], [68.34, 33.24], [68.14, 30.67], [65.84, 30.67], [65.84, 31.42]] },
+    // Main stair: one straight flight rising east, entered from the west ("1° PIANO" arrow);
+    // balustrade on the south and east side.
+    { pts: [[62.68, 29.73], [68.01, 29.73], [68.01, 24.93]], t: 0.15, kind: 'rail' },
+    // East stair up to the Sala A galleria (the balcony over the reception): entered from the west by
+    // the WC (the dashed line), balustrade on the north side and the east end down to Sala A's wall.
+    { pts: [[37.17, 33.92], [39.92, 35.50], [38.55, 38.65]], t: 0.15, kind: 'rail' },
     // Guardaroba counter; coats behind it.
     // The plan's GUARDAROBA counter. At Voxxed it is a row of tables used as the counter,
     // with coat racks and backpack space behind (Michele, 2 Nov 2026). Same line, same block.
@@ -57,7 +61,10 @@ export const GROUND: FloorPlan = {
     // Sala A, west wall.
     { id: 'sala-a-wall-w', pts: [[7.44, 45.81], [7.29, 47.38], [8.39, 51.87], [9.89, 54.40], [13.01, 57.51], [16.72, 58.64]] },
     // Stage front (palco), raised.
-    { id: 'stage-front', pts: [[18.20, 58.64], [33.60, 58.64]], t: 0.3, kind: 'rail' },
+    // Stage front: a ledge (~1 m, height not on the plan), too high for Voxxy's hop.
+    // The two speaker steps at its ends are the way up — narrow enough to keep Biggy
+    // off the stage, which is a puzzle, not a bug (Michele, 2 Nov 2026).
+    { id: 'stage-front', pts: [[18.20, 58.64], [33.60, 58.64]], t: 0.3, kind: 'ledge' },
     // Palco / stage: proscenium wings, back wall, wings sealed (backstage stairs and goods lift beyond).
     { id: 'stage', pts: [[16.72, 58.64], [17.07, 60.03], [13.85, 60.74], [12.87, 60.96], [12.82, 65.23], [14.75, 68.58], [35.67, 68.58], [39.93, 61.18], [35.15, 58.64]] },
     // Seat block (stalls).
@@ -104,7 +111,7 @@ export const GROUND: FloorPlan = {
     { id: 'sala-e', a: [107.06, 35.39], b: [108.87, 35.48], kind: 'door' },
     { id: 'atrio-e-out-1', a: [109.69, 29.27], b: [109.69, 30.26], kind: 'exit' },
     { id: 'atrio-e-out-2', a: [109.69, 31.26], b: [109.69, 33.05], kind: 'exit' },
-    { id: 'main-stair', a: [62.68, 29.73], b: [63.90, 29.73], kind: 'opening' },
+    { id: 'main-stair', a: [62.68, 24.81], b: [62.68, 29.73], kind: 'opening' },
   ],
   rooms: [
     { id: 'foyer-principale', name: 'Atrio / Foyer principale', label: [51.00, 34.00], poly: [[37.43, 24.93], [42.02, 24.84], [43.14, 28.18], [55.47, 28.18], [57.54, 31.78], [62.39, 31.78], [63.03, 30.67], [63.79, 29.93], [68.01, 29.93], [68.01, 24.93], [70.18, 24.76], [72.54, 28.68], [74.53, 28.77], [74.53, 36.30], [73.11, 36.30], [71.89, 37.94], [60.82, 37.94], [59.35, 40.49], [59.28, 46.00], [58.71, 46.00], [58.71, 48.59], [47.59, 48.59], [46.01, 45.89], [45.83, 42.52], [43.59, 38.69], [42.63, 37.69], [40.68, 34.31], [39.93, 35.54], [37.43, 34.10]], area: 480, ceiling: [6.50, 4.95, 2.80], public: true },
@@ -123,23 +130,52 @@ export const GROUND: FloorPlan = {
     { id: 'kitchen', name: 'Cucina / Kitchen', label: [91.00, 47.00], poly: [[84.04, 39.98], [100.20, 39.98], [100.24, 41.58], [105.04, 41.78], [104.92, 51.98], [84.04, 51.98]], public: false },
   ],
   stairs: [
-    { id: 'stair-main', kind: 'stair', poly: [[62.68, 24.81], [68.01, 24.93], [68.01, 29.73], [62.68, 29.73]], from: 'foyer-principale', to: 'atrio-b' },
-    { id: 'lift-main', kind: 'lift', poly: [[65.84, 30.67], [68.14, 30.67], [68.34, 33.24], [65.84, 33.24]], from: 'foyer-principale', to: 'atrio-b' },
+    { id: 'stair-main', kind: 'stair', poly: [[62.68, 24.81], [68.01, 24.93], [68.01, 29.73], [62.68, 29.73]], from: 'foyer-principale', to: 'atrio-b', mouth: [[62.68, 24.81], [62.68, 29.73]] },
+    { id: 'lift-main', kind: 'lift', poly: [[65.84, 30.67], [68.14, 30.67], [68.34, 33.24], [65.84, 33.24]], from: 'foyer-principale', to: 'atrio-b', mouth: [[65.84, 31.42], [65.84, 32.32]] },
     { id: 'steps-villa-ciani', kind: 'steps', poly: [[41.70, 25.68], [42.34, 25.51], [43.51, 27.55], [55.84, 27.55], [57.91, 31.14], [62.02, 31.14], [62.71, 30.59], [63.03, 30.67], [62.39, 31.78], [57.54, 31.78], [55.47, 28.18], [43.14, 28.18]], from: 'foyer-villa-ciani', to: 'foyer-principale' },
-    { id: 'steps-west', kind: 'steps', poly: [[36.47, 26.44], [37.43, 26.44], [37.43, 34.10], [39.93, 35.54], [39.08, 36.99], [37.31, 35.98], [36.47, 34.40]], from: 'foyer-west', to: 'foyer-principale' },
+    { id: 'steps-west', kind: 'steps', poly: [[36.47, 26.44], [37.43, 26.44], [37.43, 34.10], [36.47, 34.40]], from: 'foyer-west', to: 'foyer-principale' },
+    { id: 'stair-balcony-east', kind: 'stair', poly: [[37.10, 33.95], [39.76, 35.66], [38.27, 38.26], [37.42, 37.75]], from: 'foyer-west', to: 'sala-a-galleria', mouth: [[37.10, 33.95], [37.42, 37.75]] },
     { id: 'steps-desk', kind: 'steps', poly: [[40.29, 34.91], [40.68, 34.31], [42.63, 37.69], [42.08, 38.03]], from: 'foyer-west', to: 'foyer-principale' },
     { id: 'ramp-west', kind: 'steps', poly: [[32.83, 24.93], [37.43, 24.93], [37.43, 26.44], [32.83, 26.44]], from: 'foyer-west', to: 'foyer-principale' },
     { id: 'steps-wardrobe', kind: 'steps', poly: [[59.35, 44.48], [59.35, 40.49], [60.82, 37.94], [71.89, 37.94], [73.11, 36.30], [74.53, 36.30], [74.53, 36.55], [73.53, 36.83], [72.26, 38.58], [61.19, 38.58], [59.99, 40.66], [59.99, 44.48]], from: 'foyer-principale', to: 'foyer-wardrobe' },
     { id: 'ramp-wardrobe', kind: 'steps', poly: [[59.35, 44.48], [62.98, 44.48], [62.98, 45.86], [59.35, 45.79]], from: 'foyer-principale', to: 'foyer-wardrobe' },
-    { id: 'stair-balcony-west', kind: 'stair', poly: [[12.93, 30.70], [15.03, 29.40], [17.44, 31.78], [16.05, 32.94], [14.30, 33.02]], from: 'foyer-west', to: 'sala-a-balcony' },
+    { id: 'stair-balcony-west', kind: 'stair', poly: [[12.93, 30.70], [15.03, 29.40], [17.44, 31.78], [16.05, 32.94], [14.30, 33.02]], from: 'foyer-west', to: 'sala-a-balcony', mouth: [[15.03, 29.40], [17.44, 31.78]] },
     { id: 'stage-steps-left', kind: 'steps', poly: [[16.72, 58.10], [18.20, 58.10], [18.20, 58.64], [16.72, 58.64]], from: 'sala-a', to: 'sala-a-stage' },
     { id: 'stage-steps-right', kind: 'steps', poly: [[33.60, 58.10], [35.15, 58.10], [35.15, 58.64], [33.60, 58.64]], from: 'sala-a', to: 'sala-a-stage' },
   ],
-  // Conference use, hand-drawn by Michele on plans/PCL_PT_zones-michele.pdf (2 Nov 2026),
-  // traced from his strokes: outlines are a sketch, ±0.5 m.
+  // Conference use. Michele's sketch (plans/PCL_PT_zones-michele.pdf, 2 Nov 2026), then his
+  // call: "don't keep my sign as law, stretch it to be realistic (no overlap, red part until
+  // the stairs on the left)". So zones are whole rooms minus what must stay clear.
   zones: [
-    { id: 'booths', kind: 'booths', note: 'Sponsor booths: Foyer principale and Foyer Villa Ciani. All booths go here.', poly: [[39.5, 27.5], [39.1, 25.2], [38.3, 22.2], [38.5, 20.6], [39.6, 19.9], [42.0, 18.8], [44.3, 17.9], [48.5, 16.6], [49.6, 16.4], [53.1, 16.4], [55.5, 16.8], [57.9, 17.2], [58.0, 17.3], [59.6, 19.2], [60.8, 21.3], [61.8, 23.4], [62.5, 25.4], [62.5, 27.5], [63.0, 31.6], [63.5, 34.0], [64.0, 37.0], [64.0, 38.2], [60.6, 40.9], [60.4, 41.1], [58.0, 41.7], [55.5, 42.2], [53.2, 42.3], [48.8, 42.4], [46.5, 42.0], [45.1, 41.5], [42.5, 39.6], [40.2, 38.5], [40.2, 38.4], [40.1, 35.8], [40.1, 33.4], [39.8, 29.7]] },
-    { id: 'buffet-west', kind: 'buffet', note: 'Buffet / refreshments. Marked "2": a booth sometimes stands here too.', poly: [[11.8, 27.2], [13.2, 25.1], [14.4, 23.1], [16.6, 19.5], [17.4, 17.2], [17.5, 17.1], [19.8, 16.6], [21.9, 16.2], [24.1, 16.4], [26.1, 16.9], [27.9, 17.2], [31.1, 18.4], [32.6, 19.2], [33.0, 19.4], [34.0, 20.7], [35.4, 23.9], [36.4, 25.4], [37.0, 27.3], [37.3, 29.3], [37.2, 31.4], [36.9, 33.6], [36.1, 35.7], [36.0, 36.0], [33.4, 36.2], [31.4, 36.7], [29.1, 36.0], [27.4, 35.6], [25.9, 35.2], [23.2, 34.9], [21.6, 34.9], [19.6, 35.0], [17.8, 34.2], [16.4, 33.0], [14.8, 31.4], [13.2, 29.7], [11.6, 28.5]] },
-    { id: 'buffet-wardrobe', kind: 'buffet', note: 'Buffet / refreshments, in the wardrobe foyer.', poly: [[59.0, 44.4], [60.0, 40.3], [60.5, 38.1], [60.8, 37.5], [62.4, 36.8], [64.8, 36.4], [66.7, 36.0], [69.7, 34.6], [71.5, 34.0], [73.5, 33.3], [75.7, 32.9], [78.2, 32.8], [80.8, 33.4], [80.8, 33.5], [81.8, 35.8], [81.7, 38.6], [81.3, 40.9], [81.2, 42.8], [81.1, 46.1], [81.1, 47.9], [81.1, 50.0], [81.0, 52.4], [80.4, 55.0], [80.3, 55.5], [78.0, 55.9], [75.5, 55.4], [73.4, 55.2], [69.6, 55.3], [67.5, 55.4], [65.5, 55.0], [63.5, 54.0], [61.7, 52.8], [61.5, 52.6], [59.2, 49.0], [58.6, 47.4], [58.5, 46.4]] },
+    {
+      id: 'booths',
+      kind: 'booths',
+      rooms: ['foyer-principale', 'foyer-villa-ciani'],
+      note: 'Sponsor booths: Foyer principale (west to the steps by Sala A) and Foyer Villa Ciani.',
+      keepClear: [
+        // The low entrance hall (H 2.80 m), main doors to the foyer: the arrival flow.
+        [[45.83, 42.52], [59.35, 42.52], [59.28, 48.59], [45.83, 48.59]],
+        // Foot of the main stair, 2.5 m apron on its west side.
+        [[60.18, 24.81], [62.68, 24.81], [62.68, 29.93], [60.18, 29.93]],
+        // In front of the main lift, 1.5 m all round.
+        [[64.34, 29.93], [69.84, 29.93], [69.84, 34.74], [64.34, 34.74]],
+      ],
+    },
+    {
+      id: 'buffet-west',
+      kind: 'buffet',
+      rooms: ['foyer-west'],
+      note: 'Buffet / refreshments, the west foyer. Marked "2": a booth sometimes stands here too.',
+    },
+    {
+      id: 'buffet-wardrobe',
+      kind: 'buffet',
+      rooms: ['foyer-wardrobe', 'foyer-bar'],
+      note: 'Buffet / refreshments, the wardrobe foyer up to the bar.',
+      keepClear: [
+        // The steps' landing from the main foyer.
+        [[59.99, 38.58], [63.20, 38.58], [63.20, 46.00], [59.99, 46.00]],
+      ],
+    },
   ],
 };
