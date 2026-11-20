@@ -26,7 +26,7 @@
   wins** — re-measure, move the geometry, fix the prose in the same change (After Dark's rule,
   Michele, 24 Sep 2026). Scope: **only what the conference audience can enter** — no kitchen, no
   restaurant, no backstage (Michele, 2 Nov 2026).
-- **Verify the venue in 2D before building 3D on it.** `pnpm dev` opens the plan check: the
+- **Verify the venue in 2D before building 3D on it.** `pnpm dev` then `/plan.html` opens the plan check: the
   digitised walls over the drawing, robots driveable at true scale. `tests/venue.test.ts` checks
   room areas against the plan's printed m² and that every public room is reachable and the
   building sealed.

@@ -178,3 +178,23 @@ stand there.
 - A local Claude session on Michele's PC (the cloud one could not reach the sites) collected 76
   linked photos and found the venue's **Matterport** tours, whose measure tool can answer the open
   questions the plans cannot (storey height, step rises, stage height).
+
+## 19 Nov 2026 — PRs for the stranded work, then the game skeleton
+
+- **PRs.** `venue-voxxed-layout` (stairs and lifts between floors) had kept going after #2 was
+  squash-merged: merged `main` back in keeping the branch side, checked the result equal to the
+  branch, opened #4. The 2 Nov cloud-session work (realistic zones, stage ledge, photo tool) was
+  stranded on `claude/funny-bohr-98o502`: cherry-picked onto #4 as #5. The one real conflict was
+  zones: #2 had added podium outlines while #5 turned booths into whole rooms; resolved by letting a
+  zone be either (`rooms` or `poly`).
+- **Skeleton.** `world.ts` lifts the floor-changing logic out of the plan-check sandbox so all three
+  robots move at once on their own floors (the sandbox only stepped the floor on view); a mounted
+  Droid now rides Biggy up the stairs. `game.ts`: menu → job → ending card, fixed order, hints at
+  30/60/120 s, booth-mode fail forward at 180 s (D8 as proposed). Gate lines are computed from door
+  widths: Biggy pushing into the 0.90 m lift says *"Lift? Me? It's 0.90 m, I'm 1.44. Stairs it is."*
+  Input: keyboard and pad to the same actions, prompts follow the last device. Job 1 first cut:
+  everyone up to Atrio B; the breakers and the service door come next.
+- **Tests caught:** a test that kept driving after the job had ended (the last robot steps off the
+  stair already inside Atrio B, so the job finishes a step earlier than the script expected).
+- **Rejected:** a `?job=` URL parameter that ignored the job named; renamed to `?start=1`, which is
+  what it did.
