@@ -35,6 +35,12 @@ Plan check controls: arrows/WASD drive, `1` `2` `3` pick Voxxy/Droid/Biggy, `G` 
 to pan, wheel to zoom. The slider fades the original drawing under the digitised walls; the
 coordinates in the corner are the metres used in `src/sim/venue`.
 
+## Preview on Vercel
+
+The repo deploys as a static Vite site (`vercel.json`): the game at `/`, the plan check at `/plan`.
+Connected once in the Vercel dashboard (Add New → Project → import this repo, no settings to
+change), every push to `main` updates production and every pull request gets its own preview URL.
+
 ## Layout
 
 | | |
