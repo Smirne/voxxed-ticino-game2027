@@ -23,4 +23,4 @@ export const RUN_SHEET: RunSheetLine[] = [
   { id: 'the-keynote', title: 'The keynote', act: 'after' },
 ];
 
-export type { Job, JobCtx, Objective } from './types';
+export type { Job, JobCtx, Objective, Prop } from './types';

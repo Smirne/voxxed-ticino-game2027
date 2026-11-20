@@ -81,7 +81,7 @@ function poly(pts: readonly P[], close = true): void {
 }
 
 function wall(w: Wall): void {
-  ctx.fillStyle = w.glass ? 'rgba(120,190,255,.55)' : w.low ? '#7a6a52' : '#d9d4c7';
+  ctx.fillStyle = w.kind === 'shutter' ? '#e0b44a' : w.glass ? 'rgba(120,190,255,.55)' : w.low ? '#7a6a52' : '#d9d4c7';
   if (w.obb) {
     const o = w.obb;
     poly(([[-1, -1], [1, -1], [1, 1], [-1, 1]] as const).map(([a, b]) => [m(o.cx + a * o.hx * o.c - b * o.hy * o.s), m(o.cy + a * o.hx * o.s + b * o.hy * o.c)] as P));
@@ -167,6 +167,66 @@ function drawRobots(): void {
     ctx.stroke();
     text(DEFS[b.kind].name, x, y - r - px(6), 12, '#fff', 'center', b.kind === game.active ? 700 : 400);
   }
+}
+
+/** Panels and buttons a job put in the building; "Act" over the one in reach. */
+function drawProps(): void {
+  const b = game.world.bot(game.active);
+  for (const p of game.props) {
+    if (p.floor !== game.floor) continue;
+    const [x, y] = S(p.x, p.y);
+    const s = px(p.kind === 'panel' ? 16 : 11);
+    ctx.fillStyle = p.on ? '#5fd17a' : '#e04a3c';
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = px(1.5);
+    if (p.kind === 'panel') {
+      ctx.fillRect(x - s / 2, y - s / 2, s, s);
+      ctx.strokeRect(x - s / 2, y - s / 2, s, s);
+    } else {
+      ctx.beginPath();
+      ctx.arc(x, y, s / 2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+    }
+    text(p.label, x, y + s + px(10), 11, 'rgba(255,255,255,.8)', 'center');
+    const reach = Math.hypot(m(b.x) - p.x, m(b.y) - p.y) - m(b.r) <= 0.75;
+    if (reach && !p.on) {
+      const [bx, by] = S(m(b.x), m(b.y));
+      panel(bx + px(14), by - px(44), px(78), px(24), 0.9);
+      text(`${glyph('start', device)} Act`, bx + px(53), by - px(27), 13, '#ffd65a', 'center', 700);
+    }
+  }
+}
+
+const dark = document.createElement('canvas');
+
+/** No power: dark, with a little light around each robot (their own lamps). */
+function drawDark(): void {
+  const breakers = game.props.find((p) => p.id === 'breakers');
+  if (!breakers || breakers.on) return;
+  ctx.save();
+  if (dark.width !== cv.width || dark.height !== cv.height) {
+    dark.width = cv.width;
+    dark.height = cv.height;
+  }
+  const d = dark.getContext('2d')!;
+  d.globalCompositeOperation = 'source-over';
+  d.clearRect(0, 0, dark.width, dark.height);
+  d.fillStyle = 'rgba(4,6,10,.78)';
+  d.fillRect(0, 0, dark.width, dark.height);
+  d.globalCompositeOperation = 'destination-out';
+  for (const b of game.world.bots) {
+    if (game.world.on[b.kind] !== game.floor) continue;
+    const [x, y] = S(m(b.x), m(b.y));
+    const r = 5 * view.scale * dpr;
+    const g = d.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, 'rgba(0,0,0,1)');
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    d.fillStyle = g;
+    d.fillRect(x - r, y - r, 2 * r, 2 * r);
+  }
+  ctx.drawImage(dark, 0, 0);
+  ctx.restore();
 }
 
 /** An arrow from the driven robot toward the objective, or toward the stair if it is on the other floor. */
@@ -262,7 +322,7 @@ function drawHud(): void {
   }
   // Prompts, bottom.
   const d = device;
-  const prompts = `${moveGlyph(d)} move · ${glyph('next', d)} switch robot · ${glyph('trick', d)} trick · ${glyph('mount', d)} Droid climbs Biggy · ${glyph('restart', d)} restart · ${glyph('menu', d)} run sheet`;
+  const prompts = `${moveGlyph(d)} move · ${glyph('start', d)} act · ${glyph('next', d)} switch robot · ${glyph('trick', d)} trick · ${glyph('mount', d)} Droid climbs Biggy · ${glyph('restart', d)} restart · ${glyph('menu', d)} run sheet`;
   text(prompts, W / 2, H - px(20), 13, 'rgba(255,255,255,.6)', 'center');
 }
 
@@ -311,6 +371,8 @@ function frame(now: number): void {
   ctx.fillStyle = '#14171c';
   ctx.fillRect(0, 0, cv.width, cv.height);
   drawFloor();
+  drawDark();
+  drawProps();
   drawChevron();
   drawRobots();
   if (game.phase === 'play') drawHud();
@@ -319,6 +381,9 @@ function frame(now: number): void {
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
+
+// Dev builds only: the game on window, for staging screenshots and poking at it from the console.
+if (import.meta.env.DEV) (window as unknown as { game: typeof game }).game = game;
 
 // For the talk and for testing: ?start=1 skips the run sheet and plays the next job.
 if (params.get('start') === '1') game.action('start');

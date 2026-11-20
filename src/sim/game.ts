@@ -18,12 +18,12 @@
 import { partyTrick, toggleMount } from './bot';
 import { BLOCKED_THROTTLE, TOAST_MS } from './constants';
 import { GATE_LINES, gateAhead } from './gates';
-import { RUN_SHEET, type Job, type JobCtx, type Objective } from './jobs';
+import { RUN_SHEET, type Job, type JobCtx, type Objective, type Prop } from './jobs';
 import type { Bot, RobotKind } from './types';
 import { createWorld, KINDS, type FloorId, type World } from './world';
 
 export type Action =
-  /** Start the next job (menu), or skip the ending card. */
+  /** Start the next job (menu), skip the ending card, or act while playing (press, pull, use). */
   | 'start'
   /** Drive the next / previous robot. */
   | 'next'
@@ -88,6 +88,8 @@ export interface Game {
   /** Seconds into the current job. */
   readonly jobTime: number;
   readonly objective: Objective | undefined;
+  /** What the job puts in the building to draw. */
+  readonly props: Prop[];
   /** The current hint, once one is due. */
   readonly hint: string | undefined;
   readonly ending: Ending | undefined;
@@ -186,6 +188,9 @@ export function createGame(opts: GameOptions = {}): Game {
     get objective() {
       return phase === 'play' && job ? job.objective(ctx(), active) : undefined;
     },
+    get props() {
+      return job?.props?.(ctx()) ?? [];
+    },
     get hint() {
       if (phase !== 'play' || !job) return undefined;
       const idle = jobT - progressAt;
@@ -219,7 +224,8 @@ export function createGame(opts: GameOptions = {}): Game {
       }
       // Playing.
       const i = KINDS.indexOf(active);
-      if (a === 'next') active = KINDS[(i + 1) % 3];
+      if (a === 'start') job?.use?.(ctx(), active);
+      else if (a === 'next') active = KINDS[(i + 1) % 3];
       else if (a === 'prev') active = KINDS[(i + 2) % 3];
       else if (a === 'voxxy' || a === 'droid' || a === 'biggy') active = a;
       else if (a === 'trick') partyTrick(sameFloor(active), world.bot(active), (s) => say(s, active));
