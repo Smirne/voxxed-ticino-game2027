@@ -70,7 +70,7 @@ function panel(): void {
   });
   const fold = $('folding');
   fold.innerHTML = '';
-  for (const id of Object.keys(sb.folding)) {
+  for (const id of Object.keys(sb.folding).filter((id) => sb.floor.walls.some((w) => w.id === id))) {
     const b = document.createElement('button');
     b.textContent = `${id} ${sb.folding[id] ? 'shut' : 'open'}`;
     b.className = sb.folding[id] ? 'on' : '';
@@ -97,7 +97,13 @@ function panel(): void {
 
 function setFloor(id: FloorPlan['id']): void {
   sb.setFloor(id);
-  if ($<HTMLInputElement>('trace').checked) void loadTrace(id);
+  showFloor();
+}
+/** The floor on view changed (a button, G, a stair, or picking a robot on the other floor). */
+let shown: FloorPlan['id'] | null = null;
+function showFloor(): void {
+  shown = sb.floor.id;
+  if ($<HTMLInputElement>('trace').checked) void loadTrace(shown);
   panel();
 }
 $('trace').addEventListener('change', () => void loadTrace(sb.floor.id));
@@ -276,6 +282,7 @@ function frame(now: number): void {
     sb.update(s);
     left -= s;
   }
+  if (sb.floor.id !== shown) showFloor();
   if ($<HTMLInputElement>('follow').checked) {
     const b = sb.bots.find((q) => q.kind === sb.active)!;
     view.x = m(b.x);

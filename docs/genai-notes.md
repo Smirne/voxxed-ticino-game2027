@@ -111,3 +111,51 @@ on the drawing: the outline follows the drawn walls, so it was documented and no
 **Not done / assumed.** The agent opened Sala C's folds by inference from "B3 is the only closed
 one". It asked, and Michele confirmed: one room. First-floor zones not traced (Michele: raw reference is fine). Podiums are
 not collision yet.
+
+**Michele's 2D run, same day.** "I can't pass from floor 0 to 1": the stairs to Sala A walked, the stair
+to B/C/D did not. Two causes. (1) The plan check had no floor change at all, only the G button. The
+reachability tests never noticed, because they seed the flood fill inside every stair. (2) The
+ground-floor main stair was walled on the wrong side. On the drawing it is one straight flight rising
+east, entered from the west (the "1° PIANO" arrow) and left at the east on the first floor; the
+digitisation had a balustrade on the west and a 1.2 m gap at the south-west corner. Fixed: robots now
+change floor by walking fully onto a cross-floor stair or into a lift, and the view follows the active
+robot. New `tests/stairs.test.ts` drives each robot up into Atrio B and back down. The agent could not
+drive it in the browser itself (the pane was hidden, so no frames ran); that check is Michele's.
+
+**Second 2D run.** "Going upstairs from here doesn't work. You can't descend from room A", with a
+screenshot of the stair by the WC. The ground floor had no stair there: the agent's digitisation had
+merged the east flight to the Sala A balcony into the `steps-west` polygon, which only labels a step.
+It is now its own stair with its balustrade. The agent then wrote one test that walks onto every stair
+and lift on both floors and checks that the robot comes off on the other floor in the right room.
+That test caught something nobody had reported: neither lift could be entered. The ground-floor car
+was a closed box, and both drawn doors are about 0.75 m, narrower than Voxxy. The agent opened both
+doors to 0.9 m and flagged this in `docs/venue.md` as a call for Michele. The floor change now
+triggers 0.3 m onto a stair, not when the whole robot is on it, so Biggy changes floor on narrow
+flights too.
+
+**Third 2D run.** "Stairs from room B are blocked in descent." The tests were green because they
+always walked off the top of the stair before coming back. Michele climbed and turned round. A robot
+arrived at the same spot on the other floor, which on the main stair is the foot of the flight, with
+the rail behind it. So it could only get down by walking 5 m to Atrio B and back. Stairs and lifts
+now carry a `mouth` (where you step on, on that floor). A robot comes out just off the other floor's
+mouth, facing away, so one step back takes it down again. New tests: each robot climbs and walks
+straight back; Voxxy rides the lift up and straight back down. **Human decision:** lift doors at
+0.9 m, so Voxxy only ("Biggy will take the stairs").
+
+**3 Nov 2026, the west balcony stair.** Michele confirmed the agent's reading of the drawing: the
+big stair is the way up to the Sala A balcony. Marking its two ends turned up two of the agent's own
+mistakes. A Python search-and-replace from the previous day had matched two lines, so the west stair
+had been given the east stair's step-on edge. And both balcony stairs join the same two rooms, so the
+"same stair on the other floor" lookup could pick the wrong one; it now also takes the nearest. The
+first step-on edge the agent picked on the first floor turned out to be a rail: the new turn-back
+test failed, and listing the walls around the stair showed the only open side is the landing. A
+test that drove the robot was what caught it, not reading the drawing.
+
+**The galleria.** Michele: "the small stair leads to another balcony over the reception, not used during
+the conf", then confirmed that meant the east stair by the WC, not the closed "scala al piano regia"
+behind the west landing (the agent asked, because both fitted the words). On the drawing that stair
+comes up at the east end of the balcony lobby, by a double door into a separate seat block over the
+desk. The digitisation had lumped that block into `sala-a-balcony`. It is now `sala-a-galleria`,
+closed during the conference, with the east stair leading to it. The door stays, because it is on the
+drawing. A test caught the agent putting the new room's label too close to the seats for Voxxy to
+stand there.

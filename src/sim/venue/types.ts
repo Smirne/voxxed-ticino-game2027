@@ -88,6 +88,11 @@ export interface VenueStair {
   /** Room ids at the two ends (for a lift: the floors' rooms it opens on). */
   from: string;
   to: string;
+  /**
+   * Stairs and lifts that change floor: the edge a robot steps on from, on this floor. Coming
+   * from the other floor it comes out here, facing out. Without one it comes out at the same spot.
+   */
+  mouth?: [P, P];
 }
 
 /**

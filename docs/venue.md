@@ -47,7 +47,7 @@ and that the two floors' stairs name each other's rooms.
 | first | sala-c1 / c2 / c3 | 59 / 27 / 35 | 56 / 26 / 35 |
 | first | atrio-c | 54 | 57 |
 | first | sala-d | 30 | 31 |
-| first | sala-a-balcony | — | 438 |
+| first | sala-a-balcony, sala-a-galleria | — | split 3 Nov 2026 (438 together) |
 
 Not public, walled off: restaurant, kitchen (both floors), `bridge-a` (see below), backstage, service
 stairs and cores, the goods lift.
@@ -69,6 +69,26 @@ stairs and cores, the goods lift.
   terraces off C1, C3 and D) and recorded as `exit` doors.
 - **Balcony stair directions** are inferred from the treads, not from printed arrows.
 - **WC / Tel** are only arrows on the plan; no room was invented for them.
+- **Lift doors are 0.9 m**, not the ~0.75 m slot drawn on both sheets. At 0.75 m no robot fits a lift
+  (Voxxy is 0.76 m across); at 0.9 m, like every single door here, Voxxy rides it and Droid and Biggy
+  take the stairs (Michele, 2 Nov 2026: "Door at 0.9 are fine, Biggy will take the stairs"). Ground
+  door on the west face, first-floor door on the east face.
+- **Main stair:** one straight flight rising east. On the ground floor it is entered from the west
+  (the "1° PIANO" arrow) and on the first floor it is left at the east, onto Atrio B.
+- **Sala A galleria, east stair** (by the WC and the desk; Michele, 3 Nov 2026: "the small stair leads
+  to another balcony over the reception, not used during the conf"): the ground-floor end is entered
+  from the WC corner of `foyer-west` (the dashed line), with a balustrade on its north side and east
+  end. Upstairs it comes out at the east end of the balcony lobby, by the double door into the
+  galleria (`sala-a-galleria`): the seat block east of the main balcony, over the desk. Split out of
+  `sala-a-balcony` and also `conference: 'closed'`. The double door to the lobby is on the drawing, so
+  the two balconies stay connected for robots.
+- **Changing floor** (plan check): a robot whose centre is 0.3 m onto a stair or lift that changes
+  floor comes out on the other floor just off that stair's `mouth` (where you step on from, on that
+  floor), facing away. One step back takes it down again.
+- **Sala A balcony, west stair** (Michele, 3 Nov 2026: "the big stair is the way UP for room A"): the
+  ground-floor end is stepped on from `foyer-west` on its north-east side. On the first floor it comes
+  out at its west end, on the landing, and round into the balcony lobby; the "scala al piano regia"
+  behind the landing stays closed.
 
 ## How Voxxed Days Ticino uses it
 
