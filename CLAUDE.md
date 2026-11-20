@@ -39,7 +39,11 @@
 - **Booth constraints** (new): playable in short sessions by someone who has never seen it,
   restartable at any moment, no setup, readable from a step back. Prefer a loop of short challenges
   over a long story. **Gamepad at the booth, keyboard-first everywhere** (Michele, 11 Nov 2026):
-  every action works on both.
+  every action works on both (`src/input`, tested).
+- **The game:** `src/sim/game.ts` runs the run sheet (`src/sim/jobs`, fixed order) one job at a
+  time on the shared world (`src/sim/world.ts`, both floors at once). A job only sets up, counts
+  progress and points at the objective; the game owns hints (30/60/120 s), booth-mode fail
+  forward (180 s) and the ending card. Gate lines come from door widths (`src/sim/gates.ts`).
 - **Dates:** short talk at **GDG Milano, second half of January 2027** (date TBD); **Voxxed Days
   Ticino, Friday 19 February 2027** (workshops 18 Feb). See `docs/conference.md`.
 - **Venue photos:** `docs/venue-photos.md`. Web photos are links and captions only — copyrighted images are not
