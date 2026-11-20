@@ -159,3 +159,91 @@ desk. The digitisation had lumped that block into `sala-a-balcony`. It is now `s
 closed during the conference, with the east stair leading to it. The door stays, because it is on the
 drawing. A test caught the agent putting the new room's label too close to the seats for Voxxy to
 stand there.
+
+## 2 Nov 2026 — Michele's answers, zones, photo cleanup (cloud session)
+
+- **Decided by Michele:** Sala E out ("small and not so relevant"); the bridge over the entrance out
+  (not public); Biggy-on-stage is a puzzle, not a geometry fix (ideas in `docs/ideas.md`); booth and
+  buffet areas sketched on the plan, then "don't keep my sign as law, stretch it to be realistic".
+- **Agent:** zones became whole rooms minus keep-clear floor, so they cannot overlap; a new `ledge`
+  wall kind (blocks robots mid-hop, passes light) for the stage front, with a test that Voxxy cannot
+  hop it.
+- **Photos.** Michele pushed eleven of WellD's own photos straight to the public branch: full size
+  (40 MB), GPS in the EXIF, recognisable attendees. With his go-ahead the agent rewrote the branch:
+  1600 px, metadata stripped, faces blurred with OpenCV's YuNet detector. The first detector pass
+  also "found faces" in the foyer painting and smeared walls; fixed by excluding the painting and
+  filtering box size and confidence, then two missed profiles were blurred by hand after a visual
+  check. Lesson for the talk: the detector is a first pass, a human-style look at every frame is the
+  real check.
+- A local Claude session on Michele's PC (the cloud one could not reach the sites) collected 76
+  linked photos and found the venue's **Matterport** tours, whose measure tool can answer the open
+  questions the plans cannot (storey height, step rises, stage height).
+
+## 3–9 Nov 2026: storyline and the first six jobs (local session, Claude Code desktop)
+
+**Asked.** Michele: brainstorm challenges and a storyline. Keep it close to After Dark, reuse some
+of its challenges and add new ones.
+
+**What the agent did.** Read `docs/lessons-from-after-dark.md`, After Dark's README and the header
+comments of its four chapter files (fetched from the reference repo). Wrote
+`docs/challenges-brainstorm.md`: ten After Dark challenges moved into rooms of the Palazzo, seven new
+ones from what the 2D check taught us about the building (the folding walls, the lift only Voxxy
+fits, the stage steps Biggy can't climb, the closed balconies, the wardrobe tables), and a list of
+decisions.
+
+**Human decisions.**
+- **Story:** night, then doors; some jobs come after the doors open.
+- **Why it's dark:** a storm cuts the power.
+- **People:** Federico and Tiziano, the organisers, sleep late after the speakers' dinner, and the
+  robots save the day. They take the place of After Dark's Stephan.
+- **The overload joke:** beer, which there always is at the end of the conference, in the wardrobe
+  foyer.
+- **The coat rush:** backpacks are put under the tables, not fetched.
+- **Scope:** start with six jobs, three before the doors and three after; "then we'll add more".
+
+**Rejected / parked.** The agent's three candidate loads for the overload joke (Merlot, mineral
+water, panettone): Michele had a real one. The soup (the same beat as the beer). The cable run, the
+balconies as a job of their own, and the lift gag: parked for after the first six.
+
+**Flagged, not decided.** Federico and Tiziano are real people and the joke is at their expense, so
+they need to agree before it ships. The same goes for Celestino if he appears.
+
+## 11 Nov 2026 — repo cleanup, the conference site, decisions D3–D8
+
+- **Found:** `main` and three branches had been cut before the photo cleanup and still carried the
+  original photos (GPS, faces). Michele said yes to rewriting them. `photos`, `story-run-sheet` and
+  `venue-voxxed-layout` were rewritten with the cleaned copies and force-pushed (no other file
+  changed, checked by diff). `main` first refused (a pull-request rule); Michele lifted it and the cleaned
+  `main` was force-pushed the same day. GitHub support still has to purge the merged PRs' frozen
+  heads and the unreachable commits.
+- **Network:** the cloud environment blocked the conference site; with Michele's approval a
+  personal environment allowing `vdt27.voxxeddays.ch` was created and this session moved onto it.
+  `docs/conference.md` records the date (19 Feb 2027, workshops the day before), theme ("From
+  Developer to Builder", "Build, Agents + Debug"), tracks and the copy the game can reuse.
+- **Decided by Michele:** D3 leans fixed order (to discuss); D4 Ticino references or local beer
+  brands; D5 he is asking Federico and Tiziano; D6 "some Swiss Italian stereotype"; January talk
+  wanted, possibly on the old game. The agent expanded D3 (the relay), D6 (the Gotthard queue),
+  D7 (four ways onto the stage, the wheelchair ramp recommended) and D8 (what "soft" means).
+- **Later the same day, Michele:** D7 approved, A, the wheelchair ramp (Voxxy climbs Biggy, drops it,
+  Droid squares it, Biggy rolls up). Controls: a gamepad at the booth, but keyboard-first. First
+  deadline: a short talk at GDG Milano in the second half of January.
+
+## 19 Nov 2026 — PRs for the stranded work, then the game skeleton
+
+- **PRs.** `venue-voxxed-layout` (stairs and lifts between floors) had kept going after #2 was
+  squash-merged: merged `main` back in keeping the branch side, checked the result equal to the
+  branch, opened #4. The 2 Nov cloud-session work (realistic zones, stage ledge, photo tool) was
+  stranded on `claude/funny-bohr-98o502`: cherry-picked onto #4 as #5. The one real conflict was
+  zones: #2 had added podium outlines while #5 turned booths into whole rooms; resolved by letting a
+  zone be either (`rooms` or `poly`).
+- **Skeleton.** `world.ts` lifts the floor-changing logic out of the plan-check sandbox so all three
+  robots move at once on their own floors (the sandbox only stepped the floor on view); a mounted
+  Droid now rides Biggy up the stairs. `game.ts`: menu → job → ending card, fixed order, hints at
+  30/60/120 s, booth-mode fail forward at 180 s (D8 as proposed). Gate lines are computed from door
+  widths: Biggy pushing into the 0.90 m lift says *"Lift? Me? It's 0.90 m, I'm 1.44. Stairs it is."*
+  Input: keyboard and pad to the same actions, prompts follow the last device. Job 1 first cut:
+  everyone up to Atrio B; the breakers and the service door come next.
+- **Tests caught:** a test that kept driving after the job had ended (the last robot steps off the
+  stair already inside Atrio B, so the job finishes a step earlier than the script expected).
+- **Rejected:** a `?job=` URL parameter that ignored the job named; renamed to `?start=1`, which is
+  what it did.

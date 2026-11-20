@@ -22,3 +22,4 @@ tests/probe-*.test.ts
 
 # reference photos downloaded from the web: linked in docs/venue-photos.md, never committed
 media/reference/
+media/_preview/
