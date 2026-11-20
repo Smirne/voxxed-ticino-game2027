@@ -57,10 +57,12 @@ stairs and cores, the goods lift.
 - **Sala E is out of scope** (Michele, 2 Nov 2026: *"leave that out, it's small and not so
   relevant"*). On site it is reached from the secondary entrance or by the east stair down from
   Atrio C; here Sala E and its atrium are `public: false` and the east lift door is shut.
-- **The bridge over the main entrance (`bridge-a`, first floor)** has no drawn opening to Sala A, and
-  B1's only door onto it is a 0.9 m leaf. Kept closed, not public.
-- **Sala A stage steps** are not drawn on the plan; two 1.5 m flights were added at the stage front
-  from the venue photo. Their clear gap is 1.18 m, so **Biggy cannot get on stage** — a gate, or move them.
+- **The bridge over the main entrance (`bridge-a`, first floor)** is out (Michele, 2 Nov 2026: *"if
+  there's a bridge, it's not accessible to the public, so leave it out"*). Walled off.
+- **Sala A stage:** the plan draws no steps; two narrow speaker steps were added at the ends of the
+  stage front, from the venue photo. The front edge is a `ledge` (~1 m, height not printed) that no
+  robot can hop, Voxxy included. The steps' clear width (1.18 m) keeps **Biggy off the stage — kept
+  as a puzzle** (Michele, 2 Nov 2026; ideas in `docs/ideas.md`).
 - **Seat blocks** (stalls and balcony) are outlined by eye, ±0.5 m, keeping every aisle ≥ 1.0 m:
   Voxxy and Droid walk the aisles, Biggy (1.44 m) stays on the cross-aisles.
 - **The hatched strip at Sala B3's east end** is part of B3's floor (the 365 m² only adds up with it),
@@ -92,14 +94,17 @@ stairs and cores, the goods lift.
 
 ## How Voxxed Days Ticino uses it
 
-Michele marked it on the ground plan (`plans/PCL_PT_zones-michele.pdf`, 2 Nov 2026), traced into
-`GROUND.zones`:
+Michele sketched it on the ground plan (`plans/PCL_PT_zones-michele.pdf`, 2 Nov 2026), then: *"don't
+keep my sign as law, stretch it to be realistic (no overlap, red part until the stairs on the
+left)"*. So `GROUND.zones` are whole rooms minus the floor that must stay clear and minus the steps;
+`inZone()` answers "is this point in it":
 
-- **Sponsor booths (red):** Atrio/Foyer principale and Foyer Villa Ciani, from the entrance hall up
-  to the Villa Ciani corridor. All booths go here — WellD's included.
-- **Buffet / refreshments (green):** the west foyer beside Sala A (marked "2": a booth sometimes
-  stands there too) and the wardrobe foyer.
-- Talks: Sala A (keynotes) and the first-floor rooms.
+- **Sponsor booths:** Foyer principale (west to the steps by Sala A) and Foyer Villa Ciani. Kept
+  clear: the low entrance hall, a 2.5 m apron at the foot of the main stair, 1.5 m round the lift.
+  All booths go here — WellD's included.
+- **Buffet / refreshments:** the west foyer beside Sala A (marked "2": a booth sometimes stands there
+  too), and the wardrobe foyer up to the bar (its steps' landing kept clear).
+- Talks: Sala A (keynotes, with its balcony) and the first-floor rooms.
 
 The first-floor zones in Michele's marked plan are a raw reference only, not traced. The rest comes from
 his photo review (2 Nov 2026, `docs/venue-photos.md`):
@@ -108,8 +113,8 @@ his photo review (2 Nov 2026, `docs/venue-photos.md`):
   B2 merged, **B3 the only section closed off**. Sala C is one room, its folds open (Michele confirmed,
   2 Nov 2026). Other layouts are a candidate
   for challenges: `buildWalls(floor, { foldingShut })` closes any set of them.
-- **Podiums** (`FIRST.zones`, kind `podium`, not collision yet): west side of B1 (and of B1+B2
-  merged), south side of B2 and of B3. Sizes are guesses, about 0.3 m high.
+- **Podiums** (`FIRST.zones`, kind `podium`, an outline, not collision yet): west side of B1 (and of
+  B1+B2 merged), south side of B2 and of B3. Sizes are guesses, about 0.3 m high.
 - **Sala A balcony:** closed to the audience during the conference (`conference: 'closed'`), but a
   robot can still get up there by its stairs.
 - **Wardrobe** (`wardrobe-counter`, ground floor): no real counter. A line of tables in the west foyer

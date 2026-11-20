@@ -1,28 +1,18 @@
 /**
  * The plan-check sandbox: the three robots loose in the Palazzo, driven by the
- * real `stepBot` against the digitised walls. No story, no chapters — it exists
- * so a human can walk the building at robot scale and say "this wall is in the
- * wrong place" before anything is built on it.
+ * real `stepBot` against the digitised walls. No story, no jobs — it exists so a
+ * human can walk the building at robot scale and say "this wall is in the wrong
+ * place" before anything is built on it.
  *
- * Each robot is on a floor of its own; the view shows one floor. A robot that
- * walks onto a stair or into a lift that changes floor (its centre 0.3 m in)
- * comes out on the other floor at that stair's mouth, facing out (or at the
- * same spot, if no mouth is drawn: the two drawings share one registration),
- * and the view follows the active robot. To go back it steps off the stair and
- * on again.
+ * A thin view over `world.ts`: every robot moves on its own floor; the sandbox
+ * shows one floor at a time and follows the active robot when it changes floor.
  *
  * Headless, like everything in `src/sim`; `src/plan` only draws it.
  */
 
-import { botsCollide, mkBot, stepBot } from './bot';
-import { DT_MAX } from './constants';
-import { m, px } from './units';
-import { circleWall } from './walls';
+import { createWorld, type FloorId, type World } from './world';
 import type { Bot, RobotKind, Wall } from './types';
-import { buildWalls, FLOORS, inPoly, type FloorPlan, type VenueStair } from './venue';
-
-type FloorId = FloorPlan['id'];
-type P = readonly [number, number];
+import { FLOORS, type FloorPlan } from './venue';
 
 export interface Sandbox {
   /** The floor on view. */
@@ -44,59 +34,18 @@ export interface Sandbox {
   update(dt: number): void;
 }
 
-const START: Record<FloorId, string> = { ground: 'foyer-principale', first: 'atrio-b' };
-const KINDS: RobotKind[] = ['voxxy', 'droid', 'biggy'];
-
-const floorOf = (room: string): FloorId | undefined =>
-  (Object.keys(FLOORS) as FloorId[]).find((f) => FLOORS[f].rooms.some((r) => r.id === room));
-
-/** The floor a stair or lift leads to from `here`, or undefined if it stays on this floor. */
-function otherEnd(s: VenueStair, here: FloorId): FloorId | undefined {
-  if (s.kind === 'steps') return undefined;
-  for (const id of [s.from, s.to]) {
-    const f = floorOf(id);
-    if (f && f !== here) return f;
-  }
-  return undefined;
-}
-
-function distToSeg([x, y]: P, [ax, ay]: P, [bx, by]: P): number {
-  const dx = bx - ax;
-  const dy = by - ay;
-  const t = Math.max(0, Math.min(1, ((x - ax) * dx + (y - ay) * dy) / (dx * dx + dy * dy || 1)));
-  return Math.hypot(x - ax - t * dx, y - ay - t * dy);
-}
-
-/** How far onto a stair a robot's centre must be to change floor, metres. */
-const STAIR_DEPTH = 0.3;
-
-/** The point (metres) lies inside the polygon, at least r from its edges. */
-function deepInside(c: P, r: number, poly: readonly P[]): boolean {
-  if (!inPoly(c[0], c[1], poly)) return false;
-  return poly.every((a, i) => distToSeg(c, a, poly[(i + 1) % poly.length]) >= r);
-}
-
-const centroid = (poly: readonly P[]): P => [
-  poly.reduce((a, p) => a + p[0], 0) / poly.length,
-  poly.reduce((a, p) => a + p[1], 0) / poly.length,
-];
-
 export function createSandbox(floorId: FloorId = 'ground'): Sandbox {
-  let all: Bot[] = [];
-  /** Robots that just came off a stair: no going back until they step off it. */
-  const arrived = new Set<RobotKind>();
-  const wallsOf = (f: FloorId): Wall[] =>
-    buildWalls(FLOORS[f], { foldingShut: (id) => (id ? sb.folding[id] !== false : true) });
+  let world: World = createWorld(floorId);
 
   const sb: Sandbox = {
     floor: FLOORS[floorId],
     walls: [],
     bots: [],
     active: 'voxxy',
-    on: { voxxy: floorId, droid: floorId, biggy: floorId },
-    folding: {},
+    on: world.on,
+    folding: world.folding,
     setStick(ix, iy) {
-      for (const b of all) {
+      for (const b of world.bots) {
         b.ix = b.kind === sb.active ? ix : 0;
         b.iy = b.kind === sb.active ? iy : 0;
       }
@@ -107,73 +56,28 @@ export function createSandbox(floorId: FloorId = 'ground'): Sandbox {
       view(sb.on[kind]);
     },
     setFloor(id) {
-      sb.folding = {};
-      for (const f of Object.values(FLOORS)) for (const w of f.walls) if (w.kind === 'folding' && w.id) sb.folding[w.id] = !w.open;
-      const [x, y] = (FLOORS[id].rooms.find((r) => r.id === START[id]) ?? FLOORS[id].rooms[0]).label;
-      all = KINDS.map((k, i) => mkBot(k, px(x - 2 + 2 * i), px(y + 2)));
-      for (const k of KINDS) sb.on[k] = id;
-      arrived.clear();
+      world = createWorld(id);
+      sb.on = world.on;
+      sb.folding = world.folding;
       view(id);
     },
     toggleFolding(id) {
-      sb.folding[id] = !sb.folding[id];
-      sb.walls = wallsOf(sb.floor.id);
+      world.toggleFolding(id);
+      sb.walls = world.walls(sb.floor.id);
     },
     update(dt) {
-      const step = Math.min(dt, DT_MAX);
-      for (const b of sb.bots) stepBot(b, step, sb.walls);
-      for (let i = 0; i < sb.bots.length; i++) for (let j = i + 1; j < sb.bots.length; j++) botsCollide(sb.bots[i], sb.bots[j]);
-      for (const b of [...sb.bots]) changeFloor(b);
+      world.update(dt, (b, from, to) => {
+        if (b.kind === sb.active) view(to);
+        else if (from === sb.floor.id || to === sb.floor.id) view(sb.floor.id);
+      });
     },
   };
 
   /** Show floor `id`: its walls and the robots standing on it. */
   function view(id: FloorId): void {
     sb.floor = FLOORS[id];
-    sb.walls = wallsOf(id);
-    sb.bots = all.filter((b) => sb.on[b.kind] === id);
-  }
-
-  function changeFloor(b: Bot): void {
-    const here = sb.on[b.kind];
-    const c: P = [m(b.x), m(b.y)];
-    const stairs = FLOORS[here].stairs.filter((s) => otherEnd(s, here));
-    if (arrived.has(b.kind)) {
-      if (!stairs.some((s) => inPoly(c[0], c[1], s.poly))) arrived.delete(b.kind);
-      return;
-    }
-    const s = stairs.find((q) => deepInside(c, STAIR_DEPTH, q.poly));
-    if (!s) return;
-    const there = otherEnd(s, here)!;
-    // The same stair on the other floor: same kind and rooms, and the nearest (both Sala A balcony
-    // stairs join the same two rooms).
-    const [sx, sy] = centroid(s.poly);
-    const twin = FLOORS[there].stairs
-      .filter((q) => q.kind === s.kind && q.from === s.from && q.to === s.to)
-      .sort((a, b) => Math.hypot(...centroid(a.poly).map((v, i) => v - [sx, sy][i])) - Math.hypot(...centroid(b.poly).map((v, i) => v - [sx, sy][i])))[0];
-    const walls = wallsOf(there);
-    const blocked = (): boolean => walls.some((w) => circleWall({ x: b.x, y: b.y, r: b.r }, w));
-    if (twin?.mouth) {
-      // Just off the twin's mouth, facing away from it: one step back takes it down again.
-      const [[ax, ay], [bx, by]] = twin.mouth;
-      const [cx, cy] = centroid(twin.poly);
-      const len = Math.hypot(bx - ax, by - ay);
-      let [nx, ny] = [(ay - by) / len, (bx - ax) / len];
-      const [mx, my] = [(ax + bx) / 2, (ay + by) / 2];
-      if ((cx - mx) * nx + (cy - my) * ny < 0) [nx, ny] = [-nx, -ny];
-      for (let out = m(b.r) + 0.1; out < m(b.r) + 1.5; out += 0.1) {
-        [b.x, b.y] = [px(mx - nx * out), px(my - ny * out)];
-        if (!blocked()) break;
-      }
-      b.vx = 0;
-      b.vy = 0;
-      b.face = Math.atan2(-ny, -nx);
-    } else if (twin && blocked()) {
-      [b.x, b.y] = centroid(twin.poly).map(px);
-    }
-    sb.on[b.kind] = there;
-    arrived.add(b.kind);
-    view(b.kind === sb.active ? there : here);
+    sb.walls = world.walls(id);
+    sb.bots = world.bots.filter((b) => sb.on[b.kind] === id);
   }
 
   sb.setFloor(floorId);

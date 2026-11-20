@@ -26,7 +26,7 @@
   wins** — re-measure, move the geometry, fix the prose in the same change (After Dark's rule,
   Michele, 24 Sep 2026). Scope: **only what the conference audience can enter** — no kitchen, no
   restaurant, no backstage (Michele, 2 Nov 2026).
-- **Verify the venue in 2D before building 3D on it.** `pnpm dev` opens the plan check: the
+- **Verify the venue in 2D before building 3D on it.** `pnpm dev` then `/plan.html` opens the plan check: the
   digitised walls over the drawing, robots driveable at true scale. `tests/venue.test.ts` checks
   room areas against the plan's printed m² and that every public room is reachable and the
   building sealed.
@@ -40,7 +40,8 @@
   restartable at any moment, no setup, readable from a step back. Prefer a loop of short challenges
   over a long story.
 - **Venue photos:** `docs/venue-photos.md`. Web photos are links and captions only — copyrighted images are not
-  committed (Michele, 2 Nov 2026). WellD's own photos live in `media/welld/`.
+  committed (Michele, 2 Nov 2026). WellD's own photos live in `media/welld/` and go in **only** through
+  `tools/photos/clean.py` (1600 px, no EXIF/GPS, faces blurred, every preview looked at). Never push raw.
 - Tooling: pnpm, Vite, TypeScript strict, vitest, three. No physics engine, no external 3D/audio
   asset files (After Dark's one exception, its opening music, did not come over). Small PRs, one
   step each.

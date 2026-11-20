@@ -159,3 +159,42 @@ desk. The digitisation had lumped that block into `sala-a-balcony`. It is now `s
 closed during the conference, with the east stair leading to it. The door stays, because it is on the
 drawing. A test caught the agent putting the new room's label too close to the seats for Voxxy to
 stand there.
+
+## 2 Nov 2026 — Michele's answers, zones, photo cleanup (cloud session)
+
+- **Decided by Michele:** Sala E out ("small and not so relevant"); the bridge over the entrance out
+  (not public); Biggy-on-stage is a puzzle, not a geometry fix (ideas in `docs/ideas.md`); booth and
+  buffet areas sketched on the plan, then "don't keep my sign as law, stretch it to be realistic".
+- **Agent:** zones became whole rooms minus keep-clear floor, so they cannot overlap; a new `ledge`
+  wall kind (blocks robots mid-hop, passes light) for the stage front, with a test that Voxxy cannot
+  hop it.
+- **Photos.** Michele pushed eleven of WellD's own photos straight to the public branch: full size
+  (40 MB), GPS in the EXIF, recognisable attendees. With his go-ahead the agent rewrote the branch:
+  1600 px, metadata stripped, faces blurred with OpenCV's YuNet detector. The first detector pass
+  also "found faces" in the foyer painting and smeared walls; fixed by excluding the painting and
+  filtering box size and confidence, then two missed profiles were blurred by hand after a visual
+  check. Lesson for the talk: the detector is a first pass, a human-style look at every frame is the
+  real check.
+- A local Claude session on Michele's PC (the cloud one could not reach the sites) collected 76
+  linked photos and found the venue's **Matterport** tours, whose measure tool can answer the open
+  questions the plans cannot (storey height, step rises, stage height).
+
+## 19 Nov 2026 — PRs for the stranded work, then the game skeleton
+
+- **PRs.** `venue-voxxed-layout` (stairs and lifts between floors) had kept going after #2 was
+  squash-merged: merged `main` back in keeping the branch side, checked the result equal to the
+  branch, opened #4. The 2 Nov cloud-session work (realistic zones, stage ledge, photo tool) was
+  stranded on `claude/funny-bohr-98o502`: cherry-picked onto #4 as #5. The one real conflict was
+  zones: #2 had added podium outlines while #5 turned booths into whole rooms; resolved by letting a
+  zone be either (`rooms` or `poly`).
+- **Skeleton.** `world.ts` lifts the floor-changing logic out of the plan-check sandbox so all three
+  robots move at once on their own floors (the sandbox only stepped the floor on view); a mounted
+  Droid now rides Biggy up the stairs. `game.ts`: menu → job → ending card, fixed order, hints at
+  30/60/120 s, booth-mode fail forward at 180 s (D8 as proposed). Gate lines are computed from door
+  widths: Biggy pushing into the 0.90 m lift says *"Lift? Me? It's 0.90 m, I'm 1.44. Stairs it is."*
+  Input: keyboard and pad to the same actions, prompts follow the last device. Job 1 first cut:
+  everyone up to Atrio B; the breakers and the service door come next.
+- **Tests caught:** a test that kept driving after the job had ended (the last robot steps off the
+  stair already inside Atrio B, so the job finishes a step earlier than the script expected).
+- **Rejected:** a `?job=` URL parameter that ignored the job named; renamed to `?start=1`, which is
+  what it did.
